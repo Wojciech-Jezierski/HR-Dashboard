@@ -1,5 +1,5 @@
 import React from 'react';
-import './SignUp';
+import './SignUp.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { string, InferType } from 'yup';
 import * as Yup from 'yup';
