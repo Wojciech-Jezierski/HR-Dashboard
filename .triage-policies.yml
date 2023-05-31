@@ -1,0 +1,19 @@
+resource_rules:
+  merge_requests:
+    rules:
+      - name: Ask for updates on old merge requests
+        conditions:
+          state: opened
+          date:
+            attribute: updated_at
+            condition: older_than
+            interval: 5
+            interval_type: days
+          forbidden_labels:
+            - awaiting update
+        actions:
+          labels:
+            - awaiting update
+          comment_type: thread
+          comment: |
+            {{author}} Jak Ci idzie?
