@@ -5,4 +5,3 @@ export const routerPaths = {
   jobs: { url: '/jobs' },
   profile: { url: '/profile' },
 };
-  
