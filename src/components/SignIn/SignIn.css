@@ -1,0 +1,74 @@
+.sign-in-container {
+  width: 270px;
+  height: 600px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sign-in-labels {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.sign-in-inputs {
+  width: 211px;
+}
+
+.sign-in-button {
+  width: 140px;
+  height: 50px;
+  background-color: rgb(219, 73, 6);
+  border-radius: 15px;
+  border: none;
+  color: white;
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.sign-in-message {
+  color: black;
+  font-weight: 700;
+  margin-top: 25px;
+  font-size: 22px;
+  text-align: center;
+}
+
+.sign-in-error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 17px;
+}
+
+@media only screen and (min-width: 768px) {
+  .sign-in-container {
+    width: 690px;
+  }
+
+  .sign-in-inputs {
+    width: 400px;
+    font-size: 20px;
+  }
+
+  .sign-in-labels {
+    font-size: 20px;
+    flex-basis: 100%;
+    flex-basis: auto;
+  }
+
+  .sign-in-button {
+    width: 200px;
+    height: 60px;
+    font-size: 28px;
+  }
+
+  .checkbox {
+    height: 16px;
+    width: 16px;
+  }
+}
