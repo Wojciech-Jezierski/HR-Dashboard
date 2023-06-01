@@ -1,0 +1,13 @@
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 17px;
+}
+
+.message {
+  color: black;
+  font-weight: 700;
+  margin-top: 25px;
+  font-size: 22px;
+  text-align: center;
+}
