@@ -162,11 +162,11 @@ export const Jobs = () => {
                   </label>
                   <p className="text-center">Date</p>
                 </div>
-                {data.map((item, index) => {
+                {data.map((item) => {
                   if (item.status === 'OPEN') {
                     return (
                       <div
-                        key={index}
+                        key={item.id}
                         className="grid grid-cols-5 gap-4 mt-2 border-b-2"
                       >
                         <label
