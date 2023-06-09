@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { AiOutlineHome } from 'react-icons/ai';
 import { BsChatLeft } from 'react-icons/bs';
 import { BiUser } from 'react-icons/bi';
@@ -8,6 +8,7 @@ import { FaRegCalendarAlt } from 'react-icons/fa';
 import { GrLogout } from 'react-icons/gr';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { AiOutlineClose } from 'react-icons/ai';
+import { AiFillEye } from 'react-icons/ai';
 import axios from 'axios';
 
 import { useFetch } from '../../custom_hooks/useFetch';
@@ -21,10 +22,11 @@ export const Jobs = () => {
   const [isOpenAvatar, setIsOpenAvatar] = useState(false);
   const [isOpenBurger, setIsOpenBurger] = useState(false);
   const { firstName, lastName } = useFetch();
-  const [selectAll, setSelectAll] = useState(false);
 
-  const handleCheckboxChange = (event: any) => {
-    setSelectAll(event.target.checked);
+  const navigate = useNavigate();
+
+  const onRedirect = () => {
+    navigate(`$}`);
   };
 
   const toggleMenu = () => {
@@ -148,26 +150,34 @@ export const Jobs = () => {
               <div className="content text-sm sm:text-md mt-96 md:mt-48 w-[340px] md:w-[550px] max-[400px]:mt-[600px]">
                 <div
                   key="position"
-                  className="grid grid-cols-2 gap-20 border-b-2"
+                  className="grid grid-cols-3 md:gap-20 gap-10 border-b-2"
                 >
                   <label htmlFor="position" className="">
                     <input
                       type="checkbox"
                       id="position"
                       className="mr-5"
-                      checked={selectAll}
-                      onChange={handleCheckboxChange}
+                      onChange={(e) => {
+                        const checked = e.target.checked; // eslint-disable-line prefer-destructuring
+                        setData(
+                          data.map((item) => {
+                            item.select = checked; // eslint-disable-line no-param-reassign
+                            return item;
+                          }),
+                        );
+                      }}
                     />
                     Position
                   </label>
-                  <p className="text-center">Date</p>
+                  <p className="md:ml-36 ml-20">Date</p>
+                  <p className="text-right md:mr-5 mr-0">Action</p>
                 </div>
                 {data.map((item) => {
                   if (item.status === 'OPEN') {
                     return (
                       <div
                         key={item.id}
-                        className="grid grid-cols-5 gap-4 mt-2 border-b-2"
+                        className="grid grid-cols-5 md:gap-4 mt-2 border-b-2"
                       >
                         <label
                           htmlFor="position-title"
@@ -176,14 +186,31 @@ export const Jobs = () => {
                           <input
                             type="checkbox"
                             className="mr-2"
-                            checked={selectAll}
-                            onChange={handleCheckboxChange}
+                            checked={item.select || false}
+                            onChange={(event) => {
+                              const checked = event.target.checked; // eslint-disable-line prefer-destructuring
+                              setData(
+                                /* eslint-disable-next-line @typescript-eslint/no-shadow */
+                                data.map((data) => {
+                                  /* eslint-disable @typescript-eslint/no-shadow */
+                                  if (item.id === data.id) {
+                                    data.select = checked; // eslint-disable-line no-param-reassign
+                                  }
+                                  return data;
+                                }),
+                              );
+                            }}
                           />
                           <h4 className="mt-1.5">{item.title}</h4>
                         </label>
-                        <h4 className="col-span-2 text-center mt-2.5">
+                        <h4 className="mt-2.5 ml-2 md:ml-0">
                           {item.createdAt.substring(0, 10)}
                         </h4>
+                        <div className="mt-2 md:ml-12 ml-10 text-xl">
+                          <NavLink to={`/jobs/:${item.id}`}>
+                            <AiFillEye />
+                          </NavLink>
+                        </div>
                       </div>
                     );
                   }
