@@ -8,6 +8,7 @@ import { Layout } from './components/Layout/Layout';
 import { SignIn } from './components/SignIn/SignIn';
 import { Dashboard } from './components/Dashboard/Dashboard';
 import { Jobs } from './components/Jobs/Jobs';
+import { SingleJob } from './components/SingleJob/SingleJob';
 import { Profile } from './components/Profile/Profile';
 import { routerPaths } from './config/router';
 
@@ -18,7 +19,7 @@ interface DecodedToken {
 
 export const App = () => {
   document.title = `HR Dashboard`;
-  const { signIn, signUp, dasboard, jobs, profile } = routerPaths;
+  const { signIn, signUp, dasboard, jobs, jobsId, profile } = routerPaths;
 
   const [isUserLogged, setIsUserLogged] = useState(false);
 
@@ -55,6 +56,7 @@ export const App = () => {
           <Route path={signUp.url} element={<SignUp />} />
           <Route path={dasboard.url} element={<Dashboard />} />
           <Route path={jobs.url} element={<Jobs />} />
+          <Route path={jobsId.url} element={<SingleJob />} />
           <Route path={profile.url} element={<Profile />} />
         </Route>
       </Routes>
