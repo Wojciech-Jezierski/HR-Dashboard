@@ -10,6 +10,7 @@ import { Dashboard } from './components/Dashboard/Dashboard';
 import { Jobs } from './components/Jobs/Jobs';
 import { SingleJob } from './components/SingleJob/SingleJob';
 import { AddJob } from './components/AddJob/AddJob';
+import { EditJob } from 'components/EditJob/EditJob';
 import { Profile } from './components/Profile/Profile';
 import { routerPaths } from './config/router';
 
@@ -60,6 +61,7 @@ export const App = () => {
           <Route path={jobs.url} element={<Jobs />} />
           <Route path={jobsId.url} element={<SingleJob />} />
           <Route path={jobsAdd.url} element={<AddJob />} />
+          <Route path={jobsEdit.url} element={<EditJob />} />
           <Route path={profile.url} element={<Profile />} />
         </Route>
       </Routes>
