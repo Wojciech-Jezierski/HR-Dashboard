@@ -10,7 +10,7 @@ import { Dashboard } from './components/Dashboard/Dashboard';
 import { Jobs } from './components/Jobs/Jobs';
 import { SingleJob } from './components/SingleJob/SingleJob';
 import { AddJob } from './components/AddJob/AddJob';
-import { EditJob } from 'components/EditJob/EditJob';
+import { EditJob } from './components/EditJob/EditJob';
 import { Profile } from './components/Profile/Profile';
 import { routerPaths } from './config/router';
 
