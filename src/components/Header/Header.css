@@ -1,0 +1,75 @@
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 280px;
+  padding-top: 30px;
+  background-color: #f5f5f5;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-ul {
+  margin-top: 120px;
+}
+
+.dashboard-list {
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 25px;
+  display: flex;
+}
+
+.icon {
+  margin-right: 15px;
+  margin-top: 7px;
+}
+
+.window {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.burger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.line {
+  width: 25px;
+  height: 2px;
+  background-color: #333;
+  margin-bottom: 4px;
+  transition: 0.5s ease-in-out;
+}
+
+.open .line:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.open .line:nth-child(2) {
+  opacity: 0;
+}
+
+.open .line:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+@media only screen and (min-width: 1100px) {
+  .burger {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .sidebar {
+    display: none;
+  }
+}
