@@ -14,18 +14,18 @@
   font-weight: 400;
 }
 
-.pagination .page-num:hover {
-  background-color: #5ab1bb;
-  color: #fff;
-}
-
 .pagination .active {
   background-color: #5ab1bb;
   color: #fff;
 }
 
-@media only screen and (min-width: 450px) {
+@media only screen and (min-width: 768px) {
   .pagination .page-num {
     padding: 8px 15px;
+  }
+
+  .pagination .page-num:hover {
+    background-color: #5ab1bb;
+    color: #fff;
   }
 }
