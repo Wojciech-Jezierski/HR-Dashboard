@@ -12,12 +12,9 @@ import { SingleJob } from './components/SingleJob/SingleJob';
 import { AddJob } from './components/AddJob/AddJob';
 import { EditJob } from './components/EditJob/EditJob';
 import { Profile } from './components/Profile/Profile';
+import { ProtectedRoute } from './utils/ProtectedRoute';
 import { routerPaths } from './config/router';
-
-interface DecodedToken {
-  sub: string;
-  exp: number;
-}
+import { DecodedToken } from './types/token';
 
 export const App = () => {
   document.title = `HR Dashboard`;
@@ -36,33 +33,50 @@ export const App = () => {
     if (token) {
       const decodedToken = jwt_decode(token) as DecodedToken;
 
-      const isTokenValid = decodedToken.exp > Date.now();
+      const isTokenValid = decodedToken.exp * 1000 > Date.now();
 
       if (!isTokenValid) {
         window.localStorage.removeItem('USER_TOKEN');
       }
-
       setIsUserLogged(isTokenValid);
     }
-    <Route index element={isUserLogged ? <Dashboard /> : <Login />} />;
   }, []);
 
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout isUserLogged={isUserLogged} />}>
+          <Route index element={isUserLogged ? <Dashboard /> : <Login />} />;
           <Route index element={<Login />} />
           <Route
             path={signIn.url}
             element={<SignIn onSuccessfull={onSuccessfull} />}
           />
           <Route path={signUp.url} element={<SignUp />} />
-          <Route path={dasboard.url} element={<Dashboard />} />
-          <Route path={jobs.url} element={<Jobs />} />
-          <Route path={jobsId.url} element={<SingleJob />} />
-          <Route path={jobsAdd.url} element={<AddJob />} />
-          <Route path={jobsEdit.url} element={<EditJob />} />
-          <Route path={profile.url} element={<Profile />} />
+          <Route
+            path={dasboard.url}
+            element={<ProtectedRoute Component={Dashboard} />}
+          />
+          <Route
+            path={jobs.url}
+            element={<ProtectedRoute Component={Jobs} />}
+          />
+          <Route
+            path={jobsId.url}
+            element={<ProtectedRoute Component={SingleJob} />}
+          />
+          <Route
+            path={jobsEdit.url}
+            element={<ProtectedRoute Component={EditJob} />}
+          />
+          <Route
+            path={jobsAdd.url}
+            element={<ProtectedRoute Component={AddJob} />}
+          />
+          <Route
+            path={profile.url}
+            element={<ProtectedRoute Component={Profile} />}
+          />
         </Route>
       </Routes>
     </Router>
