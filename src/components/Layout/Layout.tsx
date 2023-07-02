@@ -1,20 +1,28 @@
 import React from 'react';
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { Sidebar } from '../Sidebar/Sidebar';
+import { Header } from '../Header/Header';
+import { LayoutProps } from '../../types/layoutProps';
 
-export const Layout = () => {
+export const Layout: React.FC<LayoutProps> = ({ isUserLogged }) => {
+  const [isOpenAvatar, setIsOpenAvatar] = useState(false);
+  const [isOpenBurger, setIsOpenBurger] = useState(false);
   return (
     <div>
       <header>
         <nav>
-          <Sidebar />
+          {isUserLogged ? (
+            <Header
+              isOpenAvatar={isOpenAvatar}
+              setIsOpenAvatar={setIsOpenAvatar}
+              isOpenBurger={isOpenBurger}
+              setIsOpenBurger={setIsOpenBurger}
+            />
+          ) : null}
         </nav>
       </header>
-      <main>
-        <Outlet />
-      </main>
-      {/* <footer className="text-center absolute bottom-0">Stopka</footer> */}
+      <main>{isOpenAvatar || isOpenBurger ? null : <Outlet />}</main>
     </div>
   );
 };
