@@ -1,160 +1,76 @@
-import React, { MouseEventHandler } from 'react';
-import './Dashboard.css';
-import { AiOutlineHome } from 'react-icons/ai';
-import { BsChatLeft } from 'react-icons/bs';
-import { BiUser } from 'react-icons/bi';
-import { FaRegCalendarAlt } from 'react-icons/fa';
-import { GrLogout } from 'react-icons/gr';
-import { AiFillCloseCircle } from 'react-icons/ai';
-import { AiOutlineClose } from 'react-icons/ai';
+import React from 'react';
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
 import axios from 'axios';
+import { FaUserAlt } from 'react-icons/fa';
 
-import { Home } from '../Home/Home';
-import { routerPaths } from '../../config/router';
+import { useAuthToken } from '../../custom_hooks/useAuthToken';
 
 export const Dashboard = () => {
   document.title = `HR Dashboard - Dashboard`;
 
-  const { profile } = routerPaths;
+  const [jobs, setJobs] = useState([]);
+  const [candidates, setCandidates] = useState([]);
 
-  const [data, setData] = useState(null);
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [isOpenAvatar, setIsOpenAvatar] = useState(false);
-  const [isOpenBurger, setIsOpenBurger] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpenBurger(!isOpenBurger);
-  };
-
-  const closeAvatarWindow = () => {
-    setIsOpenAvatar(false);
-  };
-
-  const closeBurgerMenu = () => {
-    setIsOpenBurger(false);
-  };
-
-  const token = localStorage.getItem('USER_TOKEN');
+  const token = useAuthToken();
   const auth = `Bearer ${token}`;
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get('http://localhost:9595/users/me', {
+      const jobResponse = await axios.get('http://localhost:9595/jobs', {
         headers: { Authorization: auth },
       });
-      setData(result.data);
-      setFirstName(result.data.firstName);
-      setLastName(result.data.lastName);
-      console.log(result.data);
+      const candidatesResponse = await axios.get(
+        'http://localhost:9595/candidates',
+        {
+          headers: { Authorization: auth },
+        },
+      );
+      setJobs(jobResponse.data);
+      setCandidates(candidatesResponse.data);
     };
+
+    if (!token) {
+      return;
+    }
     fetchData();
   }, [token]);
 
-  if (!data) {
+  if (!jobs) {
     return <div>Loading...</div>;
   }
+
   return (
     <div className="dashboard">
-      {isOpenAvatar ? (
-        <div className="window-container">
-          <div className="window relative">
-            <button
-              className="absolute right-[-12px] top-[-10px] text-2xl"
-              onClick={closeAvatarWindow}
-            >
-              <AiFillCloseCircle />
-            </button>
-            <NavLink to="">
-              <div className="flex hover:bg-slate-200 rounded-lg p-5">
-                <p className="mt-2 mr-4 text-2xl bg-gray-200 w-10 h-8 rounded-xl">
-                  {firstName.charAt(0)}
-                  {lastName.charAt(0)}
-                </p>
-                <p className="text-2xl mt-2">
-                  {firstName} {lastName}
-                </p>
-              </div>
-            </NavLink>
-            <NavLink to={profile.url}>
-              <div className="flex text-2xl mt-8 hover:bg-slate-200 rounded-lg p-5">
-                <BiUser className="text-4xl mr-4" />
-                Profile
-              </div>
-            </NavLink>
-            <NavLink to="">
-              <div className="flex text-2xl mt-8 hover:bg-slate-200 rounded-lg p-5">
-                <GrLogout className="text-4xl mr-4" />
-                Logout
-              </div>
-            </NavLink>
+      <div className="home-container min-[410px]:w-96 min-[550px]:w-full">
+        <div className="flex flex-col sm:flex-row gap-x-20 text-2xl">
+          <div className="bg-slate-200 p-10 mt-10">
+            Open position: {jobs.length}
+          </div>
+          <div className="bg-slate-200 p-10 mt-10">
+            Candidates: {candidates.length}
           </div>
         </div>
-      ) : (
-        <div className="dashboard-content">
-          <div className="burger-menu">
-            <button
-              className={`burger ${isOpenBurger ? 'open' : ''}`}
-              onClick={toggleMenu}
-            >
-              <div className="line" />
-              <div className="line" />
-              <div className="line" />
-            </button>
-            {isOpenBurger ? (
-              <div className="text-4xl relative">
-                <button
-                  className="absolute right-[-50px] top-[-70px]"
-                  onClick={closeBurgerMenu}
-                >
-                  <AiOutlineClose />
-                </button>
-                <NavLink to="">
-                  <div className="flex mt-4 hover:bg-slate-200 rounded-lg p-5">
-                    <AiOutlineHome className="icon" />
-                    Home
-                  </div>
-                </NavLink>
-                <NavLink to="">
-                  <div className="flex mt-4 hover:bg-slate-200 rounded-lg p-5">
-                    <BsChatLeft className="icon" />
-                    Jobs
-                  </div>
-                </NavLink>
-                <NavLink to="">
-                  <div className="flex mt-4 hover:bg-slate-200 rounded-lg p-5">
-                    <BiUser className="icon" />
-                    Candidates
-                  </div>
-                </NavLink>
-                <NavLink to="">
-                  <div className="flex mt-4 hover:bg-slate-200 rounded-lg p-5">
-                    <FaRegCalendarAlt className="icon" />
-                    Calendar
-                  </div>
-                </NavLink>
+        <div className="flex">
+          <div className="general mt-20 w-full h-52 bg-slate-200 p-5 text-xl sm:text-2xl">
+            General
+            <div className="title mt-5 flex">
+              <p className="font-bold">Total 48.5% growth</p> 😎 this month
+            </div>
+            <div className="datas flex gap-x-10 sm:gap-x-40 mt-5">
+              <div className="employees inline-flex">
+                <FaUserAlt className="mt-1 mr-1" />
+                245K
               </div>
-            ) : (
-              <div className="content flex justify-center items-center">
-                <Home />
+              <div className="candidates inline-flex">
+                <FaUserAlt className="mt-1 mr-1" />3
               </div>
-            )}
+              <div className="employees inline-flex">
+                <FaUserAlt className="mt-1 mr-1" />
+                245K
+              </div>
+            </div>
           </div>
         </div>
-      )}
-      <button
-        onClick={() => {
-          setIsOpenAvatar(!isOpenAvatar);
-        }}
-      >
-        <div className="avatar w-[50px] h-[50px] fixed top-5 right-10 rounded-full bg-gray-300 text-white">
-          <p className="text-center mt-2 text-2xl">
-            {firstName.charAt(0)}
-            {lastName.charAt(0)}
-          </p>
-        </div>
-      </button>
+      </div>
     </div>
   );
 };
