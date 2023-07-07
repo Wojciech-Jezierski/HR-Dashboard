@@ -1,14 +1,14 @@
 import React from 'react';
 import './SignIn.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { string, InferType } from 'yup';
-import * as Yup from 'yup';
+import { InferType } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
 import { useState } from 'react';
 
 import { routerPaths } from '../../config/router';
+import { userSignInSchema } from '../../config/schemas';
 
 export const SignIn = ({ onSuccessfull }: { onSuccessfull: () => void }) => {
   document.title = `HR Dashboard - Sign In`;
@@ -18,14 +18,6 @@ export const SignIn = ({ onSuccessfull }: { onSuccessfull: () => void }) => {
 
   const navigate = useNavigate();
 
-  const userSchema = Yup.object({
-    email: Yup.string().email().required('This field cannot be empty'),
-    password: string()
-      .min(5, 'Password must have minimum 5 characters')
-      .max(15, 'Please use at most 15 characters')
-      .required('This field cannot be empty'),
-  });
-
   const onRedirect = () => {
     navigate(`${dasboard.url}`);
   };
@@ -34,16 +26,17 @@ export const SignIn = ({ onSuccessfull }: { onSuccessfull: () => void }) => {
     return axios
       .post('http://localhost:9595/auth/login', values)
       .then((response) => {
-        console.log(response);
         setMessage('');
         if (isChecked) {
           localStorage.setItem('USER_TOKEN', response.data.accessToken);
         }
+        if (!isChecked) {
+          sessionStorage.setItem('USER_TOKEN', response.data.accessToken);
+        }
         onSuccessfull();
         onRedirect();
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         setMessage('Something went wrong. Try again later.');
       });
   }
@@ -52,14 +45,14 @@ export const SignIn = ({ onSuccessfull }: { onSuccessfull: () => void }) => {
     setIsChecked(!isChecked);
   };
 
-  type User = InferType<typeof userSchema>;
+  type User = InferType<typeof userSignInSchema>;
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<User>({
-    resolver: yupResolver(userSchema),
+    resolver: yupResolver(userSignInSchema),
   });
 
   return (
