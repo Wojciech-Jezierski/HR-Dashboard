@@ -1,6 +1,6 @@
 .form-container {
-  width: 220px;
-  height: 620px;
+  width: 335px;
+  height: 650px;
   border-radius: 15px;
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.25);
   display: flex;
@@ -10,17 +10,18 @@
 }
 
 .form-title {
-  font-size: 25px;
-  margin-bottom: 8px;
+  font-size: 36px;
+  margin-bottom: 35px;
 }
 
 .inputs {
-  width: 180px;
+  width: 200px;
   height: 20px;
   border: none;
   border-bottom: 2px solid black;
   font-size: 18px;
   margin-top: 5px;
+  margin-left: 15px;
 }
 
 .inputs:focus {
@@ -28,7 +29,7 @@
 }
 
 .form-labels {
-  margin-top: 25px;
+  margin-top: 30px;
   text-align: center;
 }
 
@@ -40,8 +41,8 @@
   border: none;
   color: white;
   font-size: 22px;
-  margin-top: 5px;
-  margin-bottom: 15px;
+  margin-top: 15px;
+  margin-bottom: 25px;
 }
 
 .error-message {
@@ -56,32 +57,6 @@
   margin-top: 25px;
   font-size: 22px;
   text-align: center;
-}
-
-@media only screen and (min-width: 360px) {
-  .form-container {
-    width: 355px;
-    height: 700px;
-  }
-
-  .form-title {
-    font-size: 36px;
-    margin-bottom: 35px;
-  }
-
-  .form-labels {
-    margin-top: 30px;
-  }
-
-  .inputs {
-    width: 200px;
-    margin-left: 15px;
-  }
-
-  .sign-up-button {
-    margin-top: 15px;
-    margin-bottom: 25px;
-  }
 }
 
 @media only screen and (min-width: 768px) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Form.css';
+import './SignUp.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { InferType } from 'yup';
 import { useForm } from 'react-hook-form';
