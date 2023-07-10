@@ -1,39 +1,20 @@
 import React from 'react';
-import './SignUp.css';
+import './Form.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { string, InferType } from 'yup';
-import * as Yup from 'yup';
+import { InferType } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
 import { useState } from 'react';
 
 import { routerPaths } from '../../config/router';
+import { userSchema } from '../../config/schemas';
 
 export const SignUp = () => {
   document.title = `HR Dashboard - Sign Up`;
   const { signIn } = routerPaths;
 
   const [message, setMessage] = useState('');
-
-  const userSchema = Yup.object({
-    firstName: Yup.string()
-      .min(3, 'Please use at least 3 characters')
-      .max(15, 'Please use at most 15 characters')
-      .required('This field cannot be empty'),
-    lastName: Yup.string()
-      .min(3, 'Please use at least 3 characters')
-      .max(15, 'Please use at most 15 characters')
-      .required('This field cannot be empty'),
-    email: Yup.string().email().required('This field cannot be empty'),
-    password: string()
-      .min(5, 'Password must have minimum 5 characters')
-      .max(15, 'Please use at most 15 characters')
-      .required('This field cannot be empty'),
-    repeatPassword: Yup.string()
-      .oneOf([Yup.ref('password')], 'Password must be the same')
-      .required('This field cannot be empty'),
-  });
 
   const navigate = useNavigate();
   const onRedirect = () => {
@@ -48,7 +29,6 @@ export const SignUp = () => {
         onRedirect();
       })
       .catch((error) => {
-        console.log(error);
         setMessage('Something went wrong. Try again later.');
       });
   }
