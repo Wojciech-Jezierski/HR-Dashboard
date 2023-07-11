@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AiFillEye } from 'react-icons/ai';
 import { BiEditAlt } from 'react-icons/bi';
+import { MdDelete } from 'react-icons/md';
 import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 
@@ -46,6 +47,40 @@ export const Jobs = () => {
     setItemOffset(newOffset);
   };
 
+  const handleAllChange = (e: any) => {
+    const { checked } = e.target;
+    const newData = data.map((item: any) => {
+      return {
+        ...item,
+        select: checked,
+      };
+    });
+
+    setData(newData);
+  };
+
+  const handleDelete = async (itemId: String) => {
+    try {
+      // Make a DELETE request to the API endpoint with the item ID
+      const response = await fetch(`http://localhost:9595/jobs/:${itemId}`, {
+        method: 'DELETE',
+        headers: { Authorization: auth },
+      });
+
+      if (response.ok) {
+        // Delete the item from the local state
+        setData(
+          (prevData: any) => prevData.filter((item: any) => item.id !== itemId), // eslint-disable-line arrow-body-style
+        );
+        console.log('Item deleted successfully!');
+      } else {
+        console.error('Failed to delete item');
+      }
+    } catch (error) {
+      console.error('Error occurred while deleting item:', error);
+    }
+  };
+
   if (!data) {
     return <div>Loading...</div>;
   }
@@ -56,7 +91,7 @@ export const Jobs = () => {
 
   return (
     <div className="jobs">
-      <div className="content text-sm sm:text-md mt-40 md:mt-12 w-[340px] md:w-[550px] xl:w-full">
+      <div className="content text-sm sm:text-md mt-40 md:mt-12 w-[340px] md:w-[620px] xl:w-[760px]">
         <div
           key="position"
           className="grid grid-cols-3 md:gap-20 gap-10 border-b-2"
@@ -66,21 +101,11 @@ export const Jobs = () => {
               type="checkbox"
               id="position"
               className="mr-5"
-              onChange={(e) => {
-                const { checked } = e.target;
-                setData(
-                  data.map((item: any) => {
-                    return {
-                      ...item,
-                      select: checked,
-                    };
-                  }),
-                );
-              }}
+              onChange={handleAllChange}
             />
             Position
           </label>
-          <p className="md:ml-40 ml-20">Date</p>
+          <p className="md:ml-40 ml-20 xl:ml-52">Date</p>
           <p className="text-right md:mr-5 mr-0">Action</p>
         </div>
         {currentItems.map((item: any) => {
@@ -110,16 +135,25 @@ export const Jobs = () => {
                 />
                 <h4 className="flex items-center">{item.title}</h4>
               </label>
-              <h4 className="mt-2.5 mr-12">
-                {item.createdAt.substring(0, 10)}
-              </h4>
-              <div className="mt-2 md:ml-16 ml-5 text-xl flex">
-                <NavLink to={`/jobs/${item.id}`} className="mr-3">
+              <h4 className="mt-5 mr-5">{item.createdAt.substring(0, 10)}</h4>
+              <div className="mt-5 ml-5 md:ml-16 xl:ml-20 text-xl flex">
+                <NavLink to={`/jobs/${item.id}`} className="md:mr-2 xl:mr-3">
                   <AiFillEye />
                 </NavLink>
-                <NavLink to={`/jobs/${item.id}/edit`}>
+                <NavLink
+                  to={`/jobs/${item.id}/edit`}
+                  className="md:mr-2 xl:md:mr-3"
+                >
                   <BiEditAlt />
                 </NavLink>
+                <button
+                  className="text-xl  mb-7"
+                  onClick={() => {
+                    handleDelete(item.id);
+                  }}
+                >
+                  <MdDelete />
+                </button>
               </div>
             </div>
           );
