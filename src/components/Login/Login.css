@@ -6,6 +6,10 @@ body {
   height: 100vh;
 }
 
+.title {
+  font-size: 35px;
+}
+
 .container {
   display: flex;
   align-items: center;

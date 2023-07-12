@@ -79,6 +79,7 @@ export const SignUp = () => {
             type="email"
             placeholder="E-mail"
             className="inputs"
+            autoComplete="e-mail"
             {...register('email')}
           />
         </label>
@@ -90,6 +91,7 @@ export const SignUp = () => {
             type="password"
             placeholder="Password"
             className="inputs"
+            autoComplete="password"
             {...register('password')}
           />
         </label>
@@ -101,6 +103,7 @@ export const SignUp = () => {
             type="password"
             placeholder="Retype Password"
             className="inputs"
+            autoComplete="new-password"
             {...register('repeatPassword')}
           />
         </label>

@@ -8,6 +8,7 @@ interface Data {
   status: String;
   title: String;
   updatedAt: Date;
+  select: boolean;
 }
 
 export { Data };

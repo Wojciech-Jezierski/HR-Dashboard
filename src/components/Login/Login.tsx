@@ -9,7 +9,9 @@ export const Login = () => {
 
   return (
     <div className="container">
-      <h1 className="sm:text-7xl mb-10 text-center text-4xl">HR Analitycs</h1>
+      <h1 className="mb-10 text-center text-4xl font-medium md:text-6xl">
+        HR Analitycs
+      </h1>
       <Link to={signIn.url}>
         <button className="sign">Sign In</button>
       </Link>

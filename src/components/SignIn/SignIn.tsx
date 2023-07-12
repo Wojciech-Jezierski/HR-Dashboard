@@ -68,6 +68,7 @@ export const SignIn = ({ onSuccessfull }: { onSuccessfull: () => void }) => {
             id="email"
             type="email"
             placeholder="E-mail *"
+            autoComplete="email"
             className="mt-2 ml-3 border-b-2 border-black focus:outline-none sign-in-inputs"
             {...register('email')}
           />
@@ -79,6 +80,7 @@ export const SignIn = ({ onSuccessfull }: { onSuccessfull: () => void }) => {
             id="password"
             type="password"
             placeholder="Password *"
+            autoComplete="password"
             className="mt-2 ml-3 border-b-2 border-black focus:outline-none sign-in-inputs"
             {...register('password')}
           />

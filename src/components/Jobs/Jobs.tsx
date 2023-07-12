@@ -15,8 +15,12 @@ export const Jobs = () => {
   document.title = `HR Dashboard - Jobs`;
 
   const [data, setData] = useState<Data[]>([]);
+  const [selectedItems, setSelectedItems] = useState<String[]>([]);
+  const [selectedOption, setSelectedOption] = useState('Actions');
 
-  const [currentItems, setCurrentItems] = useState<any>([]);
+  const isDisabled = data.filter((item) => item.select).length < 3;
+
+  const [currentItems, setCurrentItems] = useState<Object[]>([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 6;
@@ -41,6 +45,13 @@ export const Jobs = () => {
     setCurrentItems(data.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(data.length / itemsPerPage));
   }, [itemOffset, itemsPerPage, data]);
+
+  useEffect(() => {
+    const items = data
+      .filter((item) => item.select === true)
+      .map((item) => item.id);
+    setSelectedItems(items);
+  }, [data]);
 
   const handlePageClick = (event: any) => {
     const newOffset = (event.selected * itemsPerPage) % data.length;
@@ -69,8 +80,8 @@ export const Jobs = () => {
 
       if (response.ok) {
         // Delete the item from the local state
-        setData(
-          (prevData: any) => prevData.filter((item: any) => item.id !== itemId), // eslint-disable-line arrow-body-style
+        setData((prevData: any) =>
+          prevData.filter((item: any) => item.id !== itemId),
         );
         console.log('Item deleted successfully!');
       } else {
@@ -78,6 +89,29 @@ export const Jobs = () => {
       }
     } catch (error) {
       console.error('Error occurred while deleting item:', error);
+    }
+  };
+
+  const deleteSelectedItems = async () => {
+    const selectedItem = data
+      .filter((item) => item.select === true)
+      .map((item) => item.id);
+    try {
+      await Promise.all(
+        selectedItem.map((id) =>
+          axios.delete(`http://localhost:9595/jobs/${id}`, {
+            headers: { Authorization: auth },
+          }),
+        ),
+      );
+
+      const updatedData = data.filter((item) => item.select === undefined);
+      setData(updatedData);
+      setSelectedItems([]);
+      console.log('Multiple elements deleted successfully!');
+      setSelectedOption('Actions');
+    } catch (error) {
+      console.log('Error deleting elements:', error);
     }
   };
 
@@ -92,6 +126,15 @@ export const Jobs = () => {
   return (
     <div className="jobs">
       <div className="content text-sm sm:text-md mt-40 md:mt-12 w-[340px] md:w-[620px] xl:w-[760px]">
+        <select
+          className="p-2 mb-7 text-md"
+          disabled={isDisabled}
+          onChange={deleteSelectedItems}
+          value={selectedOption}
+        >
+          <option value="Actions">Actions</option>
+          <option value="Delete">Delete</option>
+        </select>
         <div
           key="position"
           className="grid grid-cols-3 md:gap-20 gap-10 border-b-2"
