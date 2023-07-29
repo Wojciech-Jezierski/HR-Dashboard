@@ -22,30 +22,49 @@ export const App = () => {
     routerPaths;
 
   const [isUserLogged, setIsUserLogged] = useState(false);
+  const [errorAlert, setErrorAlert] = useState<string>('');
 
   const onSuccessfull = () => {
     setIsUserLogged(true);
   };
 
   useEffect(() => {
-    const token = window.localStorage.getItem('USER_TOKEN');
+    const token =
+      window.localStorage.getItem('USER_TOKEN') ||
+      window.sessionStorage.getItem('USER_TOKEN');
 
     if (token) {
-      const decodedToken = jwt_decode(token) as DecodedToken;
+      try {
+        const decodedToken = jwt_decode(token) as DecodedToken;
 
-      const isTokenValid = decodedToken.exp * 1000 > Date.now();
+        const isTokenValid = decodedToken.exp * 1000 > Date.now();
 
-      if (!isTokenValid) {
-        window.localStorage.removeItem('USER_TOKEN');
+        if (!isTokenValid) {
+          window.localStorage.removeItem('USER_TOKEN');
+          window.sessionStorage.removeItem('USER_TOKEN');
+          window.localStorage.removeItem('REFRESH_TOKEN');
+          window.sessionStorage.removeItem('REFRESH_TOKEN');
+        }
+        setIsUserLogged(isTokenValid);
+      } catch (error) {
+        setErrorAlert(error as string);
       }
-      setIsUserLogged(isTokenValid);
     }
   }, []);
 
   return (
     <Router>
+      <div className="mb-10">{errorAlert}</div>
       <Routes>
-        <Route path="/" element={<Layout isUserLogged={isUserLogged} />}>
+        <Route
+          path="/"
+          element={
+            <Layout
+              isUserLogged={isUserLogged}
+              setIsUserLogged={setIsUserLogged}
+            />
+          }
+        >
           <Route index element={isUserLogged ? <Dashboard /> : <Login />} />;
           <Route index element={<Login />} />
           <Route
