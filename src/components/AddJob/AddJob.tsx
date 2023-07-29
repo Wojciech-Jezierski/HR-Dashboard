@@ -6,7 +6,6 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
 
-import { useAuthToken } from '../../custom_hooks/useAuthToken';
 import { routerPaths } from '../../config/router';
 import { addJobSchema } from '../../config/schemas';
 import { Data } from '../../types/data';
@@ -17,7 +16,6 @@ export const AddJob = () => {
   const { jobs } = routerPaths;
   const [data, setData] = useState<Data[]>([]);
   const [message, setMessage] = useState('');
-  const token = useAuthToken();
 
   const navigate = useNavigate();
 
@@ -35,10 +33,13 @@ export const AddJob = () => {
     resolver: yupResolver(addJobSchema),
   });
 
+  const token =
+    window.localStorage.getItem('USER_TOKEN') ||
+    window.sessionStorage.getItem('USER_TOKEN');
   const auth = `Bearer ${token}`;
   function onSubmit(values: Object) {
     return axios
-      .post('http://localhost:9595/jobs', values, {
+      .post(`${process.env.REACT_APP_API_URL}/jobs`, values, {
         headers: { Authorization: auth },
       })
       .then(() => {
@@ -54,7 +55,7 @@ export const AddJob = () => {
   }
 
   return (
-    <div className="dashboard">
+    <div className="add-job">
       <div className="content">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-content grid grid-cols-2 gap-4 mt-10">

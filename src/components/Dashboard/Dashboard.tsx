@@ -3,23 +3,25 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaUserAlt } from 'react-icons/fa';
 
-import { useAuthToken } from '../../custom_hooks/useAuthToken';
-
 export const Dashboard = () => {
   document.title = `HR Dashboard - Dashboard`;
 
   const [jobs, setJobs] = useState([]);
   const [candidates, setCandidates] = useState([]);
 
-  const token = useAuthToken();
+  const token =
+    localStorage.getItem('USER_TOKEN') || sessionStorage.getItem('USER_TOKEN');
   const auth = `Bearer ${token}`;
   useEffect(() => {
     const fetchData = async () => {
-      const jobResponse = await axios.get('http://localhost:9595/jobs', {
-        headers: { Authorization: auth },
-      });
+      const jobResponse = await axios.get(
+        `${process.env.REACT_APP_API_URL}/jobs`,
+        {
+          headers: { Authorization: auth },
+        },
+      );
       const candidatesResponse = await axios.get(
-        'http://localhost:9595/candidates',
+        `${process.env.REACT_APP_API_URL}/candidates`,
         {
           headers: { Authorization: auth },
         },
