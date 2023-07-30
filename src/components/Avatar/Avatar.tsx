@@ -30,9 +30,12 @@ export const Avatar: React.FC<AvatarProps> = ({
   const auth = `Bearer ${token}`;
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get('http://localhost:9595/users/me', {
-        headers: { Authorization: auth },
-      });
+      const result = await axios.get(
+        `${process.env.REACT_APP_API_URL}/users/me`,
+        {
+          headers: { Authorization: auth },
+        },
+      );
       setFirstName(result.data.firstName);
       setLastName(result.data.lastName);
     };

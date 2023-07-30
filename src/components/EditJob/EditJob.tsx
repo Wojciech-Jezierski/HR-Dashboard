@@ -8,13 +8,14 @@ import axios from 'axios';
 
 import { routerPaths } from '../../config/router';
 import { editJobSchema } from '../../config/schemas';
+import { getJobsById } from '../../services/JobService';
 
 export const EditJob = () => {
   document.title = `HR Dashboard - Add Job`;
 
   const { jobs } = routerPaths;
   const [message, setMessage] = useState('');
-  const [fetchError, setFetchError] = useState(null);
+  const [fetchError, setFetchError] = useState<null | Error>(null);
 
   const [data, setData] = useState({
     title: '',
@@ -52,7 +53,7 @@ export const EditJob = () => {
 
   function onSubmit(values: Object) {
     return axios
-      .patch(`http://localhost:9595/jobs/${id}`, values, {
+      .patch(`${process.env.REACT_APP_API_URL}/${id}`, values, {
         headers: { Authorization: auth },
       })
       .then((response) => {
@@ -66,29 +67,20 @@ export const EditJob = () => {
   }
 
   useEffect(() => {
-    const fetchData = async () => {
+    const jobsById = async () => {
       try {
-        const response = await axios.get(`http://localhost:9595/jobs/${id} `, {
-          headers: { Authorization: auth },
-        });
-        setData({
-          title: response.data.title,
-          companyName: response.data.companyName,
-          logo: response.data.logo,
-          shortDescription: response.data.shortDescription,
-          longDescription: response.data.longDescription,
-          status: response.data.status,
-        });
-      } catch (error: any) {
-        setFetchError(error.message);
+        const job = await getJobsById(id, auth);
+        setData(job);
+      } catch (error) {
+        setFetchError(error as Error);
       }
     };
 
-    fetchData();
+    jobsById();
   }, []);
 
   if (fetchError) {
-    return <div>Error: {fetchError}</div>;
+    return <div>Error: {fetchError.message}</div>;
   }
 
   if (!data) {

@@ -34,7 +34,7 @@ export const Profile = () => {
 
   function onSubmitPasswords(values: Object) {
     return axios
-      .put('http://localhost:9595/auth/change-password', values)
+      .put(`${process.env.REACT_APP_API_URL}/auth/change-password`, values)
       .then(() => {
         window.localStorage.removeItem('USER_TOKEN');
         onRedirect();
@@ -60,14 +60,14 @@ export const Profile = () => {
       sessionStorage.getItem('USER_TOKEN');
     const auth = `Bearer ${token}`;
     return axios
-      .put('http://localhost:9595/users/me', values, {
+      .put(`${process.env.REACT_APP_API_URL}/users/me`, values, {
         headers: { Authorization: auth },
       })
       .then(() => {
         setPasswordMessage('Name has been change successfully.');
         window.location.reload();
       })
-      .catch((error) => {
+      .catch(() => {
         setPasswordMessage('Something went wrong. Try again later.');
       });
   }
@@ -88,9 +88,12 @@ export const Profile = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:9595/users/me', {
-          headers: { Authorization: auth },
-        });
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/users/me`,
+          {
+            headers: { Authorization: auth },
+          },
+        );
         setData(response.data);
         setFirstName(response.data.firstName);
         setLastName(response.data.lastName);
@@ -113,7 +116,7 @@ export const Profile = () => {
 
   return (
     <div className="profile">
-      <div className="profile-content mt-64">
+      <div className="profile-content mt-20">
         <p className="text-3xl mb-5 font-bold">Profile</p>
         <div className="content">
           <div className="text-xl flex">

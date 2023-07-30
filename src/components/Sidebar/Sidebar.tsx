@@ -10,9 +10,9 @@ import './Sidebar.css';
 import { routerPaths } from '../../config/router';
 
 export const Sidebar = () => {
-  const { dasboard, profile, jobs } = routerPaths;
+  const { dasboard, profile, jobs, jobsAdd } = routerPaths;
   const location = useLocation();
-  const visiblePaths = [dasboard.url, profile.url, jobs.url];
+  const visiblePaths = [dasboard.url, profile.url, jobs.url, jobsAdd.url, '/'];
   const isSidebarVisible = visiblePaths.includes(location.pathname);
   const [selectedMenu, setSelectedMenu] = useState<null | string>('home');
 
