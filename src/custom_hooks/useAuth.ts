@@ -10,7 +10,7 @@ export function useAuth(
 ) {
   const [isUserLoggedd, setIsUserLogged] = useState(false);
   const [token, setToken] = useState('');
-  const [isChecked, setIsChecked] = useState(false); // Chodzi o to czy był zaznaczony check box przy logowaniu, jeśli był to token będzie aktualizowany w local storage, a jeśli nie to w session storage
+  const [isChecked, setIsChecked] = useState(false); // That refers to check box in SignIn component
 
   useEffect(() => {
     const localToken = localStorage.getItem('USER_TOKEN');

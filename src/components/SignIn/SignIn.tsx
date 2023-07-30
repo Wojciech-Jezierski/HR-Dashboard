@@ -24,14 +24,16 @@ export const SignIn = ({ onSuccessfull }: { onSuccessfull: () => void }) => {
 
   function onSubmit(values: Object) {
     return axios
-      .post('http://localhost:9595/auth/login', values)
+      .post(`${process.env.REACT_APP_API_URL}/auth/login`, values)
       .then((response) => {
         setMessage('');
         if (isChecked) {
           localStorage.setItem('USER_TOKEN', response.data.accessToken);
+          localStorage.setItem('REFRESH_TOKEN', response.data.refreshToken);
         }
         if (!isChecked) {
           sessionStorage.setItem('USER_TOKEN', response.data.accessToken);
+          sessionStorage.setItem('REFRESH_TOKEN', response.data.refreshToken);
         }
         onSuccessfull();
         onRedirect();
@@ -68,7 +70,7 @@ export const SignIn = ({ onSuccessfull }: { onSuccessfull: () => void }) => {
             id="email"
             type="email"
             placeholder="E-mail *"
-            autoComplete="email"
+            autoComplete="e-mail"
             className="mt-2 ml-3 border-b-2 border-black focus:outline-none sign-in-inputs"
             {...register('email')}
           />
@@ -80,7 +82,7 @@ export const SignIn = ({ onSuccessfull }: { onSuccessfull: () => void }) => {
             id="password"
             type="password"
             placeholder="Password *"
-            autoComplete="password"
+            autoComplete="current-password"
             className="mt-2 ml-3 border-b-2 border-black focus:outline-none sign-in-inputs"
             {...register('password')}
           />
