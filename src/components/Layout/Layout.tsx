@@ -59,7 +59,7 @@ export const Layout: React.FC<LayoutProps> = ({
           {isUserLogged ? (
             <>
               <div className="md:flex">
-                <div className="mt-64 md:mt-16 flex text-md md:text-xl bg-orange-400 text-white w-40 h-10 md:w-52 md:h-12 justify-center items-center rounded-xl">
+                <div className="mt-48 md:mt-16 flex text-md md:text-xl bg-orange-400 text-white w-40 h-10 md:w-52 md:h-12 justify-center items-center rounded-xl">
                   <p>Session expire:</p>
                   <p className="ml-2">{seconds > 0 && seconds}</p>
                 </div>

@@ -12,14 +12,30 @@ import { SingleJob } from './components/SingleJob/SingleJob';
 import { AddJob } from './components/AddJob/AddJob';
 import { EditJob } from './components/EditJob/EditJob';
 import { Profile } from './components/Profile/Profile';
+import { Candidates } from './components/Candidates/Candidates';
+import { SingleCandidate } from './components/SingleCandidate/SingleCandidate';
+import { EditCandidate } from './components/EditCandidate/EditCandidate';
+import { AddCandidate } from './components/AddCandidate/AddCandidate';
 import { ProtectedRoute } from './utils/ProtectedRoute';
 import { routerPaths } from './config/router';
 import { DecodedToken } from './types/token';
 
 export const App = () => {
   document.title = `HR Dashboard`;
-  const { signIn, signUp, dasboard, jobs, jobsId, jobsAdd, jobsEdit, profile } =
-    routerPaths;
+  const {
+    signIn,
+    signUp,
+    dasboard,
+    jobs,
+    jobsId,
+    jobsAdd,
+    jobsEdit,
+    profile,
+    candidates,
+    candidatesId,
+    candidatesEdit,
+    candidatesAdd,
+  } = routerPaths;
 
   const [isUserLogged, setIsUserLogged] = useState(false);
   const [errorAlert, setErrorAlert] = useState<string>('');
@@ -95,6 +111,22 @@ export const App = () => {
           <Route
             path={profile.url}
             element={<ProtectedRoute Component={Profile} />}
+          />
+          <Route
+            path={candidates.url}
+            element={<ProtectedRoute Component={Candidates} />}
+          />
+          <Route
+            path={candidatesId.url}
+            element={<ProtectedRoute Component={SingleCandidate} />}
+          />
+          <Route
+            path={candidatesEdit.url}
+            element={<ProtectedRoute Component={EditCandidate} />}
+          />
+          <Route
+            path={candidatesAdd.url}
+            element={<ProtectedRoute Component={AddCandidate} />}
           />
         </Route>
       </Routes>

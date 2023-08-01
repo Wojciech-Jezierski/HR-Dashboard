@@ -53,7 +53,7 @@ export const EditJob = () => {
 
   function onSubmit(values: Object) {
     return axios
-      .patch(`${process.env.REACT_APP_API_URL}/${id}`, values, {
+      .patch(`${process.env.REACT_APP_API_URL}/jobs/${id}`, values, {
         headers: { Authorization: auth },
       })
       .then((response) => {

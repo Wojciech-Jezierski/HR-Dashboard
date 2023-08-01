@@ -7,30 +7,30 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
 
 import { routerPaths } from '../../config/router';
-import { addJobSchema } from '../../config/schemas';
-import { Job } from '../../types/job';
+import { addCandidateSchema } from '../../config/schemas';
+import { Candidate } from '../../types/candidate';
 
-export const AddJob = () => {
+export const AddCandidate = () => {
   document.title = `HR Dashboard - Add Job`;
 
-  const { jobs } = routerPaths;
-  const [data, setData] = useState<Job[]>([]);
+  const { candidates } = routerPaths;
+  const [data, setData] = useState<Candidate[]>([]);
   const [message, setMessage] = useState('');
 
   const navigate = useNavigate();
 
   const onRedirect = () => {
-    navigate(`${jobs.url}`);
+    navigate(`${candidates.url}`);
   };
 
-  type User = InferType<typeof addJobSchema>;
+  type User = InferType<typeof addCandidateSchema>;
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<User>({
-    resolver: yupResolver(addJobSchema),
+    resolver: yupResolver(addCandidateSchema),
   });
 
   const token =
@@ -39,7 +39,7 @@ export const AddJob = () => {
   const auth = `Bearer ${token}`;
   function onSubmit(values: Object) {
     return axios
-      .post(`${process.env.REACT_APP_API_URL}/jobs`, values, {
+      .post(`${process.env.REACT_APP_API_URL}/candidates`, values, {
         headers: { Authorization: auth },
       })
       .then(() => {
@@ -55,21 +55,34 @@ export const AddJob = () => {
   }
 
   return (
-    <div className="add-job">
+    <div className="add-candidate">
       <div className="content">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-content grid grid-cols-2 gap-4 mt-10">
             <div className="col-span-1 w-36 md:w-64 h-20">
-              <label htmlFor="jobTitle">
-                <p>Job Title:</p>
+              <label htmlFor="name">
+                <p>Name:</p>
                 <input
                   className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
-                  placeholder="Job Title"
-                  {...register('title')}
+                  placeholder="Name"
+                  {...register('name')}
                 />
               </label>
               <span className="text-md text-red-500">
-                {errors?.title?.message}
+                {errors?.name?.message}
+              </span>
+            </div>
+            <div className="col-span-1 w-36 md:w-64 h-20">
+              <label htmlFor="position">
+                <p>Position:</p>
+                <input
+                  className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
+                  placeholder="Position"
+                  {...register('position')}
+                />
+              </label>
+              <span className="text-md text-red-500">
+                {errors?.position?.message}
               </span>
             </div>
             <div className="col-span-1 w-36 md:w-64 h-20">
@@ -85,24 +98,11 @@ export const AddJob = () => {
                 {errors?.shortDescription?.message}
               </span>
             </div>
-            <div className="col-span-1 w-36 md:w-64 h-20 mt-20 md:mt-10">
-              <label htmlFor="companyName">
-                <p>Company Name:</p>
-                <input
-                  className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
-                  placeholder="Company Name"
-                  {...register('companyName')}
-                />
-              </label>
-              <span className="text-md text-red-500">
-                {errors?.companyName?.message}
-              </span>
-            </div>
-            <div className="col-span-1 row-span-2  w-36 md:w-64 h-44 mt-20 md:mt-10">
+            <div className="col-span-1 row-span-3  w-36 md:w-64 h-44">
               <label htmlFor="longDescription">
                 <p>Long Description:</p>
                 <textarea
-                  className="bg-slate-200 mt-1 w-36 md:w-64 h-36 max-h-36"
+                  className="bg-slate-200 mt-1 w-36 md:w-64 h-60 max-h-60"
                   placeholder="Long Description"
                   {...register('longDescription')}
                 />
@@ -111,7 +111,7 @@ export const AddJob = () => {
                 {errors?.longDescription?.message}
               </span>
             </div>
-            <div className="col-span-1  w-36 md:w-64 h-20 mt-20 md:mt-10">
+            <div className="col-span-1  w-36 md:w-64 h-20">
               <label htmlFor="logo">
                 <p>Logo:</p>
                 <input
@@ -122,6 +122,19 @@ export const AddJob = () => {
               </label>
               <span className="text-md text-red-500">
                 {errors?.logo?.message}
+              </span>
+            </div>
+            <div className="col-span-1 w-36 md:w-64 h-20 md:mt-0">
+              <label htmlFor="companyName">
+                <p>Company Name:</p>
+                <input
+                  className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
+                  placeholder="Company Name"
+                  {...register('companyName')}
+                />
+              </label>
+              <span className="text-md text-red-500">
+                {errors?.companyName?.message}
               </span>
             </div>
             <div className="col-span-2 mt-14">

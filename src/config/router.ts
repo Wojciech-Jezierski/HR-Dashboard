@@ -6,5 +6,9 @@ export const routerPaths = {
   jobsId: { url: '/jobs/:id' },
   jobsEdit: { url: '/jobs/:id/edit' },
   jobsAdd: { url: '/jobs/add' },
+  candidates: { url: '/candidates' },
+  candidatesId: { url: '/candidates/:id' },
+  candidatesEdit: { url: '/candidates/:id/edit' },
+  candidatesAdd: { url: '/candidates/add' },
   profile: { url: '/profile' },
 };

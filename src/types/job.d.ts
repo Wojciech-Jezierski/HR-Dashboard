@@ -1,4 +1,4 @@
-interface Data {
+interface Job {
   companyName: String;
   createdAt: Date;
   id: String;
@@ -11,4 +11,4 @@ interface Data {
   select: boolean;
 }
 
-export { Data };
+export { Job };

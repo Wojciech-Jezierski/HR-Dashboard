@@ -32,7 +32,7 @@ export const editJobSchema = Yup.object({
   companyName: Yup.string()
     .min(5, 'Company Name must have minimum 5 characters')
     .required('This field cannot be empty'),
-  logo: Yup.string().url('Invalid URL').required('This field cannot be empty'),
+  logo: Yup.string().url('Invalid URL'),
   longDescription: Yup.string().min(
     5,
     'Long Description must have minimum 5 characters',
@@ -42,6 +42,16 @@ export const editJobSchema = Yup.object({
     .required('This field cannot be empty'),
   title: Yup.string()
     .min(3, 'Title must have minimum 3 characters')
+    .required('This field cannot be empty'),
+});
+
+export const editCandidateSchema = Yup.object({
+  name: Yup.string()
+    .min(3, 'Name must have minimum 3 characters')
+    .required('This field cannot be empty'),
+
+  position: Yup.string()
+    .min(3, 'Position must have minimum 3 characters')
     .required('This field cannot be empty'),
 });
 
@@ -59,6 +69,26 @@ export const addJobSchema = Yup.object({
     .required('This field cannot be empty'),
   title: Yup.string()
     .min(3, 'Title must have minimum 3 characters')
+    .required('This field cannot be empty'),
+});
+
+export const addCandidateSchema = Yup.object({
+  name: Yup.string()
+    .min(3, 'Name must have minimum 5 characters')
+    .required('This field cannot be empty'),
+  position: Yup.string()
+    .min(3, 'Position must have minimum 3 characters')
+    .required('This field cannot be empty'),
+  shortDescription: Yup.string()
+    .min(5, 'Short Description must have minimum 5 characters')
+    .required('This field cannot be empty'),
+  longDescription: Yup.string().min(
+    5,
+    'Long Description must have minimum 5 characters',
+  ),
+  logo: Yup.string().min(3, 'Logo must have minimum 3 characters').required(),
+  companyName: Yup.string()
+    .min(3, 'Company Name must have minimum 3 characters')
     .required('This field cannot be empty'),
 });
 

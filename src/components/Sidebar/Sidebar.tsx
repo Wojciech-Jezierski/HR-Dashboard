@@ -10,9 +10,16 @@ import './Sidebar.css';
 import { routerPaths } from '../../config/router';
 
 export const Sidebar = () => {
-  const { dasboard, profile, jobs, jobsAdd } = routerPaths;
+  const { dasboard, profile, jobs, jobsAdd, candidates } = routerPaths;
   const location = useLocation();
-  const visiblePaths = [dasboard.url, profile.url, jobs.url, jobsAdd.url, '/'];
+  const visiblePaths = [
+    dasboard.url,
+    profile.url,
+    jobs.url,
+    jobsAdd.url,
+    candidates.url,
+    '/',
+  ];
   const isSidebarVisible = visiblePaths.includes(location.pathname);
   const [selectedMenu, setSelectedMenu] = useState<null | string>('home');
 
@@ -56,7 +63,7 @@ export const Sidebar = () => {
           </div>
         </NavLink>
         <NavLink
-          to=""
+          to={candidates.url}
           onClick={() => {
             handleMenuClick('candidates');
           }}

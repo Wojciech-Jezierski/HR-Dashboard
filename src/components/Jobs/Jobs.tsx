@@ -8,7 +8,7 @@ import { MdDelete } from 'react-icons/md';
 import ReactPaginate from 'react-paginate';
 import { ReactPaginateProps } from 'react-paginate';
 
-import { Data } from '../../types/data';
+import { Job } from '../../types/job';
 import {
   getJobs,
   deleteItem,
@@ -18,18 +18,18 @@ import {
 export const Jobs = () => {
   document.title = `HR Dashboard - Jobs`;
 
-  const [data, setData] = useState<Data[]>([]);
+  const [data, setData] = useState<Job[]>([]);
   const [selectedItems, setSelectedItems] = useState<String[]>([]);
   const [selectedOption, setSelectedOption] = useState('Actions');
   const [isFocused, setIsFocused] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  const [filteredData, setFilteredData] = useState<Data[]>([]);
+  const [filteredData, setFilteredData] = useState<Job[]>([]);
   const [alert, setAlert] = useState('');
   const [alertColor, setAlertColor] = useState('');
 
   const isDisabled = data.filter((item) => item.select).length < 3;
 
-  const [currentItems, setCurrentItems] = useState<Data[]>([]);
+  const [currentItems, setCurrentItems] = useState<Job[]>([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 6;
@@ -89,7 +89,7 @@ export const Jobs = () => {
 
   const handleAllChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { checked } = e.target;
-    const newData = data.map((item: Data) => ({
+    const newData = data.map((item: Job) => ({
       ...item,
       select: checked,
     }));
@@ -209,7 +209,7 @@ export const Jobs = () => {
           <p className="text-right md:mr-5 mr-0">Action</p>
         </div>
         {currentItems
-          .filter((item: Data) => {
+          .filter((item: Job) => {
             if (inputValue.length >= 3) {
               return item.title
                 .toLowerCase()
@@ -217,7 +217,7 @@ export const Jobs = () => {
             }
             return true; // Return true to include all items when inputValue has less than 3 characters
           })
-          .map((item: Data) => {
+          .map((item: Job) => {
             return (
               <div
                 key={item.id.toString()}
@@ -232,7 +232,7 @@ export const Jobs = () => {
                       const { checked } = event.target;
                       setData(
                         /* eslint-disable-next-line @typescript-eslint/no-shadow */
-                        data.map((data: Data) => {
+                        data.map((data: Job) => {
                           /* eslint-disable @typescript-eslint/no-shadow */
                           if (item.id === data.id) {
                             return {

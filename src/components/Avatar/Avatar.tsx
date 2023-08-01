@@ -13,12 +13,21 @@ export const Avatar: React.FC<AvatarProps> = ({
   isOpenAvatar,
   setIsOpenAvatar,
 }) => {
-  const { dasboard, profile, jobs, jobsAdd } = routerPaths;
+  const { dasboard, profile, jobs, jobsAdd, candidates, candidatesAdd } =
+    routerPaths;
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const location = useLocation();
-  const visiblePaths = [dasboard.url, profile.url, jobs.url, jobsAdd.url, '/'];
+  const visiblePaths = [
+    dasboard.url,
+    profile.url,
+    jobs.url,
+    jobsAdd.url,
+    candidates.url,
+    candidatesAdd.url,
+    '/',
+  ];
   const isAvatarVisible = visiblePaths.includes(location.pathname);
 
   const closeAvatarWindow = () => {

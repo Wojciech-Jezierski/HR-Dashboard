@@ -2,18 +2,15 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export const SingleJob = () => {
+export const SingleCandidate = () => {
   const [data, setData] = useState({
-    title: '',
-    companyName: '',
+    name: '',
     createdAt: '',
-    longDescription: '',
-    shortDescription: '',
-    status: '',
+    position: '',
   });
   const [fetchError, setFetchError] = useState(null);
 
-  document.title = `HR Dashboard - ${data.title}`;
+  document.title = `HR Dashboard - ${data.name}`;
 
   const url = window.location.pathname;
   const id = url.substring(url.lastIndexOf('/') + 1);
@@ -25,18 +22,15 @@ export const SingleJob = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/jobs/${id} `,
+          `${process.env.REACT_APP_API_URL}/candidates/${id} `,
           {
             headers: { Authorization: auth },
           },
         );
         setData({
-          title: response.data.title,
-          companyName: response.data.companyName,
+          name: response.data.name,
           createdAt: response.data.createdAt,
-          shortDescription: response.data.shortDescription,
-          longDescription: response.data.longDescription,
-          status: response.data.status,
+          position: response.data.position,
         });
       } catch (error: any) {
         setFetchError(error.message);
@@ -58,14 +52,12 @@ export const SingleJob = () => {
 
   return (
     <div className="mt-8 mb-32 p-2">
-      <h1 className="text-4xl">Job: {data.title}</h1>
-      <p className="text-xl mt-10">Company: {data.companyName}</p>
+      <h1 className="text-4xl">User: {data.name}</h1>
       <p className="text-xl mt-2">
         Created at: {data.createdAt.substring(0, 10)}{' '}
         {data.createdAt.substring(11, 16)}
       </p>
-      <p className="text-xl mt-2">Status: {data.status}</p>
-      <p className="text-xl mt-2">Description: {data.longDescription}</p>
+      <p className="text-xl mt-2">Position: {data.position}</p>
     </div>
   );
 };
