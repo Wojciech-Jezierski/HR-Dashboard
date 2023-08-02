@@ -3,6 +3,7 @@ import { AiOutlineHome } from 'react-icons/ai';
 import { BsChatLeft } from 'react-icons/bs';
 import { BiUser } from 'react-icons/bi';
 import { FaRegCalendarAlt } from 'react-icons/fa';
+import { GiBlackFlag } from 'react-icons/gi';
 import { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import './Sidebar.css';
@@ -10,7 +11,8 @@ import './Sidebar.css';
 import { routerPaths } from '../../config/router';
 
 export const Sidebar = () => {
-  const { dasboard, profile, jobs, jobsAdd, candidates } = routerPaths;
+  const { dasboard, profile, jobs, jobsAdd, candidates, blacklist } =
+    routerPaths;
   const location = useLocation();
   const visiblePaths = [
     dasboard.url,
@@ -18,6 +20,7 @@ export const Sidebar = () => {
     jobs.url,
     jobsAdd.url,
     candidates.url,
+    blacklist.url,
     '/',
   ];
   const isSidebarVisible = visiblePaths.includes(location.pathname);
@@ -65,13 +68,26 @@ export const Sidebar = () => {
         <NavLink
           to={candidates.url}
           onClick={() => {
+            handleMenuClick('blacklist');
+          }}
+        >
+          <div className={selectedMenu === 'blacklist' ? 'active' : undefined}>
+            <li className="link-list">
+              <BiUser className="icon" />
+              Candidates
+            </li>
+          </div>
+        </NavLink>
+        <NavLink
+          to={blacklist.url}
+          onClick={() => {
             handleMenuClick('candidates');
           }}
         >
           <div className={selectedMenu === 'candidates' ? 'active' : undefined}>
             <li className="link-list">
-              <BiUser className="icon" />
-              Candidates
+              <GiBlackFlag className="icon" />
+              BlackList
             </li>
           </div>
         </NavLink>

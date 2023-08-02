@@ -4,6 +4,7 @@ export const getJobs = async (auth) => {
   const result = await axios.get(`${process.env.REACT_APP_API_URL}/jobs`, {
     headers: { Authorization: auth },
   });
+  console.log(result)
   return result.data;
 };
 

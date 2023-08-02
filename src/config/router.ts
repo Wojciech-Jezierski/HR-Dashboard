@@ -11,4 +11,5 @@ export const routerPaths = {
   candidatesEdit: { url: '/candidates/:id/edit' },
   candidatesAdd: { url: '/candidates/add' },
   profile: { url: '/profile' },
+  blacklist: { url: '/blacklist' },
 };
