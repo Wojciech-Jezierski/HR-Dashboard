@@ -4,10 +4,10 @@ import axios from 'axios';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 
-import { blacklistCandidate } from '../../types/blacklistCandidate';
+import { BlacklistCandidate } from '../../types/blacklistCandidate';
 
 export const BlackList = () => {
-  const [data, setData] = useState<blacklistCandidate[]>([]);
+  const [data, setData] = useState<BlacklistCandidate[]>([]);
   const [itemsPerPage, setItemsPerPage] = useState(5);
   const [typeOfSorting, setTypeOfSorting] = useState('name');
   const [order, setOrder] = useState('asc');
@@ -147,7 +147,7 @@ export const BlackList = () => {
           </thead>
           {/* Map 'data' array to ReactNode elements */}
           <tbody>
-            {data.map((item: blacklistCandidate) => (
+            {data.map((item: BlacklistCandidate) => (
               <tr key={item.id}>
                 {/* Render 'blacklistCandidate' properties here */}
                 <th className="p-6 border font-normal">{item.name}</th>

@@ -1,4 +1,4 @@
-interface blacklistCandidate {
+interface BlacklistCandidate {
   id: string;
   createdAt: date;
   updatedAt: date;
@@ -6,4 +6,4 @@ interface blacklistCandidate {
   reason: string;
 }
 
-export { blacklistCandidate };
+export { BlacklistCandidate };
