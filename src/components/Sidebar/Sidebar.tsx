@@ -11,7 +11,7 @@ import './Sidebar.css';
 import { routerPaths } from '../../config/router';
 
 export const Sidebar = () => {
-  const { dasboard, profile, jobs, jobsAdd, candidates, blacklist } =
+  const { dasboard, profile, jobs, jobsAdd, candidates, blacklist, meetings } =
     routerPaths;
   const location = useLocation();
   const visiblePaths = [
@@ -21,6 +21,7 @@ export const Sidebar = () => {
     jobsAdd.url,
     candidates.url,
     blacklist.url,
+    meetings.url,
     '/',
   ];
   const isSidebarVisible = visiblePaths.includes(location.pathname);
@@ -92,7 +93,7 @@ export const Sidebar = () => {
           </div>
         </NavLink>
         <NavLink
-          to=""
+          to={meetings.url}
           onClick={() => {
             handleMenuClick('calendar');
           }}
