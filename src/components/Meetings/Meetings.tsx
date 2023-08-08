@@ -7,6 +7,7 @@ import { BsTrash3 } from 'react-icons/bs';
 import './Meetings.css';
 
 import { Meeting } from '../../types/meeting';
+import { AddMeeting } from '../AddMeeting/AddMeeting';
 
 export const Meetings = () => {
   const [data, setData] = useState<Meeting[]>([]);
@@ -23,6 +24,7 @@ export const Meetings = () => {
   });
   const [deleteItem, setDeleteItem] = useState('');
   const [isOpenDeleteWindow, setIsOpenDeleteWindow] = useState(false);
+  const [isOpenAddWindow, setIsOpenAddWindow] = useState(false);
 
   useEffect(() => {
     const token =
@@ -88,6 +90,10 @@ export const Meetings = () => {
     setDeleteItem(id);
   };
 
+  const openAddMeetingWindow = () => {
+    setIsOpenAddWindow(!isOpenAddWindow);
+  };
+
   const nextMonth = () => {
     if (month >= 12) {
       setMonth(1);
@@ -138,8 +144,11 @@ export const Meetings = () => {
   const monthName = getMonthName(month);
 
   return (
-    <div className="meetings-content mt-20">
+    <div className="meetings-content mt-24 relative">
       <div className="flex justify-center">
+        <div className="absolute top-[-50px] right-0">
+          <button onClick={openAddMeetingWindow}>Add Meeting</button>
+        </div>
         <button
           className="text-xl"
           onClick={previousMonth}
@@ -246,6 +255,9 @@ export const Meetings = () => {
             </div>
           </div>
         </div>
+      )}
+      {isOpenAddWindow && (
+        <AddMeeting openAddMeetingWindow={openAddMeetingWindow} />
       )}
     </div>
   );
