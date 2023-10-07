@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { InferType } from 'yup';
@@ -8,7 +7,7 @@ import axios from 'axios';
 
 import { routerPaths } from '../../config/router';
 import { addCandidateSchema } from '../../config/schemas';
-import { Candidate } from '../../types/candidate';
+import type { Candidate } from '../../types/candidate';
 
 export const AddCandidate = () => {
   document.title = `HR Dashboard - Add Job`;

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { AiOutlineArrowRight } from 'react-icons/ai';
@@ -18,21 +17,24 @@ export const BlackList = () => {
     useState(true);
   const [isNextButtonDisabled, setIsNextButtonDisabled] = useState(false);
 
-  const handleItemsPerPageChange = (event: any) => {
+  const handleItemsPerPageChange = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ) => {
     const selectedValue = parseInt(event.target.value, 10);
     setItemsPerPage(selectedValue);
     setSkip(0);
-    console.log('Items per page changed:', selectedValue);
     // Add your desired logic here
   };
 
-  const handleTypeOfSortingChange = (event: any) => {
+  const handleTypeOfSortingChange = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ) => {
     const selectedValue = event.target.value;
     setTypeOfSorting(selectedValue);
     setSkip(0);
   };
 
-  const handleOrderChange = (event: any) => {
+  const handleOrderChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedValue = event.target.value;
     setOrder(selectedValue);
     setSkip(0);
@@ -80,7 +82,6 @@ export const BlackList = () => {
         setData(response.data.data);
         setCount(response.data.count);
       } catch (errors) {
-        console.log(errors);
         setError(errors as string);
       }
     };

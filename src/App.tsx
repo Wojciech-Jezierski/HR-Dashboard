@@ -20,7 +20,7 @@ import { BlackList } from './components/BlackList/BlackList';
 import { Meetings } from './components/Meetings/Meetings';
 import { ProtectedRoute } from './utils/ProtectedRoute';
 import { routerPaths } from './config/router';
-import { DecodedToken } from './types/token';
+import type { DecodedToken } from './types/token';
 
 export const App = () => {
   document.title = `HR Dashboard`;

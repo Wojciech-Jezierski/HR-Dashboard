@@ -1,4 +1,3 @@
-import React from 'react';
 import './SignUp.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { InferType } from 'yup';
