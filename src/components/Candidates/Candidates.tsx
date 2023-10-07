@@ -17,9 +17,11 @@ export const Candidates = () => {
   document.title = `HR Dashboard - Candidates`;
 
   const [data, setData] = useState<Candidate[]>([]);
+  const [selectedItems, setSelectedItems] = useState<String[]>([]);
   const [selectedOption, setSelectedOption] = useState('Actions');
   const [isFocused, setIsFocused] = useState(false);
   const [inputValue, setInputValue] = useState('');
+  const [filteredData, setFilteredData] = useState<Candidate[]>([]);
   const [alert, setAlert] = useState('');
   const [alertColor, setAlertColor] = useState('');
 

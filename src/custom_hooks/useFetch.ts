@@ -16,7 +16,7 @@ export const useFetch = () => {
       setLastName(result.data.lastName);
     };
     fetchData();
-  }, [token]);
+  }, [token, auth]);
 
   return { firstName, lastName };
 };

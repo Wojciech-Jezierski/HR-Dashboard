@@ -39,7 +39,7 @@ export const SingleCandidate = () => {
       return;
     }
     fetchData();
-  }, []);
+  }, [token, auth, id]);
 
   if (fetchError) {
     return <div>Error: {fetchError}</div>;

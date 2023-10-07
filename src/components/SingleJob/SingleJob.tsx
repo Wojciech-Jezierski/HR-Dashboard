@@ -45,7 +45,7 @@ export const SingleJob = () => {
       return;
     }
     fetchData();
-  }, []);
+  }, [token, auth, id]);
 
   if (fetchError) {
     return <div>Error: {fetchError}</div>;

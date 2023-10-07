@@ -1,6 +1,6 @@
 import './SignUp.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { InferType } from 'yup';
+import type { InferType } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
@@ -27,7 +27,7 @@ export const SignUp = () => {
         setMessage('Confirm link was sent on your e-mail.');
         onRedirect();
       })
-      .catch((error) => {
+      .catch(() => {
         setMessage('Something went wrong. Try again later.');
       });
   }
