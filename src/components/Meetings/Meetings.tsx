@@ -23,6 +23,7 @@ export const Meetings = () => {
   const [deleteItem, setDeleteItem] = useState('');
   const [isOpenDeleteWindow, setIsOpenDeleteWindow] = useState(false);
   const [isOpenAddWindow, setIsOpenAddWindow] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     const token =
@@ -39,7 +40,7 @@ export const Meetings = () => {
         );
         setData(response.data);
       } catch (error) {
-        console.log(error);
+        setErrorMessage(String(error));
       }
     };
 
@@ -61,7 +62,7 @@ export const Meetings = () => {
       setData((prevData) => prevData.filter((item) => item.id !== itemId));
       setIsOpenDeleteWindow(false);
     } catch (error) {
-      console.log(error);
+      setErrorMessage(String(error));
     }
   };
 
@@ -166,6 +167,9 @@ export const Meetings = () => {
           </p>
         </div>
       </div>
+      <span className="flex justify-center text-red-500 mt-5">
+        {errorMessage}
+      </span>
       <div className="mt-10 text-center">
         {data.length > 0 ? (
           data.map((item: any) => (

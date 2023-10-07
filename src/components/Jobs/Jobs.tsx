@@ -23,6 +23,7 @@ export const Jobs = () => {
   const [inputValue, setInputValue] = useState('');
   const [alert, setAlert] = useState('');
   const [alertColor, setAlertColor] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const isDisabled = data.filter((item) => item.select).length < 3;
 
@@ -44,7 +45,7 @@ export const Jobs = () => {
         const fetchedData = await getJobs(auth);
         setData(fetchedData);
       } catch (error) {
-        console.log('Error fetching data:', error);
+        setErrorMessage(String(error));
       }
     };
 
@@ -144,6 +145,7 @@ export const Jobs = () => {
     <div className="jobs">
       <div className="flex justify-center">
         <span className={alertColor}>{alert}</span>
+        <span className="text-red-500">{errorMessage}</span>
       </div>
       <div className="content text-sm sm:text-md mt-1 md:mt-12 w-[340px] md:w-[620px] xl:w-[760px]">
         <div className={`input-wrapper ${isFocused ? 'focused' : ''}`}>

@@ -49,7 +49,7 @@ export const Candidates = () => {
     };
 
     getData();
-  }, [token]);
+  }, [token, auth]);
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
