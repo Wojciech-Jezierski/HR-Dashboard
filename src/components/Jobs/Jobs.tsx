@@ -50,7 +50,7 @@ export const Jobs = () => {
     };
 
     getData();
-  }, [token]);
+  }, [token, auth]);
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;

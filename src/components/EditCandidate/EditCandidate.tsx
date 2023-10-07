@@ -51,7 +51,7 @@ export const EditCandidate = () => {
       .patch(`${process.env.REACT_APP_API_URL}/candidates/${id}`, values, {
         headers: { Authorization: auth },
       })
-      .then((response) => {
+      .then(() => {
         onRedirect();
       })
       .catch(() => {
@@ -70,7 +70,7 @@ export const EditCandidate = () => {
     };
 
     jobsById();
-  }, []);
+  }, [auth, id]);
 
   if (fetchError) {
     return <div>Error: {fetchError.message}</div>;

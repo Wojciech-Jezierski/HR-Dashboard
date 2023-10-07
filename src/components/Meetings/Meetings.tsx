@@ -44,7 +44,7 @@ export const Meetings = () => {
     };
 
     fetchData();
-  }, [month]);
+  }, [month, year]);
 
   const handleDelete = async (itemId: string) => {
     const token =
@@ -115,7 +115,7 @@ export const Meetings = () => {
     if (month > 1) {
       setIsDisabled(false);
     }
-  }, [month]);
+  }, [month, year]);
 
   function getMonthName(months: number) {
     const monthNames = [

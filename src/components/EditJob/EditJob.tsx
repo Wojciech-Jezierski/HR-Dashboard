@@ -55,7 +55,7 @@ export const EditJob = () => {
       .patch(`${process.env.REACT_APP_API_URL}/jobs/${id}`, values, {
         headers: { Authorization: auth },
       })
-      .then((response) => {
+      .then(() => {
         onRedirect();
       })
       .catch(() => {
@@ -74,7 +74,7 @@ export const EditJob = () => {
     };
 
     jobsById();
-  }, []);
+  }, [auth, id]);
 
   if (fetchError) {
     return <div>Error: {fetchError.message}</div>;

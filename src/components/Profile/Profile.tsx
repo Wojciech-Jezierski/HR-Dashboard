@@ -103,7 +103,7 @@ export const Profile = () => {
     };
 
     fetchData();
-  }, []);
+  }, [auth]);
 
   if (fetchError) {
     return <div>Error: {fetchError}</div>;

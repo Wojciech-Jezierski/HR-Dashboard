@@ -38,14 +38,14 @@ export const Layout = ({ isUserLogged, setIsUserLogged }: LayoutProps) => {
       return () => clearInterval(interval);
     }
     return () => {};
-  }, [isUserLogged, token]);
+  }, [isUserLogged, initialToken, token]);
 
   useEffect(() => {
     if (seconds === 1) {
       setIsUserLogged(false);
       window.location.reload();
     }
-  }, [seconds]);
+  }, [seconds, setIsUserLogged]);
 
   return (
     <div>
