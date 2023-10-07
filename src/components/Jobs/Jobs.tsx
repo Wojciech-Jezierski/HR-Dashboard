@@ -102,7 +102,7 @@ export const Jobs = () => {
         setAlert(`${response.error}`);
       }
     } catch (error) {
-      console.error('Error occurred while deleting item:', error);
+      setErrorMessage(String(error));
     }
   };
 

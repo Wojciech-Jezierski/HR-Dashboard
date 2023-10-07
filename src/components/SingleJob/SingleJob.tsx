@@ -10,7 +10,7 @@ export const SingleJob = () => {
     shortDescription: '',
     status: '',
   });
-  const [fetchError, setFetchError] = useState(null);
+  const [fetchError, setFetchError] = useState('');
 
   document.title = `HR Dashboard - ${data.title}`;
 
@@ -37,8 +37,8 @@ export const SingleJob = () => {
           longDescription: response.data.longDescription,
           status: response.data.status,
         });
-      } catch (error: any) {
-        setFetchError(error.message);
+      } catch {
+        setFetchError('Something went wrong.');
       }
     };
     if (!token) {
