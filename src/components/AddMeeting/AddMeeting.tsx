@@ -16,7 +16,11 @@ import { routerPaths } from '../../config/router';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
-export const AddMeeting = ({ openAddMeetingWindow }: any) => {
+export const AddMeeting = ({
+  openAddMeetingWindow,
+}: {
+  openAddMeetingWindow: () => void;
+}) => {
   const { meetings } = routerPaths;
   const [selectedDate, setSelectedDate] = useState<Date | null>(null); // Provide a type for selectedDate
   const [meetingType, setMeetingType] = useState('Online');
@@ -51,8 +55,8 @@ export const AddMeeting = ({ openAddMeetingWindow }: any) => {
         const fetchedJobs = await getJobs(auth);
         setCandidateOptions(fetchedCandidates);
         setJobOptions(fetchedJobs);
-      } catch (error) {
-        console.log('Error fetching data:', error);
+      } catch {
+        setMessage('Data do not fetched properly.');
       }
     };
 
