@@ -1,4 +1,3 @@
-import React from 'react';
 import './Jobs.css';
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -8,7 +7,7 @@ import { MdDelete } from 'react-icons/md';
 import ReactPaginate from 'react-paginate';
 import { ReactPaginateProps } from 'react-paginate';
 
-import { Job } from '../../types/job';
+import type { Job } from '../../types/job';
 import {
   getJobs,
   deleteItem,
@@ -23,7 +22,6 @@ export const Jobs = () => {
   const [selectedOption, setSelectedOption] = useState('Actions');
   const [isFocused, setIsFocused] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  const [filteredData, setFilteredData] = useState<Job[]>([]);
   const [alert, setAlert] = useState('');
   const [alertColor, setAlertColor] = useState('');
 
@@ -104,7 +102,6 @@ export const Jobs = () => {
       if (response.success) {
         // Delete the item from the local state
         setData((prevData) => prevData.filter((item) => item.id !== itemId));
-        console.log('Item deleted successfully!');
         setAlert('Item deleted successfully.');
         setAlertColor('text-green-500');
       } else {

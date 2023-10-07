@@ -1,4 +1,3 @@
-import React from 'react';
 import './Candidates.css';
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -8,9 +7,8 @@ import { MdDelete } from 'react-icons/md';
 import ReactPaginate from 'react-paginate';
 import { ReactPaginateProps } from 'react-paginate';
 
-import { Candidate } from '../../types/candidate';
+import type { Candidate } from '../../types/candidate';
 import {
-  getJobs,
   deleteItem,
   deleteSelectedItems as deleteItemsService,
 } from '../../services/JobService';
@@ -105,7 +103,6 @@ export const Candidates = () => {
       if (response.success) {
         // Delete the item from the local state
         setData((prevData) => prevData.filter((item) => item.id !== itemId));
-        console.log('Item deleted successfully!');
         setAlert('Item deleted successfully.');
         setAlertColor('text-green-500');
       } else {

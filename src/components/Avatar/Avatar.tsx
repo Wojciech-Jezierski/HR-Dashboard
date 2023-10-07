@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import axios from 'axios';
@@ -7,7 +6,7 @@ import { GrLogout } from 'react-icons/gr';
 import { AiFillCloseCircle } from 'react-icons/ai';
 
 import { routerPaths } from '../../config/router';
-import { AvatarProps } from '../../types/avatarProps';
+import type { AvatarProps } from '../../types/avatarProps';
 
 export const Avatar: React.FC<AvatarProps> = ({
   isOpenAvatar,

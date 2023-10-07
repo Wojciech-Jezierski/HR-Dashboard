@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { AiOutlineArrowRight } from 'react-icons/ai';
-import { AiOutlineArrowLeft } from 'react-icons/ai';
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import { BsTrash3 } from 'react-icons/bs';
 import './Meetings.css';
 
-import { Meeting } from '../../types/meeting';
+import type { Meeting } from '../../types/meeting';
 import { AddMeeting } from '../AddMeeting/AddMeeting';
 
 export const Meetings = () => {
@@ -39,14 +38,12 @@ export const Meetings = () => {
           },
         );
         setData(response.data);
-        console.log(response);
       } catch (error) {
         console.log(error);
       }
     };
 
     fetchData();
-    console.log(data);
   }, [month]);
 
   const handleDelete = async (itemId: string) => {
@@ -61,7 +58,6 @@ export const Meetings = () => {
           headers: { Authorization: auth },
         },
       );
-      console.log(`Item ${itemId} was deleted`);
       setData((prevData) => prevData.filter((item) => item.id !== itemId));
       setIsOpenDeleteWindow(false);
     } catch (error) {
@@ -70,11 +66,11 @@ export const Meetings = () => {
   };
 
   const openInformationWindow = (
-    id: any,
-    date: any,
-    candidate: any,
-    title: any,
-    place: any,
+    id: string,
+    date: string,
+    candidate: string,
+    title: string,
+    place: string,
   ) => {
     setIsOpenWindow(!isOpenWindow);
     setSelectedItem({ id, date, candidate, title, place });
