@@ -116,3 +116,14 @@ export const userSchemaNamesValidation = Yup.object({
     .max(15, 'Please use at most 15 characters')
     .required('This field cannot be empty'),
 });
+
+export const addMeetingSchema = Yup.object({
+  type: Yup.string().min(3, 'Type must have minimum 4 characters'),
+  date: Yup.date(),
+  place: Yup.string().min(
+    3,
+    'Place Description must have minimum 5 characters',
+  ),
+  candidateId: Yup.string(),
+  JobId: Yup.string(),
+});

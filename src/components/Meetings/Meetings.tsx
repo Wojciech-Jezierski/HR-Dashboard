@@ -147,7 +147,12 @@ export const Meetings = () => {
     <div className="meetings-content mt-24 relative">
       <div className="flex justify-center">
         <div className="absolute top-[-50px] right-0">
-          <button onClick={openAddMeetingWindow}>Add Meeting</button>
+          <button
+            onClick={openAddMeetingWindow}
+            className="bg-orange-400 text-white w-20 h-10 md:w-32 md:h-10 mt-5 md:mt-[40px] ml-7 rounded-xl text-md"
+          >
+            Add Meeting
+          </button>
         </div>
         <button
           className="text-xl"
