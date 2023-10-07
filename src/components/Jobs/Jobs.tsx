@@ -18,7 +18,6 @@ export const Jobs = () => {
   document.title = `HR Dashboard - Jobs`;
 
   const [data, setData] = useState<Job[]>([]);
-  const [selectedItems, setSelectedItems] = useState<String[]>([]);
   const [selectedOption, setSelectedOption] = useState('Actions');
   const [isFocused, setIsFocused] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -57,13 +56,6 @@ export const Jobs = () => {
     setCurrentItems(data.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(data.length / itemsPerPage));
   }, [itemOffset, itemsPerPage, data]);
-
-  useEffect(() => {
-    const items = data
-      .filter((item) => item.select === true)
-      .map((item) => item.id);
-    setSelectedItems(items);
-  }, [data]);
 
   const handlePageClick: ReactPaginateProps['onPageChange'] = ({
     selected,
@@ -117,7 +109,6 @@ export const Jobs = () => {
     try {
       const updatedData = await deleteItemsService(data, auth);
       setData(updatedData);
-      setSelectedItems([]);
       setAlert('Items deleted successfully.');
       setAlertColor('text-green-500');
       setSelectedOption('Actions');
