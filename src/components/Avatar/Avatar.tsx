@@ -8,10 +8,7 @@ import { AiFillCloseCircle } from 'react-icons/ai';
 import { routerPaths } from '../../config/router';
 import type { AvatarProps } from '../../types/avatarProps';
 
-export const Avatar: React.FC<AvatarProps> = ({
-  isOpenAvatar,
-  setIsOpenAvatar,
-}) => {
+export const Avatar = ({ isOpenAvatar, setIsOpenAvatar }: AvatarProps) => {
   const { dasboard, profile, jobs, jobsAdd, candidates, candidatesAdd } =
     routerPaths;
 
