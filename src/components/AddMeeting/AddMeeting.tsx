@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import { useNavigate } from 'react-router-dom';
-import { InferType } from 'yup';
+import type { InferType } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { AiOutlineCalendar } from 'react-icons/ai';
 
 import { getCandidates } from '../../services/CandidatesService';
-import { Candidate } from '../../types/candidate';
-import { Job } from '../../types/job';
+import type { Candidate } from '../../types/candidate';
+import type { Job } from '../../types/job';
 import { getJobs } from '../../services/JobService';
 import { addMeetingSchema } from '../../config/schemas';
 import { routerPaths } from '../../config/router';

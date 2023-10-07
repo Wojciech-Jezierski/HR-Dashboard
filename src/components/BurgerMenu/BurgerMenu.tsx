@@ -1,10 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { AiOutlineHome } from 'react-icons/ai';
+import { AiOutlineHome, AiOutlineClose } from 'react-icons/ai';
 import { BsChatLeft } from 'react-icons/bs';
 import { BiUser } from 'react-icons/bi';
 import { FaRegCalendarAlt } from 'react-icons/fa';
-import { AiOutlineClose } from 'react-icons/ai';
 
 import { routerPaths } from '../../config/router';
 

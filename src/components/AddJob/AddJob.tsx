@@ -1,19 +1,17 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { InferType } from 'yup';
+import type { InferType } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
 
 import { routerPaths } from '../../config/router';
 import { addJobSchema } from '../../config/schemas';
-import { Job } from '../../types/job';
 
 export const AddJob = () => {
   document.title = `HR Dashboard - Add Job`;
 
   const { jobs } = routerPaths;
-  const [data, setData] = useState<Job[]>([]);
   const [message, setMessage] = useState('');
 
   const navigate = useNavigate();
@@ -47,10 +45,6 @@ export const AddJob = () => {
       .catch(() => {
         setMessage('Something went wrong. Try again later.');
       });
-  }
-
-  if (!data) {
-    return <div>Loading...</div>;
   }
 
   return (

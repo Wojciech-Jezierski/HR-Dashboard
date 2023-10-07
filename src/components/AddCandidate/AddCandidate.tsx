@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { InferType } from 'yup';
+import type { InferType } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
@@ -13,7 +13,6 @@ export const AddCandidate = () => {
   document.title = `HR Dashboard - Add Job`;
 
   const { candidates } = routerPaths;
-  const [data, setData] = useState<Candidate[]>([]);
   const [message, setMessage] = useState('');
 
   const navigate = useNavigate();
@@ -47,10 +46,6 @@ export const AddCandidate = () => {
       .catch(() => {
         setMessage('Something went wrong. Try again later.');
       });
-  }
-
-  if (!data) {
-    return <div>Loading...</div>;
   }
 
   return (

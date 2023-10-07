@@ -4,8 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { AiFillEye } from 'react-icons/ai';
 import { BiEditAlt } from 'react-icons/bi';
 import { MdDelete } from 'react-icons/md';
-import ReactPaginate from 'react-paginate';
-import { ReactPaginateProps } from 'react-paginate';
+import ReactPaginate, { ReactPaginateProps } from 'react-paginate';
 
 import type { Candidate } from '../../types/candidate';
 import {
@@ -18,11 +17,9 @@ export const Candidates = () => {
   document.title = `HR Dashboard - Candidates`;
 
   const [data, setData] = useState<Candidate[]>([]);
-  const [selectedItems, setSelectedItems] = useState<String[]>([]);
   const [selectedOption, setSelectedOption] = useState('Actions');
   const [isFocused, setIsFocused] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  const [filteredData, setFilteredData] = useState<Candidate[]>([]);
   const [alert, setAlert] = useState('');
   const [alertColor, setAlertColor] = useState('');
 
