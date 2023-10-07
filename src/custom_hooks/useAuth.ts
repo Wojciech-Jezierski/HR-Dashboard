@@ -36,7 +36,6 @@ export function useAuth(
       setToken(accessToken);
       setSeconds(remainingSeconds);
     } catch (error) {
-      console.log(error);
       setIsUserLogged(false);
     }
   };

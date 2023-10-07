@@ -48,7 +48,7 @@ export const Avatar = ({ isOpenAvatar, setIsOpenAvatar }: AvatarProps) => {
       return;
     }
     fetchData();
-  }, [token]);
+  }, [token, auth]);
 
   if (!isAvatarVisible) {
     return null;

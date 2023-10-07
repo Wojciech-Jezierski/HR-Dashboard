@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { InferType } from 'yup';
+import type { InferType } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
@@ -52,11 +52,9 @@ export const EditCandidate = () => {
         headers: { Authorization: auth },
       })
       .then((response) => {
-        console.log(response);
         onRedirect();
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         setMessage('Something went wrong. Try again later.');
       });
   }

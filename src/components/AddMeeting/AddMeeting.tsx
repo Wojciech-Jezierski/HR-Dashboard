@@ -57,7 +57,7 @@ export const AddMeeting = ({ openAddMeetingWindow }: any) => {
     };
 
     getData();
-  }, []);
+  }, [token, auth]);
 
   type User = InferType<typeof addMeetingSchema>;
 

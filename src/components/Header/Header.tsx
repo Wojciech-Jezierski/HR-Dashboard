@@ -5,7 +5,7 @@ import { Sidebar } from '../Sidebar/Sidebar';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 import { Avatar } from '../Avatar/Avatar';
 import { AddButton } from '../AddButton/AddButton';
-import { HeaderProps } from '../../types/headerProps';
+import type { HeaderProps } from '../../types/headerProps';
 
 export const Header: React.FC<HeaderProps> = ({
   isOpenAvatar,

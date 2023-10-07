@@ -1,8 +1,11 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export const ProtectedRoute = (props: any) => {
-  const { Component } = props;
+interface ProtectedRouteProps {
+  Component: React.ComponentType; // The type of the component to render
+}
+
+export const ProtectedRoute = ({ Component }: ProtectedRouteProps) => {
   const navigate = useNavigate();
   useEffect(() => {
     const login =

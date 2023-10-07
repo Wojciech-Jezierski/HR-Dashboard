@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { AiOutlineArrowRight } from 'react-icons/ai';
-import { AiOutlineArrowLeft } from 'react-icons/ai';
+import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
 
-import { BlacklistCandidate } from '../../types/blacklistCandidate';
+import type { BlacklistCandidate } from '../../types/blacklistCandidate';
 
 export const BlackList = () => {
   const [data, setData] = useState<BlacklistCandidate[]>([]);
@@ -64,7 +63,7 @@ export const BlackList = () => {
     if (skip < count) {
       setIsNextButtonDisabled(false);
     }
-  }, [skip]);
+  }, [skip, count]);
 
   useEffect(() => {
     const fetchData = async () => {

@@ -33,7 +33,7 @@ export const Dashboard = () => {
       return;
     }
     fetchData();
-  }, [token]);
+  }, [token, auth]);
 
   if (!jobs) {
     return <div>Loading...</div>;

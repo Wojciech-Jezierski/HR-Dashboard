@@ -23,7 +23,7 @@ export const Home = () => {
       setCandidates(candidatesResponse.data);
     };
     fetchData();
-  }, [token]);
+  }, [token, auth]);
 
   if (!jobs) {
     return <div>Loading...</div>;

@@ -4,7 +4,8 @@ import { NavLink } from 'react-router-dom';
 import { AiFillEye } from 'react-icons/ai';
 import { BiEditAlt } from 'react-icons/bi';
 import { MdDelete } from 'react-icons/md';
-import ReactPaginate, { ReactPaginateProps } from 'react-paginate';
+import ReactPaginate from 'react-paginate';
+import type { ReactPaginateProps } from 'react-paginate';
 
 import type { Job } from '../../types/job';
 import {
