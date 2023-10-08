@@ -1,13 +1,17 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
 import { Outlet } from 'react-router-dom';
 
 import { Header } from '../Header/Header';
-import type { LayoutProps } from '../../types/layoutProps';
-import type { DecodedToken } from '../../types/token';
+import { LayoutProps } from '../../types/layoutProps';
+import { DecodedToken } from '../../types/token';
 import { useAuth } from '../../custom_hooks/useAuth';
 
-export const Layout = ({ isUserLogged, setIsUserLogged }: LayoutProps) => {
+export const Layout: React.FC<LayoutProps> = ({
+  isUserLogged,
+  setIsUserLogged,
+}) => {
   const [isOpenAvatar, setIsOpenAvatar] = useState(false);
   const [isOpenBurger, setIsOpenBurger] = useState(false);
 
@@ -38,14 +42,14 @@ export const Layout = ({ isUserLogged, setIsUserLogged }: LayoutProps) => {
       return () => clearInterval(interval);
     }
     return () => {};
-  }, [isUserLogged, initialToken, token]);
+  }, [isUserLogged, token]);
 
   useEffect(() => {
     if (seconds === 1) {
       setIsUserLogged(false);
       window.location.reload();
     }
-  }, [seconds, setIsUserLogged]);
+  }, [seconds]);
 
   return (
     <div>
