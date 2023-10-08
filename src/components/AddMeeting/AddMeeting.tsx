@@ -103,7 +103,7 @@ export const AddMeeting = ({
 
   return (
     <div className="modal-overlay">
-      <div className="modal-content w-[520px] h-[450px]">
+      <div className="modal-content w-[520px] h-[480px]">
         <h1 className="mt-5 text-center font-bold text-xl">Add Meeting</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mt-10">
@@ -115,14 +115,14 @@ export const AddMeeting = ({
                 onChange={handleDateChange}
                 dateFormat="MM/dd/yyyy"
                 placeholderText="Select a date"
-                className="ml-1"
+                className="ml-1 border border-gray-400"
               />
               <AiOutlineCalendar className="absolute top-[110px] right-[200px] text-xl" />
             </label>
             <span className="text-md text-red-500">
               {errors?.date?.message}
             </span>
-            <div className="mt-2">
+            <div className="mt-4">
               <label htmlFor="typeOfMeeting">
                 Type of meeting:{' '}
                 <select
@@ -130,6 +130,7 @@ export const AddMeeting = ({
                   value={meetingType}
                   {...register('type')}
                   onChange={handleMeetingTypeChange}
+                  className="border border-gray-400"
                 >
                   <option>Online</option>
                   <option>Offline</option>
@@ -139,7 +140,7 @@ export const AddMeeting = ({
                 {errors?.type?.message}
               </span>
             </div>
-            <div className="mt-2">
+            <div className="mt-4">
               {showPlaceOfMeeting ? (
                 <label htmlFor="placeOfMeeting">
                   Place of meeting:{' '}
@@ -152,6 +153,7 @@ export const AddMeeting = ({
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setPlaceOfMeeting(e.target.value)
                     }
+                    className="border border-gray-400"
                   />
                 </label>
               ) : (
@@ -165,6 +167,7 @@ export const AddMeeting = ({
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setLinkOfMeeting(e.target.value)
                     }
+                    className="border border-gray-400"
                   />
                 </label>
               )}
@@ -172,10 +175,14 @@ export const AddMeeting = ({
                 {errors?.place?.message}
               </span>
             </div>
-            <div className="mt-2">
+            <div className="mt-4">
               <label htmlFor="candidate">
                 Candidate:{' '}
-                <select {...register('candidateId')} id="candidate">
+                <select
+                  {...register('candidateId')}
+                  id="candidate"
+                  className="border border-gray-400"
+                >
                   {candidateOptions.map((candidate) => (
                     <option key={candidate.id} value={candidate.id}>
                       {candidate.name}
@@ -187,10 +194,14 @@ export const AddMeeting = ({
                 {errors?.candidateId?.message}
               </span>
             </div>
-            <div className="mt-2">
+            <div className="mt-4">
               <label htmlFor="job">
                 Job:{' '}
-                <select {...register('JobId')} id="job">
+                <select
+                  {...register('JobId')}
+                  id="job"
+                  className="border border-gray-400"
+                >
                   {jobOptions.map((job) => (
                     <option key={job.id.toString()} value={job.id.toString()}>
                       {job.title}

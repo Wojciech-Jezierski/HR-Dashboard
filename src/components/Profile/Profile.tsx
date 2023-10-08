@@ -20,7 +20,7 @@ export const Profile = () => {
   const [nameMessage, setNameMessage] = useState('');
   const [passwordMessage, setPasswordMessage] = useState('');
   const [data, setData] = useState(null);
-  const [fetchError, setFetchError] = useState(null);
+  const [fetchError, setFetchError] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -97,8 +97,8 @@ export const Profile = () => {
         setFirstName(response.data.firstName);
         setLastName(response.data.lastName);
         setEmail(response.data.email);
-      } catch (error: any) {
-        setFetchError(error.message);
+      } catch {
+        setFetchError('Something went wrong.');
       }
     };
 

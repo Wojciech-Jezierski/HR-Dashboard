@@ -7,7 +7,7 @@ export const SingleCandidate = () => {
     createdAt: '',
     position: '',
   });
-  const [fetchError, setFetchError] = useState(null);
+  const [fetchError, setFetchError] = useState('');
 
   document.title = `HR Dashboard - ${data.name}`;
 
@@ -31,8 +31,8 @@ export const SingleCandidate = () => {
           createdAt: response.data.createdAt,
           position: response.data.position,
         });
-      } catch (error: any) {
-        setFetchError(error.message);
+      } catch {
+        setFetchError('Something went wrong.');
       }
     };
     if (!token) {

@@ -81,7 +81,7 @@ export const Meetings = () => {
     setIsOpenWindow(false);
   };
 
-  const openDeleteWindow = (id: any) => {
+  const openDeleteWindow = (id: string) => {
     setIsOpenDeleteWindow(!isOpenDeleteWindow);
     setDeleteItem(id);
   };
@@ -255,7 +255,7 @@ export const Meetings = () => {
               >
                 Delete
               </button>
-              <button onClick={openDeleteWindow}>Cancel</button>
+              <button onClick={() => openDeleteWindow}>Cancel</button>
             </div>
           </div>
         </div>
