@@ -1,11 +1,10 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
 import { Outlet } from 'react-router-dom';
 
 import { Header } from '../Header/Header';
-import { LayoutProps } from '../../types/layoutProps';
-import { DecodedToken } from '../../types/token';
+import type { LayoutProps } from '../../types/layoutProps';
+import type { DecodedToken } from '../../types/token';
 import { useAuth } from '../../custom_hooks/useAuth';
 
 export const Layout: React.FC<LayoutProps> = ({
@@ -42,14 +41,14 @@ export const Layout: React.FC<LayoutProps> = ({
       return () => clearInterval(interval);
     }
     return () => {};
-  }, [isUserLogged, token]);
+  }, [isUserLogged, token, initialToken]);
 
   useEffect(() => {
     if (seconds === 1) {
       setIsUserLogged(false);
       window.location.reload();
     }
-  }, [seconds]);
+  }, [seconds, setIsUserLogged]);
 
   return (
     <div>
