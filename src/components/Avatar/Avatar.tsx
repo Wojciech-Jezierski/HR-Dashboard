@@ -50,6 +50,16 @@ export const Avatar = ({ isOpenAvatar, setIsOpenAvatar }: AvatarProps) => {
     fetchData();
   }, [token, auth]);
 
+  const logout = () => {
+    localStorage.removeItem('USER_TOKEN');
+    localStorage.removeItem('REFRESH_TOKEN');
+
+    sessionStorage.removeItem('USER_TOKEN');
+    sessionStorage.removeItem('REFRESH_TOKEN');
+
+    window.location.reload();
+  };
+
   if (!isAvatarVisible) {
     return null;
   }
@@ -82,7 +92,7 @@ export const Avatar = ({ isOpenAvatar, setIsOpenAvatar }: AvatarProps) => {
                 Profile
               </div>
             </NavLink>
-            <NavLink to="">
+            <NavLink to="/" onClick={logout}>
               <div className="flex text-2xl mt-8 hover:bg-slate-200 rounded-lg p-5">
                 <GrLogout className="text-4xl mr-4" />
                 Logout
