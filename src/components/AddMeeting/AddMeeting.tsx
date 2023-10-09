@@ -103,7 +103,7 @@ export const AddMeeting = ({
 
   return (
     <div className="modal-overlay">
-      <div className="modal-content w-[520px] h-[480px]">
+      <div className="modal-content w-[520px] h-[500px]">
         <h1 className="mt-5 text-center font-bold text-xl">Add Meeting</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mt-10">
