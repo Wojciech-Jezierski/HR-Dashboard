@@ -75,25 +75,23 @@ export const Avatar = ({ isOpenAvatar, setIsOpenAvatar }: AvatarProps) => {
             >
               <AiFillCloseCircle />
             </button>
-            <NavLink to="">
-              <div className="flex hover:bg-slate-200 rounded-lg p-5">
-                <p className="mt-2 mr-4 text-2xl bg-gray-200 w-10 h-8 rounded-xl">
-                  {firstName.charAt(0)}
-                  {lastName.charAt(0)}
-                </p>
-                <p className="text-2xl mt-2">
-                  {firstName} {lastName}
-                </p>
-              </div>
-            </NavLink>
+            <div className="flex p-5">
+              <p className="mt-2 mr-4 text-2xl bg-gray-200 w-10 h-8 rounded-xl">
+                {firstName.charAt(0)}
+                {lastName.charAt(0)}
+              </p>
+              <p className="text-2xl mt-2">
+                {firstName} {lastName}
+              </p>
+            </div>
             <NavLink to={profile.url} onClick={closeAvatarWindow}>
-              <div className="flex text-2xl mt-8 hover:bg-slate-200 rounded-lg p-5">
+              <div className="flex text-2xl mt-8 bg-slate-100 hover:bg-slate-200 rounded-lg p-5">
                 <BiUser className="text-4xl mr-4" />
                 Profile
               </div>
             </NavLink>
             <NavLink to="/" onClick={logout}>
-              <div className="flex text-2xl mt-8 hover:bg-slate-200 rounded-lg p-5">
+              <div className="flex text-2xl mt-8 bg-slate-100 hover:bg-slate-200 rounded-lg p-5">
                 <GrLogout className="text-4xl mr-4" />
                 Logout
               </div>
