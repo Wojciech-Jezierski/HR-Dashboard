@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
@@ -17,7 +18,7 @@ export const BlackList = () => {
   const [isNextButtonDisabled, setIsNextButtonDisabled] = useState(false);
 
   const handleItemsPerPageChange = (
-    event: React.ChangeEvent<HTMLSelectElement>,
+    event: React.ChangeEvent<HTMLSelectElement>
   ) => {
     const selectedValue = parseInt(event.target.value, 10);
     setItemsPerPage(selectedValue);
@@ -26,7 +27,7 @@ export const BlackList = () => {
   };
 
   const handleTypeOfSortingChange = (
-    event: React.ChangeEvent<HTMLSelectElement>,
+    event: React.ChangeEvent<HTMLSelectElement>
   ) => {
     const selectedValue = event.target.value;
     setTypeOfSorting(selectedValue);
@@ -76,7 +77,7 @@ export const BlackList = () => {
           `http://localhost:9595/blacklist/candidates?skip=${skip}&take=${itemsPerPage}&sortBy=${typeOfSorting}&order=${order}`,
           {
             headers: { Authorization: auth },
-          },
+          }
         );
         setData(response.data.data);
         setCount(response.data.count);

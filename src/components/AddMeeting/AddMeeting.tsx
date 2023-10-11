@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
@@ -30,7 +31,7 @@ export const AddMeeting = ({
   const [showPlaceOfMeeting, setShowPlaceOfMeeting] = useState(false);
   const [placeOfMeeting, setPlaceOfMeeting] = useState('');
   const [linkOfMeeting, setLinkOfMeeting] = useState(
-    'https://google.meets.com',
+    'https://google.meets.com'
   );
   const [candidateOptions, setCandidateOptions] = useState<Candidate[]>([]);
   const [jobOptions, setJobOptions] = useState<Job[]>([]);
@@ -92,7 +93,7 @@ export const AddMeeting = ({
   };
 
   const handleMeetingTypeChange = (
-    event: React.ChangeEvent<HTMLSelectElement>,
+    event: React.ChangeEvent<HTMLSelectElement>
   ) => {
     const selectedMeetingType = event.target.value;
     setMeetingType(selectedMeetingType);

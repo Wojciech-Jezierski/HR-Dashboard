@@ -1,3 +1,4 @@
+import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
 import { routerPaths } from '../../config/router';
@@ -8,10 +9,10 @@ export const AddButton = () => {
   const visibleJobButtonPaths = [jobs.url];
   const visibleCandidateButtonPaths = [candidates.url];
   const isAddJobButtonVisible = visibleJobButtonPaths.includes(
-    location.pathname,
+    location.pathname
   );
   const isAddCandidateButtonVisible = visibleCandidateButtonPaths.includes(
-    location.pathname,
+    location.pathname
   );
 
   if (!isAddJobButtonVisible && !isAddCandidateButtonVisible) {

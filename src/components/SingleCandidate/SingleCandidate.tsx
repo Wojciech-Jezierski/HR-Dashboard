@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -24,7 +25,7 @@ export const SingleCandidate = () => {
           `${process.env.REACT_APP_API_URL}/candidates/${id} `,
           {
             headers: { Authorization: auth },
-          },
+          }
         );
         setData({
           name: response.data.name,

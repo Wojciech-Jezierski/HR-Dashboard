@@ -1,3 +1,4 @@
+import React from 'react';
 import './Jobs.css';
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -231,7 +232,7 @@ export const Jobs = () => {
                             };
                           }
                           return data;
-                        }),
+                        })
                       );
                     }}
                   />

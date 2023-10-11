@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -91,7 +92,7 @@ export const Profile = () => {
           `${process.env.REACT_APP_API_URL}/users/me`,
           {
             headers: { Authorization: auth },
-          },
+          }
         );
         setData(response.data);
         setFirstName(response.data.firstName);

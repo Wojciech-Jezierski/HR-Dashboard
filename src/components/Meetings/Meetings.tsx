@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
@@ -36,7 +37,7 @@ export const Meetings = () => {
           `${process.env.REACT_APP_API_URL}/meetings?month=${month}&year=${year}`,
           {
             headers: { Authorization: auth },
-          },
+          }
         );
         setData(response.data);
       } catch (error) {
@@ -57,7 +58,7 @@ export const Meetings = () => {
         `${process.env.REACT_APP_API_URL}/meetings/${itemId}`,
         {
           headers: { Authorization: auth },
-        },
+        }
       );
       setData((prevData) => prevData.filter((item) => item.id !== itemId));
       setIsOpenDeleteWindow(false);
@@ -71,7 +72,7 @@ export const Meetings = () => {
     date: string,
     candidate: string,
     title: string,
-    place: string,
+    place: string
   ) => {
     setIsOpenWindow(!isOpenWindow);
     setSelectedItem({ id, date, candidate, title, place });
@@ -189,7 +190,7 @@ export const Meetings = () => {
                       item.date,
                       item.candidate.name,
                       item.job.title,
-                      item.place,
+                      item.place
                     )
                   }
                 >

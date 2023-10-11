@@ -1,3 +1,4 @@
+import React from 'react';
 import './Candidates.css';
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -229,7 +230,7 @@ export const Candidates = () => {
                             };
                           }
                           return data;
-                        }),
+                        })
                       );
                     }}
                   />

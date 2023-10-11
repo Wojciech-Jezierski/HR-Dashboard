@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -27,7 +28,7 @@ export const SingleJob = () => {
           `${process.env.REACT_APP_API_URL}/jobs/${id} `,
           {
             headers: { Authorization: auth },
-          },
+          }
         );
         setData({
           title: response.data.title,
