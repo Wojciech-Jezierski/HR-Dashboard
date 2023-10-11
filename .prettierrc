@@ -1,11 +1,3 @@
 {
-  "printWidth": 80,
-  "singleQuote": true,
-  "trailingComma": "all",
-  "proseWrap": "always",
-  "editorconfig": true,
-  "semi": true,
-  "bracketSpacing": true,
-  "arrowParens": "always",
-  "endOfLine": "auto"
+  "singleQuote": true
 }
