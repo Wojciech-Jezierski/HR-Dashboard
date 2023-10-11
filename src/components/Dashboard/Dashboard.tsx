@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaUserAlt } from 'react-icons/fa';
 
@@ -18,13 +17,13 @@ export const Dashboard = () => {
         `${process.env.REACT_APP_API_URL}/jobs`,
         {
           headers: { Authorization: auth },
-        }
+        },
       );
       const candidatesResponse = await axios.get(
         `${process.env.REACT_APP_API_URL}/candidates`,
         {
           headers: { Authorization: auth },
-        }
+        },
       );
       setJobs(jobResponse.data);
       setCandidates(candidatesResponse.data);

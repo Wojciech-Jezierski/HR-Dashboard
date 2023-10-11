@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SignIn.css';
 import { Link, useNavigate } from 'react-router-dom';
 import type { InferType } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
-import { useState } from 'react';
 
 import { routerPaths } from '../../config/router';
 import { userSignInSchema } from '../../config/schemas';

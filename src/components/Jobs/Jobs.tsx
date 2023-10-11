@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Jobs.css';
-import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AiFillEye } from 'react-icons/ai';
 import { BiEditAlt } from 'react-icons/bi';
@@ -232,7 +231,7 @@ export const Jobs = () => {
                             };
                           }
                           return data;
-                        })
+                        }),
                       );
                     }}
                   />

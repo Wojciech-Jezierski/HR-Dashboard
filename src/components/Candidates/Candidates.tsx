@@ -1,6 +1,5 @@
-import React from 'react';
 import './Candidates.css';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AiFillEye } from 'react-icons/ai';
 import { BiEditAlt } from 'react-icons/bi';
@@ -230,7 +229,7 @@ export const Candidates = () => {
                             };
                           }
                           return data;
-                        })
+                        }),
                       );
                     }}
                   />

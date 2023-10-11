@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AiOutlineHome } from 'react-icons/ai';
 import { BsChatLeft } from 'react-icons/bs';
 import { BiUser } from 'react-icons/bi';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import { GiBlackFlag } from 'react-icons/gi';
-import { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import './Sidebar.css';
 

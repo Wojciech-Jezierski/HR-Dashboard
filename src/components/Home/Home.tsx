@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaUserAlt } from 'react-icons/fa';
 
@@ -18,7 +17,7 @@ export const Home = () => {
         'http://localhost:9595/candidates',
         {
           headers: { Authorization: auth },
-        }
+        },
       );
       setJobs(jobResponse.data);
       setCandidates(candidatesResponse.data);

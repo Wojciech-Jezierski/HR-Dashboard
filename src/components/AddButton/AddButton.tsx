@@ -9,10 +9,10 @@ export const AddButton = () => {
   const visibleJobButtonPaths = [jobs.url];
   const visibleCandidateButtonPaths = [candidates.url];
   const isAddJobButtonVisible = visibleJobButtonPaths.includes(
-    location.pathname
+    location.pathname,
   );
   const isAddCandidateButtonVisible = visibleCandidateButtonPaths.includes(
-    location.pathname
+    location.pathname,
   );
 
   if (!isAddJobButtonVisible && !isAddCandidateButtonVisible) {

@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { BiUser } from 'react-icons/bi';
@@ -40,7 +39,7 @@ export const Avatar = ({ isOpenAvatar, setIsOpenAvatar }: AvatarProps) => {
         `${process.env.REACT_APP_API_URL}/users/me`,
         {
           headers: { Authorization: auth },
-        }
+        },
       );
       setFirstName(result.data.firstName);
       setLastName(result.data.lastName);

@@ -39,11 +39,11 @@ module.exports = {
   ],
   rules: {
     'react/button-has-type': 'off',
-    'react/no-unused-prop-types': 'warn',
+    'react/no-unused-prop-types': 'off',
     'react/require-default-props': 'off',
-    '@typescript-eslint/no-unused-vars': 'warn',
-    '@typescript-eslint/consistent-type-imports': 'warn',
-    '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/consistent-type-imports': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
     'react/function-component-definition': [
       'error',
       {
