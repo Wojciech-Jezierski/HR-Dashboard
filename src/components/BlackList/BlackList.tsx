@@ -73,7 +73,7 @@ export const BlackList = () => {
       const auth = `Bearer ${token}`;
       try {
         const response = await axios.get(
-          `http://localhost:9595/blacklist/candidates?skip=${skip}&take=${itemsPerPage}&sortBy=${typeOfSorting}&order=${order}`,
+          `${process.env.REACT_APP_API_URL}/blacklist/candidates?skip=${skip}&take=${itemsPerPage}&sortBy=${typeOfSorting}&order=${order}`,
           {
             headers: { Authorization: auth },
           },

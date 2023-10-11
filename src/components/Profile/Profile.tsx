@@ -141,6 +141,7 @@ export const Profile = () => {
                 <input
                   type="password"
                   id="oldPassword"
+                  autoComplete="oldPassword"
                   className="border-2 border-black ml-2 mt-3"
                   {...registerPassword('oldPassword')}
                 />
@@ -155,6 +156,7 @@ export const Profile = () => {
                 <input
                   type="password"
                   id="password"
+                  autoComplete="password"
                   className="border-2 border-black ml-2 mt-3"
                   {...registerPassword('password')}
                 />
@@ -169,6 +171,7 @@ export const Profile = () => {
                 <input
                   type="password"
                   id="repeatPassword"
+                  autoComplete="repeatPassword"
                   className="border-2 border-black ml-2 mt-3"
                   {...registerPassword('repeatPassword')}
                 />
@@ -196,6 +199,7 @@ export const Profile = () => {
                 <input
                   type="text"
                   id="firstName"
+                  autoComplete="firstName"
                   className="border-2 border-black ml-2 mt-3"
                   {...registerNames('firstName')}
                 />
@@ -210,6 +214,7 @@ export const Profile = () => {
                 <input
                   type="text"
                   id="lastName"
+                  autoComplete="lastName"
                   className="border-2 border-black ml-2 mt-3"
                   {...registerNames('lastName')}
                 />

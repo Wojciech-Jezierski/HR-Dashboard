@@ -9,8 +9,16 @@ import { routerPaths } from '../../config/router';
 import type { AvatarProps } from '../../types/avatarProps';
 
 export const Avatar = ({ isOpenAvatar, setIsOpenAvatar }: AvatarProps) => {
-  const { dasboard, profile, jobs, jobsAdd, candidates, candidatesAdd } =
-    routerPaths;
+  const {
+    dasboard,
+    profile,
+    jobs,
+    jobsAdd,
+    candidates,
+    candidatesAdd,
+    blacklist,
+    meetings,
+  } = routerPaths;
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -22,6 +30,8 @@ export const Avatar = ({ isOpenAvatar, setIsOpenAvatar }: AvatarProps) => {
     jobsAdd.url,
     candidates.url,
     candidatesAdd.url,
+    blacklist.url,
+    meetings.url,
     '/',
   ];
   const isAvatarVisible = visiblePaths.includes(location.pathname);
