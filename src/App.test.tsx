@@ -3,10 +3,9 @@ import { render, screen } from '@testing-library/react';
 
 import { App } from './App';
 
-test('renders intro screen', () => {
+test('renders the App component with the expected title', () => {
   render(<App />);
 
-  const intoHeading = screen.getByText(/mentoring frontend start/i);
-
-  expect(intoHeading).toBeInTheDocument();
+  // Check if the title is correctly set
+  expect(document.title).toBe('HR Dashboard');
 });
