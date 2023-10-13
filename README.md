@@ -10,3 +10,6 @@
 ### Kalendarz spotkań z możliwością ustawiania nowych spotkań z dostępnymi kandydatami oraz ofertami pracy.
 ### Aplikacja posiada dockerfile oraz docker compoose
 ### Funkcjonalności zostały przetestowane za pomocą testów jednostkowych w bibliotece Jest i React testing library
+
+
+#### 14 podstron i 23 komponenty
