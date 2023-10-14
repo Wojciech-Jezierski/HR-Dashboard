@@ -25,3 +25,14 @@
 ### Vite
 ### Docker
 ### JWT-tokens library
+
+## Features:
+### Full CRUD, API has documentation in Swagger
+### Login system created with JWT tokens,
+### Button to refresh token (1 is valid for 5 minutes).
+### Sub-page with possibility to change the user's password and email.
+### Dynamically generated tables with job offers and candidates from the API, possibility of filtering, adding, editing, deleting and deleting several rows simultaneously. Pagination of tables on the front-end side.
+### The blacklisted candidate table has pagination and filtering on the back-end side.
+### Appointment calendar with the ability to set new appointments with available candidates and jobs.
+### Application has dockerfile and docker compoose.
+### Functionality has been tested using unit tests in the Jest library and React testing library.
