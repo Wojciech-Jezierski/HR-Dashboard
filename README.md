@@ -13,3 +13,15 @@
 
 
 #### 14 podstron i 23 komponenty
+
+## Technology stack:
+### HTML
+### CSS
+### TypeScript
+### React
+### Tailwind CSS
+### Jest
+### GIT
+### Vite
+### Docker
+### JWT-tokens library
