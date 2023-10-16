@@ -7,6 +7,7 @@
 ### Podstrona z możliwością zmiany hasła użytkownika oraz jego maila.
 ### Dynamicznie generowane tabelki ofertami pracy oraz z kandydatami z API, możliwość filtrowania, dodawania, edytowania, usuwania oraz usuwania kilku wierszy jednocześnie. Paginacja tabelek po stronie front-endu
 ### Tabelka z czarną listą kandydatów posiada paginację i filtrowanie po stronie back-endu.
+### Bilbioteka react-i18next do translacji.
 ### Kalendarz spotkań z możliwością ustawiania nowych spotkań z dostępnymi kandydatami oraz ofertami pracy.
 ### Aplikacja posiada dockerfile oraz docker compoose
 ### Funkcjonalności zostały przetestowane za pomocą testów jednostkowych w bibliotece Jest i React testing library
