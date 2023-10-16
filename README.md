@@ -34,6 +34,7 @@
 ### Sub-page with possibility to change the user's password and email.
 ### Dynamically generated tables with job offers and candidates from the API, possibility of filtering, adding, editing, deleting and deleting several rows simultaneously. Pagination of tables on the front-end side.
 ### The blacklisted candidate table has pagination and filtering on the back-end side.
+### React-18next library used for translations.
 ### Appointment calendar with the ability to set new appointments with available candidates and jobs.
 ### Application has dockerfile and docker compoose.
 ### Functionality has been tested using unit tests in the Jest library and React testing library.
