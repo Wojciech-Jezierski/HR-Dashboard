@@ -1,0 +1,136 @@
+{
+    "Login": {
+        "SignIn": "Zaloguj się",
+        "SignUp": "Zarejestruj się",
+        "SIGNUP": "ZATWIERDŹ",
+        "SIGNIN": "ZALOGUJ SIĘ",
+        "Password": "Hasło:",
+        "PasswordPlaceholder": "Hasło",
+        "PasswordPlaceholderSignIn": "Hasło *",
+        "RememberMe": "Zapamiętaj mnie",
+        "DoNotHaveAccount": "Nie posiadasz konta ?",
+        "CreateAccount": "Utwórz konto",
+        "ClickHere": "Kliknij tutaj aby się zalogować",
+        "FirstNamePlaceholder": "Imię",
+        "LastNamePlaceholder": "Nazwisko",
+        "FirstName": "Imię:",
+        "LastName": "Nazwisko:",
+        "RetypePassword": "Powtórz hasło:",
+        "RetypePasswordPlaceholder": "Powtórz hasło",
+        "AlreadyHaveAccount": "Posiadasz już konto ?"
+    },
+    "Layout": {
+        "Expire": "Wygaśnie za:",
+        "Refresh": "Odśwież"
+    },
+    "Avatar": {
+        "Profile": "Profil",
+        "Logout": "Wyloguj"
+    },
+    "Profile": {
+        "Profile": "Profil",
+        "Name": "Twoje imię:",
+        "LastName": "Twoje nazwisko:",
+        "Email": "Twój e-mail:",
+        "ChangePassword": "Zmień hasło",
+        "OldPassword": "Wpisz stare hasło:",
+        "NewPassword": "Wpisz nowe hasło:",
+        "RetypeNewPassword": "Wpisz ponownie nowe hasło:",
+        "Submit": "Zatwierdź",
+        "ChangeName": "Zmień imię",
+        "NewFirstName": "Wpisz nowe imię:",
+        "NewLastName": "Wpisz nowe nazwisko:"
+    },
+    "AddButton": {
+        "Add": "Dodaj"
+    },
+    "AddJob": {
+        "JobTitle": "Nazwa stanowiska:",
+        "ShortDescription": "Krótki opis:",
+        "CompanyName": "Nazwa firmy:",
+        "LongDescription": "Długi opis:",
+        "Logo": "Logo:",
+        "Submit": "Zatwierdź"
+    },
+    "AddCandidate": {
+        "Name": "Imię i nazwisko:",
+        "Position": "Stanowisko",
+        "ShortDescription": "Krótki opis:",
+        "LongDescription": "Długi opis:",
+        "Logo": "Logo:",
+        "CompanyName": "Nazwa firmy:",
+        "Submit": "Zatwierdź"
+    },
+    "SingleJob": {
+        "Job": "Stanowisko:",
+        "Company": "Nazwa firmy:",
+        "CreatedAt": "Utworzono:",
+        "Status": "Status:",
+        "Description": "Opis:"
+    },
+    "SingleCandidate": {
+        "User": "Imię i nazwisko kandydata:",
+        "CreatedAt": "Utworzono o:",
+        "Position": "Stanowisko:"
+    },
+    "Dashboard": {
+        "OpenPosition": "Otwarte pozycje:",
+        "Candidates": "Kandydaci:",
+        "General": "Ogólne",
+        "TotalGrowth": "Wzrost o 45.5 % 😎 w ciągu miesiąca"
+    },
+    "Blacklist": {
+        "Items": "Elementy:",
+        "ItemsPerPage": "Elmenty na strone:",
+        "TypeOfSorting": "Typ sortowania:",
+        "ByName": "Po imieniu",
+        "ByReason": "Po powodzie",
+        "Order": "Kolejność",
+        "Name": "Imię:",
+        "Reason": "Powód:",
+        "Error": "Nie znaleziono danych"
+    },
+    "Meeting": {
+        "AddMeeting": "Dodaj Spotkanie",
+        "MeetingWith": "Spotkanie z:",
+        "NoScheduledMeeting": "Brak zaplanowanych spotkań",
+        "Date": "Termin",
+        "Candidate": "Kandydat:",
+        "Job": "Oferta pracy na którą aplikuje kandydat:",
+        "Place": "Miejsce spotkania:",
+        "Close": "ZAMKNIJ",
+        "DeleteConfirmation": "Czy na pewno chcesz usunąć spotkanie ?",
+        "Delete": "Usuń"
+    },
+    "AddMeeting": {
+        "AddMeeting": "Dodaj Spotkanie",
+        "DateOfMeeting": "Data spotkania:",
+        "SelectDate": "Wybierz datę",
+        "TypeOfMeeting": "Typ spotkania:",
+        "Offline": "W biurze",
+        "PlaceOfMeeting": "Miejsce spotkania:",
+        "LinkToMeeting": "Link do spotkania:",
+        "Candidate": "Kandydat:",
+        "Job": "Oferta pracy:",
+        "Add": "Dodaj",
+        "Cancel": "Anuluj"
+    },
+    "Sidebar": {
+        "Home": "Strona główna",
+        "Jobs": "Oferty pracy",
+        "Candidates": "Kandydaci",
+        "Blacklist": "Czarna lista",
+        "Calendar": "Kalendarz spotkań"
+    },
+    "Actions": {
+        "Actions": "Akcje",
+        "Delete": "Usuń",
+        "Position": "Pozycja",
+        "Action": "Akcja",
+        "Date": "Data",
+        "SearchJob": "Wyszukaj ofertę pracy",
+        "SearchCandidate": "Wyszukaj kandydata",
+        "NoData": "Brak danych",
+        "Loading": "Ładowanie..."
+    }
+}

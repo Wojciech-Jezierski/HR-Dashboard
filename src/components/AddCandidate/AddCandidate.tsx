@@ -4,6 +4,7 @@ import type { InferType } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 import { routerPaths } from '../../config/router';
 import { addCandidateSchema } from '../../config/schemas';
@@ -15,6 +16,8 @@ export const AddCandidate = () => {
   const [message, setMessage] = useState('');
 
   const navigate = useNavigate();
+
+  const { t } = useTranslation();
 
   const onRedirect = () => {
     navigate(`${candidates.url}`);
@@ -54,10 +57,10 @@ export const AddCandidate = () => {
           <div className="form-content grid grid-cols-2 gap-4 mt-10">
             <div className="col-span-1 w-36 md:w-64 h-20">
               <label htmlFor="name">
-                <p>Name:</p>
+                <p>{t('AddCandidate.Name')}</p>
                 <input
                   className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
-                  placeholder="Name"
+                  placeholder={t('AddCandidate.Name')}
                   {...register('name')}
                 />
               </label>
@@ -67,10 +70,10 @@ export const AddCandidate = () => {
             </div>
             <div className="col-span-1 w-36 md:w-64 h-20">
               <label htmlFor="position">
-                <p>Position:</p>
+                <p>{t('AddCandidate.Position')}</p>
                 <input
                   className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
-                  placeholder="Position"
+                  placeholder={t('AddCandidate.Position')}
                   {...register('position')}
                 />
               </label>
@@ -80,10 +83,10 @@ export const AddCandidate = () => {
             </div>
             <div className="col-span-1 w-36 md:w-64 h-20">
               <label htmlFor="shortDescription">
-                <p>Short Description:</p>
+                <p>{t('AddCandidate.ShortDescription')}</p>
                 <input
                   className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
-                  placeholder="Short Description"
+                  placeholder={t('AddCandidate.ShortDescription')}
                   {...register('shortDescription')}
                 />
               </label>
@@ -93,10 +96,10 @@ export const AddCandidate = () => {
             </div>
             <div className="col-span-1 row-span-3  w-36 md:w-64 h-44">
               <label htmlFor="longDescription">
-                <p>Long Description:</p>
+                <p>{t('AddCandidate.LongDescription')}</p>
                 <textarea
                   className="bg-slate-200 mt-1 w-36 md:w-64 h-60 max-h-60"
-                  placeholder="Long Description"
+                  placeholder={t('AddCandidate.LongDescription')}
                   {...register('longDescription')}
                 />
               </label>
@@ -106,10 +109,10 @@ export const AddCandidate = () => {
             </div>
             <div className="col-span-1  w-36 md:w-64 h-20">
               <label htmlFor="logo">
-                <p>Logo:</p>
+                <p>{t('AddCandidate.Logo')}</p>
                 <input
                   className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
-                  placeholder="Logo"
+                  placeholder={t('AddCandidate.Logo')}
                   {...register('logo')}
                 />
               </label>
@@ -119,10 +122,10 @@ export const AddCandidate = () => {
             </div>
             <div className="col-span-1 w-36 md:w-64 h-20 md:mt-0">
               <label htmlFor="companyName">
-                <p>Company Name:</p>
+                <p>{t('AddCandidate.CompanyName')}</p>
                 <input
                   className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
-                  placeholder="Company Name"
+                  placeholder={t('AddCandidate.CompanyName')}
                   {...register('companyName')}
                 />
               </label>
@@ -135,7 +138,7 @@ export const AddCandidate = () => {
                 type="submit"
                 className="bg-orange-500 w-80 md:w-full md:text-2xl h-10 rounded-xl text-white text-xl"
               >
-                Submit
+                {t('AddCandidate.Submit')}
               </button>
               <span className="text-xl text-red-500">{message}</span>
             </div>

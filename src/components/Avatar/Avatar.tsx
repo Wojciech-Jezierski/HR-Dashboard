@@ -4,6 +4,7 @@ import axios from 'axios';
 import { BiUser } from 'react-icons/bi';
 import { GrLogout } from 'react-icons/gr';
 import { AiFillCloseCircle } from 'react-icons/ai';
+import { useTranslation } from 'react-i18next';
 
 import { routerPaths } from '../../config/router';
 import type { AvatarProps } from '../../types/avatarProps';
@@ -35,6 +36,8 @@ export const Avatar = ({ isOpenAvatar, setIsOpenAvatar }: AvatarProps) => {
     '/',
   ];
   const isAvatarVisible = visiblePaths.includes(location.pathname);
+
+  const { t } = useTranslation();
 
   const closeAvatarWindow = () => {
     setIsOpenAvatar(false);
@@ -97,13 +100,13 @@ export const Avatar = ({ isOpenAvatar, setIsOpenAvatar }: AvatarProps) => {
             <NavLink to={profile.url} onClick={closeAvatarWindow}>
               <div className="flex text-2xl mt-8 bg-slate-100 hover:bg-slate-200 rounded-lg p-5">
                 <BiUser className="text-4xl mr-4" />
-                Profile
+                {t('Avatar.Profile')}
               </div>
             </NavLink>
             <NavLink to="/" onClick={logout}>
               <div className="flex text-2xl mt-8 bg-slate-100 hover:bg-slate-200 rounded-lg p-5">
                 <GrLogout className="text-4xl mr-4" />
-                Logout
+                {t('Avatar.Logout')}
               </div>
             </NavLink>
           </div>

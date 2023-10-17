@@ -1,0 +1,133 @@
+{
+    "Login": {
+        "SignIn": "Sign In",
+        "SignUp": "Sign Up",
+        "SIGNUP": "SIGN UP",
+        "SIGNIN": "SIGN IN",
+        "Password": "Password:",
+        "PasswordPlaceholder": "Password",
+        "PasswordPlaceholderSignIn": "Password *",
+        "RememberMe": "Remember me",
+        "DoNotHaveAccount": "Don't have account ?",
+        "CreateAccount": "Click here to create one",
+        "AlreadyHaveAccount": "Already have account ? Then",
+        "ClickHereToSignIn": "SignIn",
+        "FirstName": "First name:",
+        "FirstNamePlaceholder": "First name",
+        "LastName": "Last name:",
+        "LastNamePlaceholder": "Last name",
+        "RetypePassword": "Retype password:",
+        "RetypePasswordPlaceholder": "Retype password"
+    },
+    "Layout": {
+        "Expire": "Session expire:",
+        "Refresh": "Refresh"
+    },
+    "Avatar": {
+        "Profile": "Profile",
+        "Logout": "Logout"
+    },
+    "Profile": {
+        "Profile": "Profile",
+        "Name": "Your name:",
+        "LastName": "Your last name",
+        "Email": "Your e-mail",
+        "ChangePassword": "Change password",
+        "OldPassword": "Type old password:",
+        "NewPassword": "Type new password:",
+        "RetypeNewPassword": "Retype New Password:",
+        "Submit": "Submit",
+        "ChangeName": "Change name",
+        "NewFirstName": "Type new first name:",
+        "NewLastName": "Type last name:"
+    },
+    "AddButton": {
+        "Add": "Add"
+    },
+    "AddJob": {
+        "JobTitle": "Job Title:",
+        "ShortDescription": "Short Description:",
+        "CompanyName": "Company Name:",
+        "LongDescription": "Long Description:",
+        "Logo": "Logo:",
+        "Submit": "Submit"
+    },
+    "AddCandidate": {
+        "Name": "Name:",
+        "Position": "Position:",
+        "ShortDescription": "Short Description:",
+        "LongDescription": "Long Description:",
+        "Logo": "Logo:",
+        "CompanyName": "Company Name:",
+        "Submit": "Submit"
+    },
+    "SingleJob": {
+        "Job": "Job:",
+        "Company": "Company:",
+        "CreatedAt": "Created At:",
+        "Status": "Status:",
+        "Description": "Description:"
+    },
+    "SingleCandidate": {
+        "User": "User:",
+        "CreatedAt": "Created at:",
+        "Position": "Position:"
+    },
+    "Dashboard": {
+        "OpenPosition": "Open Positions:",
+        "Candidates": "Candidates:",
+        "General": "General",
+        "TotalGrowth": "Total 48.5% growth 😎 this month"
+    },
+    "Blacklist": {
+        "Items": "Items:",
+        "ItemsPerPage": "Items per page:",
+        "TypeOfSorting": "Type of sorting:",
+        "ByName": "By name",
+        "ByReason": "By reason",
+        "Order": "Order",
+        "Name": "Name:",
+        "Reason": "Reason:",
+        "Error": "No data found"
+    },
+    "Meeting": {
+        "AddMeeting": "Add Meeting",
+        "MeetingWith": "Meeting with:",
+        "NoScheduledMeeting": "No scheduled meeting",
+        "Date": "Date",
+        "Candidate": "Candidate:",
+        "Job": "Job which candidate apply:",
+        "Place": "Place of interview:",
+        "Close": "CLOSE",
+        "DeleteConfirmation": "Are You sure to delete this item ?",
+        "Delete": "Delete"
+    },
+    "AddMeeting": {
+        "AddMeeting": "Add Meeting",
+        "DateOfMeeting": "Date of meeting:",
+        "SelectDate": "Select a date",
+        "TypeOfMeeting": "Type of meeting:",
+        "Offline": "Offline",
+        "PlaceOfMeeting": "Place of meeting:",
+        "LinkToMeeting": "Link to meeting:",
+        "Candidate": "Candidate:",
+        "Job": "Job:",
+        "Add": "Add",
+        "Cancel": "Cancel"
+    },
+    "Sidebar": {
+        "Home": "Home",
+        "Jobs": "Jobs",
+        "Candidates": "Candidates",
+        "Blacklist": "Blacklist",
+        "Calendar": "Calendar"
+    },
+    "Actions": {
+        "Actions": "Actions",
+        "Delete": "Delete",
+        "SearchJob": "Search Job",
+        "SearchCandidate": "Search Candidate",
+        "NoData": "No data",
+        "Loading": "Loading..."
+    }
+}

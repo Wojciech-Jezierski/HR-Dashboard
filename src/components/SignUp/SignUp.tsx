@@ -5,6 +5,7 @@ import type { InferType } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 import { routerPaths } from '../../config/router';
 import { userSchema } from '../../config/schemas';
@@ -14,6 +15,8 @@ export const SignUp = () => {
   const { signIn } = routerPaths;
 
   const [message, setMessage] = useState('');
+
+  const { t } = useTranslation();
 
   const navigate = useNavigate();
   const onRedirect = () => {
@@ -50,22 +53,22 @@ export const SignUp = () => {
       >
         <h1 className="form-title">Sign Up</h1>
         <label htmlFor="firstName" className="form-labels">
-          First Name:
+          {t('Login.FirstName')}
           <input
             id="firstName"
             type="text"
-            placeholder="First name"
+            placeholder={t('Login.FirstNamePlaceholder')}
             className="inputs"
             {...register('firstName')}
           />
         </label>
         <span className="error-message">{errors?.firstName?.message}</span>
         <label htmlFor="lastName" className="form-labels">
-          Last Name:
+          {t('Login.LastName')}
           <input
             id="lastName"
             type="text"
-            placeholder="Last name"
+            placeholder={t('Login.LastNamePlaceholder')}
             className="inputs"
             {...register('lastName')}
           />
@@ -84,11 +87,11 @@ export const SignUp = () => {
         </label>
         <span className="error-message">{errors?.email?.message}</span>
         <label htmlFor="password" className="form-labels">
-          Password:
+          {t('Login.Password')}
           <input
             id="password"
             type="password"
-            placeholder="Password"
+            placeholder={t('Login.PasswordPlaceholder')}
             className="inputs"
             autoComplete="password"
             {...register('password')}
@@ -96,11 +99,11 @@ export const SignUp = () => {
         </label>
         <span className="error-message">{errors?.password?.message}</span>
         <label htmlFor="repeatPassword" className="form-labels">
-          Retype password:
+          {t('Login.RetypePassword')}
           <input
             id="repeatPassword"
             type="password"
-            placeholder="Retype Password"
+            placeholder={t('Login.RetypePasswordPlaceholder')}
             className="inputs"
             autoComplete="new-password"
             {...register('repeatPassword')}
@@ -109,16 +112,16 @@ export const SignUp = () => {
         <span className="error-message">{errors?.repeatPassword?.message}</span>
         <span className="message">{message}</span>
         <button className="sign-up-button" type="submit">
-          SIGN UP
+          {t('Login.SIGNUP')}
         </button>
       </form>
       <p className="text-center text-xl md:text-2xl">
-        Already have an account? Then
+        {t('Login.AlreadyHaveAccount')}
         <Link
           to={signIn.url}
           className="text-decoration-line: underline ml-1 text-blue-700"
         >
-          Sign In
+          {t('Login.SignIn')}
         </Link>
       </p>
     </div>

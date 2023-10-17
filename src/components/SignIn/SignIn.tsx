@@ -5,6 +5,7 @@ import type { InferType } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 import { routerPaths } from '../../config/router';
 import { userSignInSchema } from '../../config/schemas';
@@ -14,6 +15,8 @@ export const SignIn = ({ onSuccessfull }: { onSuccessfull: () => void }) => {
   const { signUp, dasboard } = routerPaths;
   const [message, setMessage] = useState('');
   const [isChecked, setIsChecked] = useState(false);
+
+  const { t } = useTranslation();
 
   const navigate = useNavigate();
 
@@ -76,11 +79,11 @@ export const SignIn = ({ onSuccessfull }: { onSuccessfull: () => void }) => {
         </label>
         <span className="sign-in-error-message">{errors?.email?.message}</span>
         <label htmlFor="password" className="sign-in-labels">
-          Password:
+          {t('Login.Password')}
           <input
             id="password"
             type="password"
-            placeholder="Password *"
+            placeholder={t('Login.PasswordPlaceholderSignIn')}
             autoComplete="current-password"
             className="mt-2 ml-3 border-b-2 border-black focus:outline-none sign-in-inputs"
             {...register('password')}
@@ -96,20 +99,20 @@ export const SignIn = ({ onSuccessfull }: { onSuccessfull: () => void }) => {
             className="mr-2 checkbox"
             onChange={handleCheckboxChange}
           />
-          Remember me
+          {t('Login.RememberMe')}
         </label>
         <span className="sign-in-message">{message}</span>
         <button className="sign-in-button" type="submit">
-          SIGN IN
+          {t('Login.SIGNIN')}
         </button>
       </form>
       <p className="text-center sm:text-lg md:text-xl lg:text-2xl">
-        Don`t have account ?
+        {t('Login.DoNotHaveAccount')}
         <Link
           to={signUp.url}
           className="text-decoration-line: underline ml-1 text-blue-700"
         >
-          Click here to create one
+          {t('Login.CreateAccount')}
         </Link>
       </p>
     </div>

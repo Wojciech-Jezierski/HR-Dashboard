@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 export const SingleCandidate = () => {
   const [data, setData] = useState({
@@ -10,6 +11,8 @@ export const SingleCandidate = () => {
   const [fetchError, setFetchError] = useState('');
 
   document.title = `HR Dashboard - ${data.name}`;
+
+  const { t } = useTranslation();
 
   const url = window.location.pathname;
   const id = url.substring(url.lastIndexOf('/') + 1);
@@ -51,12 +54,16 @@ export const SingleCandidate = () => {
 
   return (
     <div className="mt-8 mb-32 p-2">
-      <h1 className="text-4xl">User: {data.name}</h1>
+      <h1 className="text-4xl">
+        {t('SingleCandidate.User')} {data.name}
+      </h1>
       <p className="text-xl mt-2">
-        Created at: {data.createdAt.substring(0, 10)}{' '}
+        {t('SingleCandidate.CreatedAt')} {data.createdAt.substring(0, 10)}{' '}
         {data.createdAt.substring(11, 16)}
       </p>
-      <p className="text-xl mt-2">Position: {data.position}</p>
+      <p className="text-xl mt-2">
+        {t('SingleCandidate.Position')} {data.position}
+      </p>
     </div>
   );
 };

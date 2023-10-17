@@ -6,6 +6,7 @@ import { BiEditAlt } from 'react-icons/bi';
 import { MdDelete } from 'react-icons/md';
 import ReactPaginate from 'react-paginate';
 import type { ReactPaginateProps } from 'react-paginate';
+import { useTranslation } from 'react-i18next';
 
 import type { Candidate } from '../../types/candidate';
 import {
@@ -31,6 +32,8 @@ export const Candidates = () => {
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 6;
+
+  const { t } = useTranslation();
 
   const token =
     localStorage.getItem('USER_TOKEN') || sessionStorage.getItem('USER_TOKEN');
@@ -134,11 +137,11 @@ export const Candidates = () => {
   };
 
   if (!data) {
-    return <div>Loading...</div>;
+    return <div>{t('Actions.Loading')}</div>;
   }
 
   if (data.length === 0) {
-    return <div>No data</div>;
+    return <div>{t('Actions.NoData')}</div>;
   }
 
   return (
@@ -155,13 +158,13 @@ export const Candidates = () => {
             onChange={deleteSelectedItems}
             value={selectedOption}
           >
-            <option value="Actions">Actions</option>
-            <option value="Delete">Delete</option>
+            <option value="Actions">{t('Actions.Actions')}</option>
+            <option value="Delete">{t('Actions.Delete')}</option>
           </select>
           <input
             className="bg-slate-200 ml-3 w-64 h-8 text-xl mb-5 md:mb-0"
             type="text"
-            placeholder="Search Job"
+            placeholder={t('Actions.SearchCandidate')}
             onFocus={handleFocus}
             value={inputValue}
             onChange={handleChange}
@@ -193,10 +196,10 @@ export const Candidates = () => {
               className="mr-5"
               onChange={handleAllChange}
             />
-            Position
+            {t('Actions.Position')}
           </label>
-          <p className="md:ml-40 ml-20 xl:ml-52">Date</p>
-          <p className="text-right md:mr-5 mr-0">Action</p>
+          <p className="md:ml-40 ml-20 xl:ml-52">{t('Actions.Date')}</p>
+          <p className="text-right md:mr-5 mr-0">{t('Actions.Action')}</p>
         </div>
         {currentItems
           .filter((item: Candidate) => {

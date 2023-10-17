@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
 import { Outlet } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { Header } from '../Header/Header';
 import type { LayoutProps } from '../../types/layoutProps';
@@ -15,6 +16,8 @@ export const Layout = ({ isUserLogged, setIsUserLogged }: LayoutProps) => {
   const [errorAlert, setErrorAlert] = useState<string>('');
 
   const { token, refreshToken } = useAuth(seconds, setSeconds);
+
+  const { t, i18n } = useTranslation();
 
   const initialToken =
     window.localStorage.getItem('USER_TOKEN') ||
@@ -47,6 +50,11 @@ export const Layout = ({ isUserLogged, setIsUserLogged }: LayoutProps) => {
     }
   }, [seconds, setIsUserLogged]);
 
+  const onClickLanguageChange = (e: any) => {
+    const language = e.target.value;
+    i18n.changeLanguage(language);
+  };
+
   return (
     <div>
       <header>
@@ -54,16 +62,22 @@ export const Layout = ({ isUserLogged, setIsUserLogged }: LayoutProps) => {
           {errorAlert}
           {isUserLogged ? (
             <>
+              <div className="absolute top-8 right-36">
+                <select onChange={onClickLanguageChange}>
+                  <option value="en">English</option>
+                  <option value="pl">Polish</option>
+                </select>
+              </div>
               <div className="md:flex">
                 <div className="mt-64 md:mt-16 flex text-md md:text-xl bg-orange-400 text-white w-40 h-10 md:w-52 md:h-12 justify-center items-center rounded-xl">
-                  <p>Session expire:</p>
+                  <p>{t('Layout.Expire')}</p>
                   <p className="ml-2">{seconds > 0 && seconds}</p>
                 </div>
                 <button
                   onClick={refreshToken}
                   className="bg-orange-400 text-white w-20 h-10 md:w-24 md:h-12 mt-5 md:mt-[65px] ml-7 rounded-xl md:text-xl text-md"
                 >
-                  Refresh
+                  {t('Layout.Refresh')}
                 </button>
               </div>
               <Header

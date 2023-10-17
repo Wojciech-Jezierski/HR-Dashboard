@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
+import { useTranslation } from 'react-i18next';
 
 import type { BlacklistCandidate } from '../../types/blacklistCandidate';
 
@@ -15,6 +16,8 @@ export const BlackList = () => {
   const [isPreviousButtonDisabled, setIsPreviousButtonDisabled] =
     useState(true);
   const [isNextButtonDisabled, setIsNextButtonDisabled] = useState(false);
+
+  const { t } = useTranslation();
 
   const handleItemsPerPageChange = (
     event: React.ChangeEvent<HTMLSelectElement>,
@@ -96,11 +99,11 @@ export const BlackList = () => {
     <div className="blacklist-content mt-20 relative">
       <div className="error">{error}</div>
       <div className="flex-end md:text-xl mb-5 text-slate-400">
-        Items: {count}
+        {t('Blacklist.Items')} {count}
       </div>
       <div className="flex">
         <label htmlFor="itemsPerPage" className="md:text-xl">
-          Items per page:
+          {t('Blacklist.ItemsPerPage')}
           <select
             className="mb-2 md:mb-7 md:text-xl"
             id="itemsPerPage"
@@ -113,18 +116,18 @@ export const BlackList = () => {
           </select>
         </label>
         <label htmlFor="typeOfSorting" className="md:text-xl ml-7">
-          Type of sorting:
+          {t('Blacklist.TypeOfSorting')}
           <select
             className="mb-2 md:mb-7 md:text-xl"
             id="typeOfSorting"
             onChange={handleTypeOfSortingChange}
           >
-            <option value="name">By name</option>
-            <option value="reason">By reason</option>
+            <option value="name">{t('Blacklist.ByName')}</option>
+            <option value="reason">{t('Blacklist.ByReason')}</option>
           </select>
         </label>
         <label htmlFor="order" className="md:text-xl ml-7">
-          Order:
+          {t('Blacklist.Order')}
           <select
             className="mb-2 md:mb-7 md:text-xl"
             id="order"
@@ -136,13 +139,13 @@ export const BlackList = () => {
         </label>
       </div>
       {data.length === 0 ? (
-        <div className="error">No data found</div>
+        <div className="error">{t('Blacklist.Error')}</div>
       ) : (
         <table className="border-collapse border">
           <thead>
             <tr>
-              <th className="p-6 border">Name:</th>
-              <th className="p-6 border">Reason:</th>
+              <th className="p-6 border">{t('Blacklist.Name')}</th>
+              <th className="p-6 border">{t('Blacklist.Reason')}</th>
             </tr>
           </thead>
           {/* Map 'data' array to ReactNode elements */}

@@ -5,6 +5,7 @@ import type { InferType } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import './Profile.css';
+import { useTranslation } from 'react-i18next';
 
 import { routerPaths } from '../../config/router';
 import {
@@ -26,6 +27,8 @@ export const Profile = () => {
   const [email, setEmail] = useState('');
 
   const navigate = useNavigate();
+
+  const { t } = useTranslation();
 
   const onRedirect = () => {
     navigate(`${signIn.url}`);
@@ -110,24 +113,24 @@ export const Profile = () => {
   }
 
   if (!data) {
-    return <div>Loading...</div>;
+    return <div>{t('Actions.Loading')}</div>;
   }
 
   return (
     <div className="profile">
       <div className="profile-content mt-20">
-        <p className="text-3xl mb-5 font-bold">Profile</p>
+        <p className="text-3xl mb-5 font-bold">{t('Profile.Profile')}</p>
         <div className="content">
           <div className="text-xl flex">
-            <p className="font-bold mr-3">Your name:</p>
+            <p className="font-bold mr-3">{t('Profile.Name')}</p>
             {firstName}
           </div>
           <div className="text-xl flex">
-            <p className="font-bold mr-3">Your last name:</p>
+            <p className="font-bold mr-3">{t('Profile.LastName')}</p>
             {lastName}
           </div>
           <div className="text-xl flex">
-            <p className="font-bold mr-3">Your e-mail: </p>
+            <p className="font-bold mr-3">{t('Profile.Email')} </p>
             {email}
           </div>
           <div className="forms">
@@ -135,9 +138,9 @@ export const Profile = () => {
               className="mt-28"
               onSubmit={handlePasswordsSubmit(onSubmitPasswords)}
             >
-              <h1 className="text-2xl mb-5">Change password</h1>
+              <h1 className="text-2xl mb-5">{t('Profile.ChangePassword')}</h1>
               <label htmlFor="oldPassword" className="mt-10">
-                Type old password:
+                {t('Profile.OldPassword')}
                 <input
                   type="password"
                   id="oldPassword"
@@ -152,7 +155,7 @@ export const Profile = () => {
               </span>
               <br />
               <label htmlFor="password" className="mt-10">
-                Type new password:
+                {t('Profile.NewPassword')}
                 <input
                   type="password"
                   id="password"
@@ -167,7 +170,7 @@ export const Profile = () => {
               </span>
               <br />
               <label htmlFor="repeatPassword">
-                Retype new password:
+                {t('Profile.RetypeNewPassword')}
                 <input
                   type="password"
                   id="repeatPassword"
@@ -188,14 +191,14 @@ export const Profile = () => {
                   className="w-36 bg-slate-300 text-xl p-3 rounded-xl border-none text-black"
                   type="submit"
                 >
-                  Submit
+                  {t('Profile.Submit')}
                 </button>
               </div>
             </form>
             <form className="mt-20" onSubmit={handleNamesSubmit(onSubmitNames)}>
-              <h1 className="text-2xl mb-5">Change name</h1>
+              <h1 className="text-2xl mb-5">{t('Profile.ChangeName')}</h1>
               <label htmlFor="firstName" className="mt-10">
-                Type new first name:
+                {t('Profile.NewFirstName')}
                 <input
                   type="text"
                   id="firstName"
@@ -210,7 +213,7 @@ export const Profile = () => {
               </span>
               <br />
               <label htmlFor="lastName">
-                Type last name:
+                {t('Profile.NewLastName')}
                 <input
                   type="text"
                   id="lastName"
@@ -227,7 +230,7 @@ export const Profile = () => {
               <span className="message">{passwordMessage}</span>
               <div className="flex justify-center items-center">
                 <button className="w-36 mt-5 bg-slate-300 text-xl p-3 rounded-xl border-none text-black">
-                  Submit
+                  {t('Profile.Submit')}
                 </button>
               </div>
             </form>

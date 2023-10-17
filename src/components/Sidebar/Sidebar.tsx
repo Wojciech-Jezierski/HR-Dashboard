@@ -5,6 +5,7 @@ import { BiUser } from 'react-icons/bi';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import { GiBlackFlag } from 'react-icons/gi';
 import { NavLink, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import './Sidebar.css';
 
 import { routerPaths } from '../../config/router';
@@ -25,6 +26,8 @@ export const Sidebar = () => {
   ];
   const isSidebarVisible = visiblePaths.includes(location.pathname);
   const [selectedMenu, setSelectedMenu] = useState<null | string>('home');
+
+  const { t } = useTranslation();
 
   if (!isSidebarVisible) {
     return null;
@@ -48,7 +51,7 @@ export const Sidebar = () => {
           <div className={selectedMenu === 'home' ? 'active' : undefined}>
             <li className="link-list">
               <AiOutlineHome className="icon" />
-              Home
+              {t('Sidebar.Home')}
             </li>
           </div>
         </NavLink>
@@ -61,33 +64,33 @@ export const Sidebar = () => {
           <div className={selectedMenu === 'jobs' ? 'active' : undefined}>
             <li className="link-list">
               <BsChatLeft className="icon" />
-              Jobs
+              {t('Sidebar.Jobs')}
             </li>
           </div>
         </NavLink>
         <NavLink
           to={candidates.url}
           onClick={() => {
-            handleMenuClick('blacklist');
+            handleMenuClick('candidates');
           }}
         >
-          <div className={selectedMenu === 'blacklist' ? 'active' : undefined}>
+          <div className={selectedMenu === 'candidates' ? 'active' : undefined}>
             <li className="link-list">
               <BiUser className="icon" />
-              Candidates
+              {t('Sidebar.Candidates')}
             </li>
           </div>
         </NavLink>
         <NavLink
           to={blacklist.url}
           onClick={() => {
-            handleMenuClick('candidates');
+            handleMenuClick('blacklist');
           }}
         >
-          <div className={selectedMenu === 'candidates' ? 'active' : undefined}>
+          <div className={selectedMenu === 'blacklist' ? 'active' : undefined}>
             <li className="link-list">
               <GiBlackFlag className="icon" />
-              BlackList
+              {t('Sidebar.Blacklist')}
             </li>
           </div>
         </NavLink>
@@ -100,7 +103,7 @@ export const Sidebar = () => {
           <div className={selectedMenu === 'calendar' ? 'active' : undefined}>
             <li className="link-list">
               <FaRegCalendarAlt className="icon" />
-              Calendar
+              {t('Sidebar.Calendar')}
             </li>
           </div>
         </NavLink>

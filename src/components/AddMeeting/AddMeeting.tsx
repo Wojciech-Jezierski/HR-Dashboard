@@ -6,6 +6,7 @@ import type { InferType } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { AiOutlineCalendar } from 'react-icons/ai';
+import { useTranslation } from 'react-i18next';
 
 import { getCandidates } from '../../services/CandidatesService';
 import type { Candidate } from '../../types/candidate';
@@ -34,6 +35,8 @@ export const AddMeeting = ({
   );
   const [candidateOptions, setCandidateOptions] = useState<Candidate[]>([]);
   const [jobOptions, setJobOptions] = useState<Job[]>([]);
+
+  const { t } = useTranslation();
 
   const navigate = useNavigate();
 
@@ -104,17 +107,19 @@ export const AddMeeting = ({
   return (
     <div className="modal-overlay">
       <div className="modal-content w-[520px] h-[500px]">
-        <h1 className="mt-5 text-center font-bold text-xl">Add Meeting</h1>
+        <h1 className="mt-5 text-center font-bold text-xl">
+          {t('AddMeeting.AddMeeting')}
+        </h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mt-10">
             <label htmlFor="datePick">
-              Date of meeting:{' '}
+              {t('AddMeeting.DateOfMeeting')}{' '}
               <DatePicker
                 selected={selectedDate}
                 {...register('date')}
                 onChange={handleDateChange}
                 dateFormat="MM/dd/yyyy"
-                placeholderText="Select a date"
+                placeholderText={t('AddMeeting.SelectDate')}
                 className="ml-1 border border-gray-400"
               />
               <AiOutlineCalendar className="absolute top-[110px] right-[200px] text-xl" />
@@ -124,7 +129,7 @@ export const AddMeeting = ({
             </span>
             <div className="mt-4">
               <label htmlFor="typeOfMeeting">
-                Type of meeting:{' '}
+                {t('AddMeeting.TypeOfMeeting')}{' '}
                 <select
                   id="typeOfMeeting"
                   value={meetingType}
@@ -133,7 +138,7 @@ export const AddMeeting = ({
                   className="border border-gray-400"
                 >
                   <option>Online</option>
-                  <option>Offline</option>
+                  <option>{t('AddMeeting.Offline')}</option>
                 </select>
               </label>
               <span className="text-md text-red-500">
@@ -143,7 +148,7 @@ export const AddMeeting = ({
             <div className="mt-4">
               {showPlaceOfMeeting ? (
                 <label htmlFor="placeOfMeeting">
-                  Place of meeting:{' '}
+                  {t('AddMeeting.PlaceOfMeeting')}{' '}
                   <input
                     type="text"
                     id="placeOfMeeting"
@@ -158,7 +163,7 @@ export const AddMeeting = ({
                 </label>
               ) : (
                 <label htmlFor="placeOfMeeting">
-                  Link to meeting:{' '}
+                  {t('AddMeeting.PlaceOfMeeting')}{' '}
                   <input
                     type="text"
                     id="placeOfMeeting"
@@ -177,7 +182,7 @@ export const AddMeeting = ({
             </div>
             <div className="mt-4">
               <label htmlFor="candidate">
-                Candidate:{' '}
+                {t('AddMeeting.Candidate')}{' '}
                 <select
                   {...register('candidateId')}
                   id="candidate"
@@ -196,7 +201,7 @@ export const AddMeeting = ({
             </div>
             <div className="mt-4">
               <label htmlFor="job">
-                Job:{' '}
+                {t('AddMeeting.Job')}{' '}
                 <select
                   {...register('JobId')}
                   id="job"
@@ -216,9 +221,11 @@ export const AddMeeting = ({
           </div>
           <div className="flex mt-16 justify-center space-x-12 text-xl font-bold">
             <button type="submit" className="bg-red-200 p-4 rounded-xl">
-              Add
+              {t('AddMeeting.Add')}
             </button>
-            <button onClick={openAddMeetingWindow}>Cancel</button>
+            <button onClick={openAddMeetingWindow}>
+              {t('AddMeeting.Cancel')}
+            </button>
           </div>
           <div className="mt-3 text-xl text-red-500 text-center">{message}</div>
         </form>

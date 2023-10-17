@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 export const SingleJob = () => {
   const [data, setData] = useState({
@@ -13,6 +14,8 @@ export const SingleJob = () => {
   const [fetchError, setFetchError] = useState('');
 
   document.title = `HR Dashboard - ${data.title}`;
+
+  const { t } = useTranslation();
 
   const url = window.location.pathname;
   const id = url.substring(url.lastIndexOf('/') + 1);
@@ -57,14 +60,22 @@ export const SingleJob = () => {
 
   return (
     <div className="mt-8 mb-32 p-2">
-      <h1 className="text-4xl">Job: {data.title}</h1>
-      <p className="text-xl mt-10">Company: {data.companyName}</p>
+      <h1 className="text-4xl">
+        {t('SingleJob.Job')} {data.title}
+      </h1>
+      <p className="text-xl mt-10">
+        {t('SingleJob.Company')} {data.companyName}
+      </p>
       <p className="text-xl mt-2">
-        Created at: {data.createdAt.substring(0, 10)}{' '}
+        {t('SingleJob.CreatedAt')} {data.createdAt.substring(0, 10)}{' '}
         {data.createdAt.substring(11, 16)}
       </p>
-      <p className="text-xl mt-2">Status: {data.status}</p>
-      <p className="text-xl mt-2">Description: {data.longDescription}</p>
+      <p className="text-xl mt-2">
+        {t('SingleJob.Status')} {data.status}
+      </p>
+      <p className="text-xl mt-2">
+        {t('SingleJob.Description')} {data.longDescription}
+      </p>
     </div>
   );
 };

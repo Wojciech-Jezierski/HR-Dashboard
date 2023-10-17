@@ -3,6 +3,7 @@ import axios from 'axios';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import { BsTrash3 } from 'react-icons/bs';
 import './Meetings.css';
+import { useTranslation } from 'react-i18next';
 
 import type { Meeting } from '../../types/meeting';
 import { AddMeeting } from '../AddMeeting/AddMeeting';
@@ -24,6 +25,8 @@ export const Meetings = () => {
   const [isOpenDeleteWindow, setIsOpenDeleteWindow] = useState(false);
   const [isOpenAddWindow, setIsOpenAddWindow] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     const token =
@@ -147,7 +150,7 @@ export const Meetings = () => {
             onClick={openAddMeetingWindow}
             className="bg-orange-400 text-white w-20 h-10 md:w-32 md:h-10 mt-5 md:mt-[40px] ml-7 rounded-xl text-md"
           >
-            Add Meeting
+            {t('Meeting.AddMeeting')}
           </button>
         </div>
         <button
@@ -179,7 +182,9 @@ export const Meetings = () => {
                 <p className="md:text-xl p-5 ml-5">
                   {item.date.substring(11, 16)}
                 </p>
-                <p className="md:text-xl p-5 ml-2">Meeting with:</p>
+                <p className="md:text-xl p-5 ml-2">
+                  {t('Meeting.MeetingWith')}
+                </p>
                 <p className="md:text-xl pt-5 mr-20">{item.candidate.name}</p>
                 <button
                   className="md:text-xl absolute top-5 right-10 bg-yellow-300 rounded-xl"
@@ -207,14 +212,14 @@ export const Meetings = () => {
             </div>
           ))
         ) : (
-          <div>No scheduled meetings</div>
+          <div>{t('Meeting.NoScheduledMeeting')}</div>
         )}
       </div>
       {isOpenWindow && (
         <div className="flex items-center justify-center flex-col shadow-md md:w-full h-[400px] md: text-xl modal-overlay">
           <div className="modal-content">
             <p className="font-medium">
-              Date:{' '}
+              {t('Meeting.Date')}{' '}
               <span className="font-normal ml-2">
                 {selectedItem.date.substring(0, 10)}
               </span>
@@ -223,19 +228,19 @@ export const Meetings = () => {
               </span>
             </p>
             <p className="mt-5 font-medium">
-              Candidate:{' '}
+              {t('Meeting.Candidate')}{' '}
               <span className="font-normal ml-2">{selectedItem.candidate}</span>
             </p>
             <p className="mt-5 font-medium">
-              Job which candidate apply:{' '}
+              {t('Meeting.Job')}{' '}
               <span className="font-normal ml-2">{selectedItem.title}</span>
             </p>
             <p className="mt-5 font-medium">
-              Place of interview:{' '}
+              {t('Meeting.Place')}{' '}
               <span className="font-normal ml-2">{selectedItem.place}</span>
             </p>
             <button className="close-modal" onClick={closeInformationWindow}>
-              CLOSE
+              {t('Meeting.Close')}
             </button>
           </div>
         </div>
@@ -244,7 +249,7 @@ export const Meetings = () => {
         <div className="modal-overlay">
           <div className="modal-content w-[450px] h-[220px]">
             <h1 className="mt-5 text-center font-bold text-xl">
-              Are You sure to delete this item ?
+              {t('Meeting.DeleteConfirmation')}
             </h1>
             <div className="flex mt-16 justify-center space-x-12 text-xl font-bold">
               <button
@@ -253,7 +258,7 @@ export const Meetings = () => {
                   handleDelete(deleteItem);
                 }}
               >
-                Delete
+                {t('Meeting.Delete')}
               </button>
               <button onClick={() => openDeleteWindow}>Cancel</button>
             </div>

@@ -4,6 +4,7 @@ import type { InferType } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 import { routerPaths } from '../../config/router';
 import { editCandidateSchema } from '../../config/schemas';
@@ -15,6 +16,8 @@ export const EditCandidate = () => {
   const { candidates } = routerPaths;
   const [message, setMessage] = useState('');
   const [fetchError, setFetchError] = useState<null | Error>(null);
+
+  const { t } = useTranslation();
 
   const [data, setData] = useState({
     name: '',
@@ -87,10 +90,10 @@ export const EditCandidate = () => {
           <div className="form-content grid grid-cols-2 gap-4 mt-10">
             <div className="col-span-1 w-36 md:w-64 h-20">
               <label htmlFor="user">
-                <p>User:</p>
+                <p>{t('AddCandidate.Name')}</p>
                 <input
                   className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
-                  placeholder="User"
+                  placeholder={t('AddCandidate.Name')}
                   defaultValue={data.name}
                   {...register('name')}
                 />
@@ -101,10 +104,10 @@ export const EditCandidate = () => {
             </div>
             <div className="col-span-1 w-36 md:w-64 h-20">
               <label htmlFor="Position">
-                <p>Position:</p>
+                <p>{t('AddCandidate.Position')}</p>
                 <input
                   className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
-                  placeholder="Position"
+                  placeholder={t('AddCandidate.Position')}
                   defaultValue={data.position}
                   {...register('position')}
                 />
@@ -119,7 +122,7 @@ export const EditCandidate = () => {
                 type="submit"
                 className="bg-orange-500 w-80 md:w-full md:text-2xl h-10 rounded-xl text-white text-xl"
               >
-                Submit
+                {t('AddCandidate.Submit')}
               </button>
               <span className="text-xl text-red-500">
                 <p className="text-center mt-2">{message}</p>

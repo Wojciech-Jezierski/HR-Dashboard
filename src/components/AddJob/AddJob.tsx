@@ -4,6 +4,7 @@ import type { InferType } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 import { routerPaths } from '../../config/router';
 import { addJobSchema } from '../../config/schemas';
@@ -13,6 +14,8 @@ export const AddJob = () => {
 
   const { jobs } = routerPaths;
   const [message, setMessage] = useState('');
+
+  const { t } = useTranslation();
 
   const navigate = useNavigate();
 
@@ -54,10 +57,10 @@ export const AddJob = () => {
           <div className="form-content grid grid-cols-2 gap-4 mt-10">
             <div className="col-span-1 w-36 md:w-64 h-20">
               <label htmlFor="jobTitle">
-                <p>Job Title:</p>
+                <p>{t('AddJob.JobTitle')}</p>
                 <input
                   className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
-                  placeholder="Job Title"
+                  placeholder={t('AddJob.JobTitle')}
                   {...register('title')}
                 />
               </label>
@@ -67,10 +70,10 @@ export const AddJob = () => {
             </div>
             <div className="col-span-1 w-36 md:w-64 h-20">
               <label htmlFor="shortDescription">
-                <p>Short Description:</p>
+                <p>{t('AddJob.ShortDescription')}</p>
                 <input
                   className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
-                  placeholder="Short Description"
+                  placeholder={t('AddJob.ShortDescription')}
                   {...register('shortDescription')}
                 />
               </label>
@@ -80,10 +83,10 @@ export const AddJob = () => {
             </div>
             <div className="col-span-1 w-36 md:w-64 h-20 mt-20 md:mt-10">
               <label htmlFor="companyName">
-                <p>Company Name:</p>
+                <p>{t('AddJob.CompanyName')}</p>
                 <input
                   className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
-                  placeholder="Company Name"
+                  placeholder={t('AddJob.CompanyName')}
                   {...register('companyName')}
                 />
               </label>
@@ -93,10 +96,10 @@ export const AddJob = () => {
             </div>
             <div className="col-span-1 row-span-2  w-36 md:w-64 h-44 mt-20 md:mt-10">
               <label htmlFor="longDescription">
-                <p>Long Description:</p>
+                <p>{t('AddJob.LongDescription')}</p>
                 <textarea
                   className="bg-slate-200 mt-1 w-36 md:w-64 h-36 max-h-36"
-                  placeholder="Long Description"
+                  placeholder={t('AddJob.LongDescription')}
                   {...register('longDescription')}
                 />
               </label>
@@ -106,10 +109,10 @@ export const AddJob = () => {
             </div>
             <div className="col-span-1  w-36 md:w-64 h-20 mt-20 md:mt-10">
               <label htmlFor="logo">
-                <p>Logo:</p>
+                <p>{t('AddJob.Logo')}</p>
                 <input
                   className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
-                  placeholder="Logo"
+                  placeholder={t('AddJob.Logo')}
                   {...register('logo')}
                 />
               </label>
@@ -122,7 +125,7 @@ export const AddJob = () => {
                 type="submit"
                 className="bg-orange-500 w-80 md:w-full md:text-2xl h-10 rounded-xl text-white text-xl"
               >
-                Submit
+                {t('AddJob.Submit')}
               </button>
               <span className="text-xl text-red-500">{message}</span>
             </div>
