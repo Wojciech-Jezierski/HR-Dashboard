@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
 import { Outlet } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { GrLanguage } from 'react-icons/gr';
 
 import { Header } from '../Header/Header';
 import type { LayoutProps } from '../../types/layoutProps';
@@ -62,11 +63,14 @@ export const Layout = ({ isUserLogged, setIsUserLogged }: LayoutProps) => {
           {errorAlert}
           {isUserLogged ? (
             <>
-              <div className="absolute top-8 right-36">
-                <select onChange={onClickLanguageChange}>
-                  <option value="en">English</option>
-                  <option value="pl">Polish</option>
-                </select>
+              <div className="absolute top-8 right-24 md:right-28 xl:right-36">
+                <label htmlFor="language" className="flex">
+                  <GrLanguage className="mt-1 mr-1" />
+                  <select onChange={onClickLanguageChange} id="language">
+                    <option value="en">English</option>
+                    <option value="pl">Polish</option>
+                  </select>
+                </label>
               </div>
               <div className="md:flex">
                 <div className="mt-64 md:mt-16 flex text-md md:text-xl bg-orange-400 text-white w-40 h-10 md:w-52 md:h-12 justify-center items-center rounded-xl">
