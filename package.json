@@ -7,7 +7,9 @@
     "serve": "nx exec -- vite",
     "build": "nx exec -- vite build",
     "test": "nx exec -- vitest",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "codegen": "graphql-codegen",
+    "codegen-watch": "graphql-codegen --watch"
   },
   "eslintConfig": {
     "extends": [
@@ -30,8 +32,11 @@
   "dependencies": {
     "@hookform/resolvers": "^3.1.0",
     "@swc/helpers": "~0.5.2",
+    "@tanstack/react-query": "^5.0.0",
     "axios": "^1.4.0",
     "dotenv": "^16.3.1",
+    "graphql": "^16.8.1",
+    "graphql-request": "^6.1.0",
     "i18next": "^23.5.1",
     "jwt-decode": "^3.1.2",
     "react": "18.2.0",
@@ -41,12 +46,16 @@
     "react-i18next": "^13.3.0",
     "react-icons": "^4.9.0",
     "react-paginate": "^8.2.0",
+    "react-query": "^3.39.3",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "yup": "^1.2.0"
   },
   "devDependencies": {
     "@gitbeaker/node": "^35.8.0",
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/client-preset": "^4.1.0",
+    "@graphql-typed-document-node/core": "^3.2.0",
     "@nx/eslint-plugin": "16.10.0",
     "@nx/js": "16.10.0",
     "@nx/linter": "16.10.0",
@@ -63,6 +72,7 @@
     "@types/react": "18.2.24",
     "@types/react-datepicker": "^4.15.0",
     "@types/react-dom": "18.2.9",
+    "@types/react-query": "^1.2.9",
     "@types/testing-library__jest-dom": "^5.14.5",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
     "@typescript-eslint/parser": "^5.60.1",
@@ -75,6 +85,7 @@
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-config-react-app": "^7.0.1",
+    "eslint-import-resolver-node": "^0.3.9",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-jest": "^27.2.1",
     "eslint-plugin-jsx-a11y": "6.7.1",

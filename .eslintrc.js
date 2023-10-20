@@ -36,6 +36,7 @@ module.exports = {
     'coverage',
     'dist',
     'build',
+    'codegen.ts'
   ],
   rules: {
     'react/button-has-type': 'off',
@@ -89,7 +90,7 @@ module.exports = {
         jest: true,
       },
       files: ['**/?(*.)+(test).ts?(x)'],
-      extends: ['plugin:testing-library/react', 'plugin:jest/recommended'],
+      extends: ['plugin:testing-library/react', 'plugin:jest/recommended', 'plugin:import/typescript'],
     },
   ],
 };

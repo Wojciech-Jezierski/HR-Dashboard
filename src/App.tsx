@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { Login } from './components/Login/Login';
 import { SignUp } from './components/SignUp/SignUp';
@@ -44,6 +45,8 @@ export const App = () => {
   const [isUserLogged, setIsUserLogged] = useState(false);
   const [errorAlert, setErrorAlert] = useState<string>('');
 
+  const queryClient = new QueryClient();
+
   const onSuccessfull = () => {
     setIsUserLogged(true);
   };
@@ -73,75 +76,77 @@ export const App = () => {
   }, []);
 
   return (
-    <Router>
-      <div className="mb-10">{errorAlert}</div>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Layout
-              isUserLogged={isUserLogged}
-              setIsUserLogged={setIsUserLogged}
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <div className="mb-10">{errorAlert}</div>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Layout
+                isUserLogged={isUserLogged}
+                setIsUserLogged={setIsUserLogged}
+              />
+            }
+          >
+            <Route index element={isUserLogged ? <Dashboard /> : <Login />} />;
+            <Route index element={<Login />} />
+            <Route
+              path={signIn.url}
+              element={<SignIn onSuccessfull={onSuccessfull} />}
             />
-          }
-        >
-          <Route index element={isUserLogged ? <Dashboard /> : <Login />} />;
-          <Route index element={<Login />} />
-          <Route
-            path={signIn.url}
-            element={<SignIn onSuccessfull={onSuccessfull} />}
-          />
-          <Route path={signUp.url} element={<SignUp />} />
-          <Route
-            path={dasboard.url}
-            element={<ProtectedRoute Component={Dashboard} />}
-          />
-          <Route
-            path={jobs.url}
-            element={<ProtectedRoute Component={Jobs} />}
-          />
-          <Route
-            path={jobsId.url}
-            element={<ProtectedRoute Component={SingleJob} />}
-          />
-          <Route
-            path={jobsEdit.url}
-            element={<ProtectedRoute Component={EditJob} />}
-          />
-          <Route
-            path={jobsAdd.url}
-            element={<ProtectedRoute Component={AddJob} />}
-          />
-          <Route
-            path={profile.url}
-            element={<ProtectedRoute Component={Profile} />}
-          />
-          <Route
-            path={candidates.url}
-            element={<ProtectedRoute Component={Candidates} />}
-          />
-          <Route
-            path={candidatesId.url}
-            element={<ProtectedRoute Component={SingleCandidate} />}
-          />
-          <Route
-            path={candidatesEdit.url}
-            element={<ProtectedRoute Component={EditCandidate} />}
-          />
-          <Route
-            path={candidatesAdd.url}
-            element={<ProtectedRoute Component={AddCandidate} />}
-          />
-          <Route
-            path={blacklist.url}
-            element={<ProtectedRoute Component={BlackList} />}
-          />
-          <Route
-            path={meetings.url}
-            element={<ProtectedRoute Component={Meetings} />}
-          />
-        </Route>
-      </Routes>
-    </Router>
+            <Route path={signUp.url} element={<SignUp />} />
+            <Route
+              path={dasboard.url}
+              element={<ProtectedRoute Component={Dashboard} />}
+            />
+            <Route
+              path={jobs.url}
+              element={<ProtectedRoute Component={Jobs} />}
+            />
+            <Route
+              path={jobsId.url}
+              element={<ProtectedRoute Component={SingleJob} />}
+            />
+            <Route
+              path={jobsEdit.url}
+              element={<ProtectedRoute Component={EditJob} />}
+            />
+            <Route
+              path={jobsAdd.url}
+              element={<ProtectedRoute Component={AddJob} />}
+            />
+            <Route
+              path={profile.url}
+              element={<ProtectedRoute Component={Profile} />}
+            />
+            <Route
+              path={candidates.url}
+              element={<ProtectedRoute Component={Candidates} />}
+            />
+            <Route
+              path={candidatesId.url}
+              element={<ProtectedRoute Component={SingleCandidate} />}
+            />
+            <Route
+              path={candidatesEdit.url}
+              element={<ProtectedRoute Component={EditCandidate} />}
+            />
+            <Route
+              path={candidatesAdd.url}
+              element={<ProtectedRoute Component={AddCandidate} />}
+            />
+            <Route
+              path={blacklist.url}
+              element={<ProtectedRoute Component={BlackList} />}
+            />
+            <Route
+              path={meetings.url}
+              element={<ProtectedRoute Component={Meetings} />}
+            />
+          </Route>
+        </Routes>
+      </Router>
+    </QueryClientProvider>
   );
 };

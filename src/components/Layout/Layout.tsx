@@ -8,6 +8,7 @@ import { Header } from '../Header/Header';
 import type { LayoutProps } from '../../types/layoutProps';
 import type { DecodedToken } from '../../types/token';
 import { useAuth } from '../../custom_hooks/useAuth';
+import { useEmployeeOfMonth } from '../../custom_hooks/useEmployeeOfMonth';
 
 export const Layout = ({ isUserLogged, setIsUserLogged }: LayoutProps) => {
   const [isOpenAvatar, setIsOpenAvatar] = useState(false);
@@ -19,6 +20,7 @@ export const Layout = ({ isUserLogged, setIsUserLogged }: LayoutProps) => {
   const { token, refreshToken } = useAuth(seconds, setSeconds);
 
   const { t, i18n } = useTranslation();
+  const { data, isLoading, isError } = useEmployeeOfMonth();
 
   const initialToken =
     window.localStorage.getItem('USER_TOKEN') ||
@@ -72,8 +74,17 @@ export const Layout = ({ isUserLogged, setIsUserLogged }: LayoutProps) => {
                   </select>
                 </label>
               </div>
+              {data ? (
+                <p className="mr-14 md:mt-1 mt-64">
+                  Employee of month:{' '}
+                  <span className="font-bold">
+                    {data.firstName} {data.lastName}
+                  </span>
+                </p>
+              ) : null}
+
               <div className="md:flex">
-                <div className="mt-64 md:mt-16 flex text-md md:text-xl bg-orange-400 text-white w-40 h-10 md:w-52 md:h-12 justify-center items-center rounded-xl">
+                <div className="mt-5 md:mt-16 flex text-md md:text-xl bg-orange-400 text-white w-40 h-10 md:w-52 md:h-12 justify-center items-center rounded-xl">
                   <p>{t('Layout.Expire')}</p>
                   <p className="ml-2">{seconds > 0 && seconds}</p>
                 </div>
