@@ -1,8 +1,9 @@
 # HR Dashboard
 
 ## Funkcjonalności:
-### Pełny CRUD, API posiada dokumentację w Swaggerze
-### System logowania stworzony za pomocą JWT tokenów,
+### Pełny CRUD, API posiada dokumentację w Swaggerze.
+### System logowania stworzony za pomocą JWT tokenów.
+### Walidacja formularzy w bibliotece Yup.
 ### Przycisk do odświeżania tokena (1 jest ważny przez 5 minut)
 ### Podstrona z możliwością zmiany hasła użytkownika oraz jego maila.
 ### Dynamicznie generowane tabelki ofertami pracy oraz z kandydatami z API, możliwość filtrowania, dodawania, edytowania, usuwania oraz usuwania kilku wierszy jednocześnie. Paginacja tabelek po stronie front-endu
@@ -26,10 +27,12 @@
 ### Vite
 ### Docker
 ### JWT-tokens library
+### Yup library
 
 ## Features:
-### Full CRUD, API has documentation in Swagger
-### Login system created with JWT tokens,
+### Full CRUD, API has documentation in Swagger.
+### Login system created with JWT tokens.
+### Form validation in Yup library.
 ### Button to refresh token (1 is valid for 5 minutes).
 ### Sub-page with possibility to change the user's password and email.
 ### Dynamically generated tables with job offers and candidates from the API, possibility of filtering, adding, editing, deleting and deleting several rows simultaneously. Pagination of tables on the front-end side.
