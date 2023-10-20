@@ -27,6 +27,7 @@
 ### Vite
 ### Docker
 ### JWT-tokens library
+### Yup library
 
 ## Features:
 ### Full CRUD, API has documentation in Swagger.
