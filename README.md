@@ -10,6 +10,7 @@
 ### Tabelka z czarną listą kandydatów posiada paginację i filtrowanie po stronie back-endu.
 ### Bilbioteka react-i18next do translacji.
 ### Kalendarz spotkań z możliwością ustawiania nowych spotkań z dostępnymi kandydatami oraz ofertami pracy.
+### Pracownik miesiąca wyświetlany za pomocą bilbiotek graphql-request i react-query.
 ### Aplikacja posiada dockerfile oraz docker compoose
 ### Funkcjonalności zostały przetestowane za pomocą testów jednostkowych w bibliotece Jest i React testing library
 
@@ -39,5 +40,6 @@
 ### The blacklisted candidate table has pagination and filtering on the back-end side.
 ### React-18next library used for translations.
 ### Appointment calendar with the ability to set new appointments with available candidates and jobs.
+### Employee of month displayed through graphql-request and react-query libraries.
 ### Application has dockerfile and docker compoose.
 ### Functionality has been tested using unit tests in the Jest library and React testing library.
