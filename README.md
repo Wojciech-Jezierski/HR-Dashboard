@@ -31,6 +31,7 @@
 ### Yup library
 ### React-i18next
 ### Graphql-request, react-query libraries
+### Eslint, eslint-prettier, husky
 
 ## Features:
 ### Full CRUD, API has documentation in Swagger.
