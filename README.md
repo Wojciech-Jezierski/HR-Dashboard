@@ -12,7 +12,7 @@
 ### Kalendarz spotkań z możliwością ustawiania nowych spotkań z dostępnymi kandydatami oraz ofertami pracy.
 ### Pracownik miesiąca wyświetlany za pomocą bilbiotek graphql-request i react-query.
 ### Aplikacja posiada dockerfile oraz docker compoose
-### Funkcjonalności zostały przetestowane za pomocą testów jednostkowych w bibliotece Jest i React testing library
+### Funkcjonalności zostały przetestowane za pomocą testów end-2-end za pomocą narzędzia Cypress.
 
 
 #### 14 podstron i 23 komponenty
@@ -23,7 +23,7 @@
 ### TypeScript
 ### React
 ### Tailwind CSS
-### Jest
+### Cypress
 ### GIT
 ### Vite
 ### Docker
@@ -45,4 +45,4 @@
 ### Appointment calendar with the ability to set new appointments with available candidates and jobs.
 ### Employee of month displayed through graphql-request and react-query libraries.
 ### Application has dockerfile and docker compoose.
-### Functionality has been tested using unit tests in the Jest library and React testing library.
+### Functionality has been tested using end-2-end tests in Cypress.
