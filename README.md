@@ -29,6 +29,8 @@
 ### Docker
 ### JWT-tokens library
 ### Yup library
+### React-i18next
+### Graphql-request, react-query libraries
 
 ## Features:
 ### Full CRUD, API has documentation in Swagger.
