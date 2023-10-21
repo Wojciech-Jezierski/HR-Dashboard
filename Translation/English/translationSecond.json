@@ -129,5 +129,8 @@
         "SearchCandidate": "Search Candidate",
         "NoData": "No data",
         "Loading": "Loading..."
+    },
+    "Employee": {
+        "EmployeeOfMonth": "Employee of month:"
     }
 }

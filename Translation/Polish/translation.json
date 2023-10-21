@@ -83,8 +83,8 @@
         "Items": "Elementy:",
         "ItemsPerPage": "Elmenty na strone:",
         "TypeOfSorting": "Typ sortowania:",
-        "ByName": "Po imieniu",
-        "ByReason": "Po powodzie",
+        "ByName": "Imię",
+        "ByReason": "Powód",
         "Order": "Kolejność",
         "Name": "Imię:",
         "Reason": "Powód:",
@@ -132,5 +132,8 @@
         "SearchCandidate": "Wyszukaj kandydata",
         "NoData": "Brak danych",
         "Loading": "Ładowanie..."
+    },
+    "Employee": {
+        "EmployeeOfMonth": "Pracownik miesiąca:"
     }
 }

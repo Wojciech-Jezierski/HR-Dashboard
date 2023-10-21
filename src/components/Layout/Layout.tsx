@@ -76,7 +76,7 @@ export const Layout = ({ isUserLogged, setIsUserLogged }: LayoutProps) => {
               </div>
               {data ? (
                 <p className="mr-14 md:mt-1 mt-64">
-                  Employee of month:{' '}
+                  {t('Employee.EmployeeOfMonth')}{' '}
                   <span className="font-bold">
                     {data.firstName} {data.lastName}
                   </span>
