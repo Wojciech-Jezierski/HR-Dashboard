@@ -137,8 +137,8 @@ export const AddMeeting = ({
                   onChange={handleMeetingTypeChange}
                   className="border border-gray-400"
                 >
-                  <option>Online</option>
-                  <option>{t('AddMeeting.Offline')}</option>
+                  <option value="Online">Online</option>
+                  <option value="Offline">{t('AddMeeting.Offline')}</option>
                 </select>
               </label>
               <span className="text-md text-red-500">
@@ -153,7 +153,7 @@ export const AddMeeting = ({
                     type="text"
                     id="placeOfMeeting"
                     value={placeOfMeeting}
-                    placeholder="Address of place..."
+                    placeholder={t('AddMeeting.PlaceOfMeeting')}
                     {...register('place')}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setPlaceOfMeeting(e.target.value)
