@@ -154,13 +154,16 @@ export const Meetings = () => {
           </button>
         </div>
         <button
-          className="text-xl"
+          className="meeting-left-arrow text-xl"
           onClick={previousMonth}
           disabled={isDisabled}
         >
           <AiOutlineArrowLeft />
         </button>
-        <button className="ml-5 text-xl mr-8" onClick={nextMonth}>
+        <button
+          className="meeting-right-arrow ml-5 text-xl mr-8"
+          onClick={nextMonth}
+        >
           <AiOutlineArrowRight />
         </button>
         <div className="min-w-[160px]">
@@ -187,7 +190,7 @@ export const Meetings = () => {
                 </p>
                 <p className="md:text-xl pt-5 mr-20">{item.candidate.name}</p>
                 <button
-                  className="md:text-xl absolute top-5 right-10 bg-yellow-300 rounded-xl"
+                  className="meeting-info md:text-xl absolute top-5 right-10 bg-yellow-300 rounded-xl"
                   onClick={() =>
                     openInformationWindow(
                       item.id,

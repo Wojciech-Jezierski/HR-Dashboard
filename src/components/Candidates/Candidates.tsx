@@ -162,7 +162,7 @@ export const Candidates = () => {
             <option value="Delete">{t('Actions.Delete')}</option>
           </select>
           <input
-            className="bg-slate-200 ml-3 w-64 h-8 text-xl mb-5 md:mb-0"
+            className="search-candidate bg-slate-200 ml-3 w-64 h-8 text-xl mb-5 md:mb-0"
             type="text"
             placeholder={t('Actions.SearchCandidate')}
             onFocus={handleFocus}
@@ -244,18 +244,18 @@ export const Candidates = () => {
                 <div className="mt-5 ml-5 md:ml-16 xl:ml-20 text-xl flex">
                   <NavLink
                     to={`/candidates/${item.id}`}
-                    className="md:mr-2 xl:mr-3"
+                    className="candidate-details md:mr-2 xl:mr-3"
                   >
                     <AiFillEye />
                   </NavLink>
                   <NavLink
                     to={`/candidates/${item.id}/edit`}
-                    className="md:mr-2 xl:md:mr-3"
+                    className="candidate-edit md:mr-2 xl:md:mr-3"
                   >
                     <BiEditAlt />
                   </NavLink>
                   <button
-                    className="text-xl  mb-7"
+                    className="candidate-delete text-xl mb-7"
                     onClick={() => {
                       handleDelete(item.id);
                     }}

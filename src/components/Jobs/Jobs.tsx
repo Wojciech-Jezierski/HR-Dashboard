@@ -162,7 +162,7 @@ export const Jobs = () => {
             <option value="Delete">{t('Actions.Delete')}</option>
           </select>
           <input
-            className="bg-slate-200 ml-3 w-64 h-8 text-xl mb-5 md:mb-0"
+            className="search-job bg-slate-200 ml-3 w-64 h-8 text-xl mb-5 md:mb-0"
             type="text"
             placeholder={t('Actions.SearchJob')}
             onFocus={handleFocus}
@@ -244,17 +244,20 @@ export const Jobs = () => {
                   {String(item.createdAt).substring(0, 10)}
                 </h4>
                 <div className="mt-5 ml-5 md:ml-16 xl:ml-20 text-xl flex">
-                  <NavLink to={`/jobs/${item.id}`} className="md:mr-2 xl:mr-3">
+                  <NavLink
+                    to={`/jobs/${item.id}`}
+                    className="job-details md:mr-2 xl:mr-3"
+                  >
                     <AiFillEye />
                   </NavLink>
                   <NavLink
                     to={`/jobs/${item.id}/edit`}
-                    className="md:mr-2 xl:md:mr-3"
+                    className="job-edit md:mr-2 xl:md:mr-3"
                   >
                     <BiEditAlt />
                   </NavLink>
                   <button
-                    className="text-xl  mb-7"
+                    className="job-delete text-xl  mb-7"
                     onClick={() => {
                       handleDelete(item.id);
                     }}

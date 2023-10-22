@@ -1,42 +1,18 @@
 class JobsPage {
-  get avatarBtn() {
-    return cy.get('.avatar');
+  get searchJob() {
+    return cy.get('.search-job');
   }
 
-  get profileBtn() {
-    return cy.get('.profile');
+  get jobDetails() {
+    return cy.get('.job-details');
   }
 
-  get logoutBtn() {
-    return cy.get('.logout');
+  get jobEdit() {
+    return cy.get('.job-edit');
   }
 
-  get oldPassword() {
-    return cy.get('#oldPassword');
-  }
-
-  get newPassword() {
-    return cy.get('#newPassword');
-  }
-
-  get repeatPassword() {
-    return cy.get('#repeatPassword');
-  }
-
-  get newFirstName() {
-    return cy.get('#newFirstName');
-  }
-
-  get newLastName() {
-    return cy.get('#newLastName');
-  }
-
-  get submitNewPassword() {
-    return cy.get('.submitNewPassword');
-  }
-
-  get submitNewName() {
-    return cy.get('.submitNewName');
+  get jobDelete() {
+    return cy.get('.job-delete');
   }
 }
 

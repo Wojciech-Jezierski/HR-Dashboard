@@ -162,14 +162,14 @@ export const BlackList = () => {
         </table>
       )}
       <button
-        className="text-2xl absolute bottom-[-40px] left-1"
+        className="blacklist-left-arrow text-2xl absolute bottom-[-40px] left-1"
         onClick={previousPageClick}
         disabled={isPreviousButtonDisabled}
       >
         <AiOutlineArrowLeft />
       </button>
       <button
-        className="text-2xl absolute bottom-[-40px] right-1"
+        className="blacklist-right-arrow text-2xl absolute bottom-[-40px] right-1"
         onClick={nextPageClick}
         disabled={isNextButtonDisabled}
       >
