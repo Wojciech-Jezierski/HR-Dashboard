@@ -97,13 +97,17 @@ export const Avatar = ({ isOpenAvatar, setIsOpenAvatar }: AvatarProps) => {
                 {firstName} {lastName}
               </p>
             </div>
-            <NavLink to={profile.url} onClick={closeAvatarWindow}>
+            <NavLink
+              to={profile.url}
+              onClick={closeAvatarWindow}
+              className="profile"
+            >
               <div className="flex text-2xl mt-8 bg-slate-100 hover:bg-slate-200 rounded-lg p-5">
                 <BiUser className="text-4xl mr-4" />
                 {t('Avatar.Profile')}
               </div>
             </NavLink>
-            <NavLink to="/" onClick={logout}>
+            <NavLink to="/" onClick={logout} className="logout">
               <div className="flex text-2xl mt-8 bg-slate-100 hover:bg-slate-200 rounded-lg p-5">
                 <GrLogout className="text-4xl mr-4" />
                 {t('Avatar.Logout')}

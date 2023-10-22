@@ -5,8 +5,7 @@ module.exports = {
     node: true,
   },
   parserOptions: {
-    tsconfigRootDir: __dirname,
-    project: './tsconfig.json',
+    tsconfigRootDir: __dirname
   },
   extends: [
     'airbnb',

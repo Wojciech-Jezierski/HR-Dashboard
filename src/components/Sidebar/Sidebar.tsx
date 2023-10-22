@@ -49,7 +49,7 @@ export const Sidebar = () => {
           className="sidebar-link"
         >
           <div className={selectedMenu === 'home' ? 'active' : undefined}>
-            <li className="link-list">
+            <li className="link-list home">
               <AiOutlineHome className="icon" />
               {t('Sidebar.Home')}
             </li>
@@ -62,7 +62,7 @@ export const Sidebar = () => {
           }}
         >
           <div className={selectedMenu === 'jobs' ? 'active' : undefined}>
-            <li className="link-list">
+            <li className="link-list jobs">
               <BsChatLeft className="icon" />
               {t('Sidebar.Jobs')}
             </li>
@@ -75,7 +75,7 @@ export const Sidebar = () => {
           }}
         >
           <div className={selectedMenu === 'candidates' ? 'active' : undefined}>
-            <li className="link-list">
+            <li className="link-list candidates">
               <BiUser className="icon" />
               {t('Sidebar.Candidates')}
             </li>
@@ -88,7 +88,7 @@ export const Sidebar = () => {
           }}
         >
           <div className={selectedMenu === 'blacklist' ? 'active' : undefined}>
-            <li className="link-list">
+            <li className="link-list blacklist">
               <GiBlackFlag className="icon" />
               {t('Sidebar.Blacklist')}
             </li>
@@ -101,7 +101,7 @@ export const Sidebar = () => {
           }}
         >
           <div className={selectedMenu === 'calendar' ? 'active' : undefined}>
-            <li className="link-list">
+            <li className="link-list calendar">
               <FaRegCalendarAlt className="icon" />
               {t('Sidebar.Calendar')}
             </li>

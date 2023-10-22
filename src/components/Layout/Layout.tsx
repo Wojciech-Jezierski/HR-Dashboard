@@ -90,7 +90,7 @@ export const Layout = ({ isUserLogged, setIsUserLogged }: LayoutProps) => {
                 </div>
                 <button
                   onClick={refreshToken}
-                  className="bg-orange-400 text-white w-20 h-10 md:w-24 md:h-12 mt-5 md:mt-[65px] ml-7 rounded-xl md:text-xl text-md"
+                  className="refresh bg-orange-400 text-white w-20 h-10 md:w-24 md:h-12 mt-5 md:mt-[65px] ml-7 rounded-xl md:text-xl text-md"
                 >
                   {t('Layout.Refresh')}
                 </button>

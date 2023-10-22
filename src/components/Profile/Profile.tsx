@@ -158,7 +158,7 @@ export const Profile = () => {
                 {t('Profile.NewPassword')}
                 <input
                   type="password"
-                  id="password"
+                  id="password newPassword"
                   autoComplete="password"
                   className="border-2 border-black ml-2 mt-3"
                   {...registerPassword('password')}
@@ -188,7 +188,7 @@ export const Profile = () => {
               <br />
               <div className="flex justify-center items-center">
                 <button
-                  className="w-36 bg-slate-300 text-xl p-3 rounded-xl border-none text-black"
+                  className="submitNewPassword w-36 bg-slate-300 text-xl p-3 rounded-xl border-none text-black"
                   type="submit"
                 >
                   {t('Profile.Submit')}
@@ -201,7 +201,7 @@ export const Profile = () => {
                 {t('Profile.NewFirstName')}
                 <input
                   type="text"
-                  id="firstName"
+                  id="firstName newFirstName"
                   autoComplete="firstName"
                   className="border-2 border-black ml-2 mt-3"
                   {...registerNames('firstName')}
@@ -216,7 +216,7 @@ export const Profile = () => {
                 {t('Profile.NewLastName')}
                 <input
                   type="text"
-                  id="lastName"
+                  id="lastName newLastName"
                   autoComplete="lastName"
                   className="border-2 border-black ml-2 mt-3"
                   {...registerNames('lastName')}
@@ -229,7 +229,7 @@ export const Profile = () => {
               <br />
               <span className="message">{passwordMessage}</span>
               <div className="flex justify-center items-center">
-                <button className="w-36 mt-5 bg-slate-300 text-xl p-3 rounded-xl border-none text-black">
+                <button className="submitNewName w-36 mt-5 bg-slate-300 text-xl p-3 rounded-xl border-none text-black">
                   {t('Profile.Submit')}
                 </button>
               </div>

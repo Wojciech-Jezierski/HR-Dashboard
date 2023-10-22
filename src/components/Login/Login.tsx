@@ -31,10 +31,10 @@ export const Login = () => {
         HR Analitycs
       </h1>
       <Link to={signIn.url}>
-        <button className="sign">{t('Login.SignIn')}</button>
+        <button className="sign signIn">{t('Login.SignIn')}</button>
       </Link>
       <Link to={signUp.url}>
-        <button className="sign">{t('Login.SignUp')}</button>
+        <button className="sign signUp">{t('Login.SignUp')}</button>
       </Link>
     </div>
   );

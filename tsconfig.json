@@ -20,14 +20,15 @@
     "noEmit": true,
     "jsx": "react",
     "noUncheckedIndexedAccess": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "declaration": true,
     "incremental": true,
     "baseUrl": "src"
   },
   "include": [
     "src",
-    "react-app-env.d.ts"
+    "react-app-env.d.ts",
+    "**/*.ts"
   ],
   "exclude": [
     "node_modules",
