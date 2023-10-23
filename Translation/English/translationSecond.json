@@ -126,6 +126,9 @@
     "Actions": {
         "Actions": "Actions",
         "Delete": "Delete",
+        "Position": "Position",
+        "Action": "Action",
+        "Date": "Date",
         "SearchJob": "Search Job",
         "SearchCandidate": "Search Candidate",
         "NoData": "No data",
