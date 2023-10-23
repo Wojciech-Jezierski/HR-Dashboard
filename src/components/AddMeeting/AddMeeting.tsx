@@ -120,7 +120,7 @@ export const AddMeeting = ({
                 onChange={handleDateChange}
                 dateFormat="MM/dd/yyyy"
                 placeholderText={t('AddMeeting.SelectDate')}
-                className="ml-1 border border-gray-400"
+                className="meeting-datepick ml-1 border border-gray-400"
               />
               <AiOutlineCalendar className="absolute top-[110px] right-[200px] text-xl" />
             </label>
@@ -135,7 +135,7 @@ export const AddMeeting = ({
                   value={meetingType}
                   {...register('type')}
                   onChange={handleMeetingTypeChange}
-                  className="border border-gray-400"
+                  className="meeting-type border border-gray-400"
                 >
                   <option value="Online">Online</option>
                   <option value="Offline">{t('AddMeeting.Offline')}</option>
@@ -158,7 +158,7 @@ export const AddMeeting = ({
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setPlaceOfMeeting(e.target.value)
                     }
-                    className="border border-gray-400"
+                    className="meeting-place border border-gray-400"
                   />
                 </label>
               ) : (
@@ -181,11 +181,11 @@ export const AddMeeting = ({
               </span>
             </div>
             <div className="mt-4">
-              <label htmlFor="candidate">
+              <label htmlFor="meetingCandidate">
                 {t('AddMeeting.Candidate')}{' '}
                 <select
                   {...register('candidateId')}
-                  id="candidate"
+                  id="meetingCandidate"
                   className="border border-gray-400"
                 >
                   {candidateOptions.map((candidate) => (
@@ -200,11 +200,11 @@ export const AddMeeting = ({
               </span>
             </div>
             <div className="mt-4">
-              <label htmlFor="job">
+              <label htmlFor="meetingJob">
                 {t('AddMeeting.Job')}{' '}
                 <select
                   {...register('JobId')}
-                  id="job"
+                  id="meetingJob"
                   className="border border-gray-400"
                 >
                   {jobOptions.map((job) => (
@@ -220,7 +220,10 @@ export const AddMeeting = ({
             </div>
           </div>
           <div className="flex mt-16 justify-center space-x-12 text-xl font-bold">
-            <button type="submit" className="bg-red-200 p-4 rounded-xl">
+            <button
+              type="submit"
+              className="meeting-submit-btn bg-red-200 p-4 rounded-xl"
+            >
               {t('AddMeeting.Add')}
             </button>
             <button onClick={openAddMeetingWindow}>

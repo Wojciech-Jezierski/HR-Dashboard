@@ -52,10 +52,10 @@ export const SignUp = () => {
         className="flex justify-center items-center flex-col"
       >
         <h1 className="form-title">Sign Up</h1>
-        <label htmlFor="firstName" className="form-labels">
+        <label htmlFor="signUpFirstName" className="form-labels">
           {t('Login.FirstName')}
           <input
-            id="firstName"
+            id="signUpFirstName"
             type="text"
             placeholder={t('Login.FirstNamePlaceholder')}
             className="inputs"
@@ -63,10 +63,10 @@ export const SignUp = () => {
           />
         </label>
         <span className="error-message">{errors?.firstName?.message}</span>
-        <label htmlFor="lastName" className="form-labels">
+        <label htmlFor="signUpLastName" className="form-labels">
           {t('Login.LastName')}
           <input
-            id="lastName"
+            id="signUpLastName"
             type="text"
             placeholder={t('Login.LastNamePlaceholder')}
             className="inputs"
@@ -74,10 +74,10 @@ export const SignUp = () => {
           />
         </label>
         <span className="error-message">{errors?.lastName?.message}</span>
-        <label htmlFor="email" className="form-labels">
+        <label htmlFor="signUpEmail" className="form-labels">
           E-mail:
           <input
-            id="email"
+            id="signUpEmail"
             type="email"
             placeholder="E-mail"
             className="inputs"
@@ -86,10 +86,10 @@ export const SignUp = () => {
           />
         </label>
         <span className="error-message">{errors?.email?.message}</span>
-        <label htmlFor="password" className="form-labels">
+        <label htmlFor="signUpPassword" className="form-labels">
           {t('Login.Password')}
           <input
-            id="password"
+            id="signUpPassword"
             type="password"
             placeholder={t('Login.PasswordPlaceholder')}
             className="inputs"
@@ -98,10 +98,10 @@ export const SignUp = () => {
           />
         </label>
         <span className="error-message">{errors?.password?.message}</span>
-        <label htmlFor="repeatPassword" className="form-labels">
+        <label htmlFor="signUpRepeatPassword" className="form-labels">
           {t('Login.RetypePassword')}
           <input
-            id="repeatPassword"
+            id="signUpRepeatPassword"
             type="password"
             placeholder={t('Login.RetypePasswordPlaceholder')}
             className="inputs"

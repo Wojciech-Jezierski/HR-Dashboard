@@ -59,7 +59,7 @@ export const AddJob = () => {
               <label htmlFor="jobTitle">
                 <p>{t('AddJob.JobTitle')}</p>
                 <input
-                  className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
+                  className="job-title bg-slate-200 mt-1 w-36 md:w-64 h-12"
                   placeholder={t('AddJob.JobTitle')}
                   {...register('title')}
                 />
@@ -72,7 +72,7 @@ export const AddJob = () => {
               <label htmlFor="shortDescription">
                 <p>{t('AddJob.ShortDescription')}</p>
                 <input
-                  className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
+                  className="job-short-description bg-slate-200 mt-1 w-36 md:w-64 h-12"
                   placeholder={t('AddJob.ShortDescription')}
                   {...register('shortDescription')}
                 />
@@ -85,7 +85,7 @@ export const AddJob = () => {
               <label htmlFor="companyName">
                 <p>{t('AddJob.CompanyName')}</p>
                 <input
-                  className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
+                  className="job-company-name bg-slate-200 mt-1 w-36 md:w-64 h-12"
                   placeholder={t('AddJob.CompanyName')}
                   {...register('companyName')}
                 />
@@ -98,7 +98,7 @@ export const AddJob = () => {
               <label htmlFor="longDescription">
                 <p>{t('AddJob.LongDescription')}</p>
                 <textarea
-                  className="bg-slate-200 mt-1 w-36 md:w-64 h-36 max-h-36"
+                  className="job-long-description bg-slate-200 mt-1 w-36 md:w-64 h-36 max-h-36"
                   placeholder={t('AddJob.LongDescription')}
                   {...register('longDescription')}
                 />
@@ -111,7 +111,7 @@ export const AddJob = () => {
               <label htmlFor="logo">
                 <p>{t('AddJob.Logo')}</p>
                 <input
-                  className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
+                  className="job-logo bg-slate-200 mt-1 w-36 md:w-64 h-12"
                   placeholder={t('AddJob.Logo')}
                   {...register('logo')}
                 />
@@ -123,7 +123,7 @@ export const AddJob = () => {
             <div className="col-span-2 mt-14">
               <button
                 type="submit"
-                className="bg-orange-500 w-80 md:w-full md:text-2xl h-10 rounded-xl text-white text-xl"
+                className="job-add-submit bg-orange-500 w-80 md:w-full md:text-2xl h-10 rounded-xl text-white text-xl"
               >
                 {t('AddJob.Submit')}
               </button>

@@ -59,7 +59,7 @@ export const AddCandidate = () => {
               <label htmlFor="name">
                 <p>{t('AddCandidate.Name')}</p>
                 <input
-                  className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
+                  className="candidate-name bg-slate-200 mt-1 w-36 md:w-64 h-12"
                   placeholder={t('AddCandidate.Name')}
                   {...register('name')}
                 />
@@ -72,7 +72,7 @@ export const AddCandidate = () => {
               <label htmlFor="position">
                 <p>{t('AddCandidate.Position')}</p>
                 <input
-                  className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
+                  className="candidate-position bg-slate-200 mt-1 w-36 md:w-64 h-12"
                   placeholder={t('AddCandidate.Position')}
                   {...register('position')}
                 />
@@ -85,7 +85,7 @@ export const AddCandidate = () => {
               <label htmlFor="shortDescription">
                 <p>{t('AddCandidate.ShortDescription')}</p>
                 <input
-                  className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
+                  className="candidate-short-description bg-slate-200 mt-1 w-36 md:w-64 h-12"
                   placeholder={t('AddCandidate.ShortDescription')}
                   {...register('shortDescription')}
                 />
@@ -98,7 +98,7 @@ export const AddCandidate = () => {
               <label htmlFor="longDescription">
                 <p>{t('AddCandidate.LongDescription')}</p>
                 <textarea
-                  className="bg-slate-200 mt-1 w-36 md:w-64 h-60 max-h-60"
+                  className="candidate-long-description bg-slate-200 mt-1 w-36 md:w-64 h-60 max-h-60"
                   placeholder={t('AddCandidate.LongDescription')}
                   {...register('longDescription')}
                 />
@@ -111,7 +111,7 @@ export const AddCandidate = () => {
               <label htmlFor="logo">
                 <p>{t('AddCandidate.Logo')}</p>
                 <input
-                  className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
+                  className="candidate-logo bg-slate-200 mt-1 w-36 md:w-64 h-12"
                   placeholder={t('AddCandidate.Logo')}
                   {...register('logo')}
                 />
@@ -124,7 +124,7 @@ export const AddCandidate = () => {
               <label htmlFor="companyName">
                 <p>{t('AddCandidate.CompanyName')}</p>
                 <input
-                  className="bg-slate-200 mt-1 w-36 md:w-64 h-12"
+                  className="candidate-company-name bg-slate-200 mt-1 w-36 md:w-64 h-12"
                   placeholder={t('AddCandidate.CompanyName')}
                   {...register('companyName')}
                 />
@@ -136,7 +136,7 @@ export const AddCandidate = () => {
             <div className="col-span-2 mt-14">
               <button
                 type="submit"
-                className="bg-orange-500 w-80 md:w-full md:text-2xl h-10 rounded-xl text-white text-xl"
+                className="candidate-submit-btn bg-orange-500 w-80 md:w-full md:text-2xl h-10 rounded-xl text-white text-xl"
               >
                 {t('AddCandidate.Submit')}
               </button>

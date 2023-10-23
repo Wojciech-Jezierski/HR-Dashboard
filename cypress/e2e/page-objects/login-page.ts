@@ -19,6 +19,30 @@ class LoginPage {
     return cy.get('#password');
   }
 
+  get signUpFirstName() {
+    return cy.get('#signUpFirstName');
+  }
+
+  get signUpLastName() {
+    return cy.get('#signUpLastName');
+  }
+
+  get signUpPassword() {
+    return cy.get('#signUpPassword');
+  }
+
+  get signUpRepeatPassword() {
+    return cy.get('#signUpRepeatPassword');
+  }
+
+  get signUpEmail() {
+    return cy.get('#signUpEmail');
+  }
+
+  get signUpSubmitBtn() {
+    return cy.get('.sign-up-button');
+  }
+
   open() {
     cy.visit('http://localhost:4200');
     cy.viewport(1440, 1080);

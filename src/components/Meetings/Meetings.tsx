@@ -148,7 +148,7 @@ export const Meetings = () => {
         <div className="absolute top-[-50px] right-0">
           <button
             onClick={openAddMeetingWindow}
-            className="bg-orange-400 text-white w-20 h-10 md:w-32 md:h-10 mt-5 md:mt-[40px] ml-7 rounded-xl text-md"
+            className="meeting-add-btn bg-orange-400 text-white w-20 h-10 md:w-32 md:h-10 mt-5 md:mt-[40px] ml-7 rounded-xl text-md"
           >
             {t('Meeting.AddMeeting')}
           </button>
