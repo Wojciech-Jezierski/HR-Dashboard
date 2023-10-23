@@ -1,3 +1,5 @@
+/* eslint-disable class-methods-use-this */
+
 class JobsPage {
   get searchJob() {
     return cy.get('.search-job');

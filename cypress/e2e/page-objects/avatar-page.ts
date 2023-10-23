@@ -1,3 +1,5 @@
+/* eslint-disable class-methods-use-this */
+
 class AvatarPage {
   get avatarBtn() {
     return cy.get('.avatar');

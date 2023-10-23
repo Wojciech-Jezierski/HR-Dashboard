@@ -54,7 +54,7 @@ module.exports = {
     'react/destructuring-assignment': 'off',
     'react/jsx-props-no-spreading': 'off',
     'import/prefer-default-export': 'off',
-    'import/no-default-export': 'error',
+    'import/no-default-export': 'off',
     'arrow-body-style': 'off',
     'prettier/prettier': 'error',
     'import/order': [

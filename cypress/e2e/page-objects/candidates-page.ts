@@ -1,3 +1,5 @@
+/* eslint-disable class-methods-use-this */
+
 class CandidatesPage {
   get searchCandidate() {
     return cy.get('.search-candidate');

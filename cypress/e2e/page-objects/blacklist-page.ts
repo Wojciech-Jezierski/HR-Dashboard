@@ -1,3 +1,5 @@
+/* eslint-disable class-methods-use-this */
+
 class BlacklistPage {
   get itemsPerPageBtn() {
     return cy.get('#itemsPerPage');

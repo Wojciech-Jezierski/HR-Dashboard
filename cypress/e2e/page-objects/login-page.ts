@@ -1,3 +1,5 @@
+/* eslint-disable class-methods-use-this */
+
 class LoginPage {
   get signInBtn() {
     return cy.get('.signIn');

@@ -1,3 +1,5 @@
+/* eslint-disable class-methods-use-this */
+
 class CalendarPage {
   get meetingInfoBtn() {
     return cy.get('.meeting-info');

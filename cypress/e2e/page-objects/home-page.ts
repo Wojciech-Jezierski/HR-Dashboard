@@ -1,3 +1,5 @@
+/* eslint-disable class-methods-use-this */
+
 class HomePage {
   get refreshBtn() {
     return cy.get('.refresh');
