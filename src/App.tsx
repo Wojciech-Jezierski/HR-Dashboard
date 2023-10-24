@@ -19,6 +19,7 @@ import { EditCandidate } from './components/EditCandidate/EditCandidate';
 import { AddCandidate } from './components/AddCandidate/AddCandidate';
 import { BlackList } from './components/BlackList/BlackList';
 import { Meetings } from './components/Meetings/Meetings';
+import { Offices } from './components/Offices/Offices';
 import { ProtectedRoute } from './utils/ProtectedRoute';
 import { routerPaths } from './config/router';
 import type { DecodedToken } from './types/token';
@@ -40,6 +41,7 @@ export const App = () => {
     candidatesAdd,
     blacklist,
     meetings,
+    offices,
   } = routerPaths;
 
   const [isUserLogged, setIsUserLogged] = useState(false);
@@ -143,6 +145,10 @@ export const App = () => {
             <Route
               path={meetings.url}
               element={<ProtectedRoute Component={Meetings} />}
+            />
+            <Route
+              path={offices.url}
+              element={<ProtectedRoute Component={Offices} />}
             />
           </Route>
         </Routes>

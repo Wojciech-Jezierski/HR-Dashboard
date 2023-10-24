@@ -4,6 +4,7 @@ import { BsChatLeft } from 'react-icons/bs';
 import { BiUser } from 'react-icons/bi';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import { GiBlackFlag } from 'react-icons/gi';
+import { HiBuildingOffice2 } from 'react-icons/hi2';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import './Sidebar.css';
@@ -11,8 +12,16 @@ import './Sidebar.css';
 import { routerPaths } from '../../config/router';
 
 export const Sidebar = () => {
-  const { dasboard, profile, jobs, jobsAdd, candidates, blacklist, meetings } =
-    routerPaths;
+  const {
+    dasboard,
+    profile,
+    jobs,
+    jobsAdd,
+    candidates,
+    blacklist,
+    meetings,
+    offices,
+  } = routerPaths;
   const location = useLocation();
   const visiblePaths = [
     dasboard.url,
@@ -22,6 +31,7 @@ export const Sidebar = () => {
     candidates.url,
     blacklist.url,
     meetings.url,
+    offices.url,
     '/',
   ];
   const isSidebarVisible = visiblePaths.includes(location.pathname);
@@ -104,6 +114,19 @@ export const Sidebar = () => {
             <li className="link-list calendar">
               <FaRegCalendarAlt className="icon" />
               {t('Sidebar.Calendar')}
+            </li>
+          </div>
+        </NavLink>
+        <NavLink
+          to={offices.url}
+          onClick={() => {
+            handleMenuClick('offices');
+          }}
+        >
+          <div className={selectedMenu === 'offices' ? 'active' : undefined}>
+            <li className="link-list offices">
+              <HiBuildingOffice2 className="icon" />
+              {t('Sidebar.Offices')}
             </li>
           </div>
         </NavLink>
