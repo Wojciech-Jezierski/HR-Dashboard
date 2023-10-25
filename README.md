@@ -22,9 +22,11 @@
 
 ### Pracownik miesiąca wyświetlany za pomocą bilbiotek graphql-request i react-query.
 
+### Lista z biurami wygenerowana na podstawie danych zamockowanych w serwisie designer.mocky.io
+
 ### Aplikacja posiada dockerfile oraz docker compoose
 
-### Funkcjonalności zostały przetestowane za pomocą testów end-2-end za pomocą narzędzia Cypress.
+### Funkcjonalności zostały przetestowane za pomocą testów end-2-end w narzędziu Cypress.
 
 #### 14 podstron i 23 komponenty
 
@@ -79,6 +81,8 @@
 ### React-18next library used for translations.
 
 ### Employee of month displayed through graphql-request and react-query libraries.
+
+### A list with offices generated from mockup data on designer.mocky.io
 
 ### Application has dockerfile and docker compoose.
 
