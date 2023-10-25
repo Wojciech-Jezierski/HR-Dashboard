@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { TbClockHour5 } from 'react-icons/tb';
 
 import { getOffices } from '../../services/OfficeService';
 import type { OfficesType } from '../../types/officesType';
@@ -33,7 +34,8 @@ export const Offices = () => {
             {item.city} {item.zipCode}
           </p>
           <p className="p-2">Capacity: {item.capacity}</p>
-          <p className="p-2">
+          <p className="p-2 flex justify-center">
+            <TbClockHour5 className="mt-1 mr-1" />
             {item.openHour} - {item.closeHour}
           </p>
         </div>
