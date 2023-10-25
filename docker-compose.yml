@@ -1,0 +1,9 @@
+version: "3"
+services:
+  build: FRONTEND-WOJTEK-JEZIERSKI-MAIN
+  container_name: HR_Dashboard
+  ports:
+  - "4200"
+  volumes:
+  - ./api:/app
+  - ./app/node_modules
