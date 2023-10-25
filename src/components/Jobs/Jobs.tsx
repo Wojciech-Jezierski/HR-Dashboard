@@ -47,6 +47,7 @@ export const Jobs = () => {
       try {
         const fetchedData = await getJobs(auth);
         setData(fetchedData);
+        console.log(fetchedData);
       } catch (error) {
         setErrorMessage(String(error));
       }

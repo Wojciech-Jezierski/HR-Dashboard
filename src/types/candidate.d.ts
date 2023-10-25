@@ -1,4 +1,5 @@
 interface Candidate {
+  appliedToJobId: string;
   id: string;
   createdAt: date;
   updatedAt: date;

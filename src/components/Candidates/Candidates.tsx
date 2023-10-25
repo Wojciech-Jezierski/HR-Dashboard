@@ -5,11 +5,13 @@ import { AiFillEye } from 'react-icons/ai';
 import { BiEditAlt } from 'react-icons/bi';
 import { MdDelete } from 'react-icons/md';
 import ReactPaginate from 'react-paginate';
-import type { ReactPaginateProps } from 'react-paginate';
 import { useTranslation } from 'react-i18next';
+import type { ReactPaginateProps } from 'react-paginate';
 
+import type { Job } from '../../types/job';
 import type { Candidate } from '../../types/candidate';
 import {
+  getJobs,
   deleteItem,
   deleteSelectedItems as deleteItemsService,
 } from '../../services/JobService';
@@ -19,6 +21,7 @@ export const Candidates = () => {
   document.title = `HR Dashboard - Candidates`;
 
   const [data, setData] = useState<Candidate[]>([]);
+  const [dataJobs, setDataJobs] = useState<Job[]>([]);
   const [selectedOption, setSelectedOption] = useState('Actions');
   const [isFocused, setIsFocused] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -46,7 +49,10 @@ export const Candidates = () => {
 
       try {
         const fetchedData = await getCandidates(auth);
+        const getJob = await getJobs(auth);
         setData(fetchedData);
+        setDataJobs(getJob);
+        console.log(fetchedData);
       } catch (error) {
         setErrorMessage(String(error));
       }
@@ -150,7 +156,7 @@ export const Candidates = () => {
         <span className={alertColor}>{alert}</span>
         <span className="text-red-500">{errorMessage}</span>
       </div>
-      <div className="content text-sm sm:text-md mt-1 md:mt-12 w-[340px] md:w-[620px] xl:w-[760px]">
+      <div className="content text-sm sm:text-md mt-1 md:mt-12 w-[340px] md:w-[620px] xl:w-[840px]">
         <div className={`input-wrapper ${isFocused ? 'focused' : ''}`}>
           <select
             className="p-2 md:mb-7 text-xl"
@@ -187,7 +193,7 @@ export const Candidates = () => {
         </div>
         <div
           key="position"
-          className="grid grid-cols-3 md:gap-20 gap-10 border-b-2"
+          className="grid grid-cols-3 xl:grid-cols-4 md:gap-20 gap-10 border-b-2"
         >
           <label htmlFor="position" className="">
             <input
@@ -198,8 +204,11 @@ export const Candidates = () => {
             />
             {t('Actions.Position')}
           </label>
-          <p className="md:ml-40 ml-20 xl:ml-52">{t('Actions.Date')}</p>
+          <p className="md:ml-40 ml-20 xl:ml-20">{t('Actions.Date')}</p>
           <p className="text-right md:mr-5 mr-0">{t('Actions.Action')}</p>
+          <p className="text-right md:mr-5 mr-0 hidden xl:block">
+            {t('Actions.Offer')}
+          </p>
         </div>
         {currentItems
           .filter((item: Candidate) => {
@@ -212,9 +221,9 @@ export const Candidates = () => {
             return (
               <div
                 key={item.id.toString()}
-                className="grid grid-cols-5 mt-2 border-b-2"
+                className="grid grid-cols-5 xl:grid-cols-5 mt-2 border-b-2"
               >
-                <label htmlFor="position-title" className="col-span-3 flex">
+                <label htmlFor="position-title" className="col-span-2 flex">
                   <input
                     type="checkbox"
                     className="mr-2"
@@ -238,10 +247,10 @@ export const Candidates = () => {
                   />
                   <h4 className="flex items-center">{item.name}</h4>
                 </label>
-                <h4 className="mt-5 mr-5">
+                <h4 className="mt-5 ml-3">
                   {String(item.createdAt).substring(0, 10)}
                 </h4>
-                <div className="mt-5 ml-5 md:ml-16 xl:ml-20 text-xl flex">
+                <div className="mt-5 ml-5 md:ml-16 xl:ml-0 text-xl flex">
                   <NavLink
                     to={`/candidates/${item.id}`}
                     className="candidate-details md:mr-2 xl:mr-3"
@@ -263,6 +272,7 @@ export const Candidates = () => {
                     <MdDelete />
                   </button>
                 </div>
+                <h4 className="flex">{item.appliedToJobId}</h4>
               </div>
             );
           })}
