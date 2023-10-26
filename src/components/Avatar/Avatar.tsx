@@ -19,6 +19,7 @@ export const Avatar = ({ isOpenAvatar, setIsOpenAvatar }: AvatarProps) => {
     candidatesAdd,
     blacklist,
     meetings,
+    offices,
   } = routerPaths;
 
   const [firstName, setFirstName] = useState('');
@@ -33,6 +34,7 @@ export const Avatar = ({ isOpenAvatar, setIsOpenAvatar }: AvatarProps) => {
     candidatesAdd.url,
     blacklist.url,
     meetings.url,
+    offices.url,
     '/',
   ];
   const isAvatarVisible = visiblePaths.includes(location.pathname);

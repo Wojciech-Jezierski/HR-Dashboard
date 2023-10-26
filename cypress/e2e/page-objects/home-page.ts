@@ -28,6 +28,10 @@ class HomePage {
   get calendarBtn() {
     return cy.get('.calendar');
   }
+
+  get officesBtn() {
+    return cy.get('.offices');
+  }
 }
 
 export default new HomePage();

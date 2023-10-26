@@ -30,6 +30,7 @@ describe('navigation', () => {
     CalendarPage.closeInfoBtn.click();
     CalendarPage.rightArrow.click();
     CalendarPage.leftArrow.click();
+    HomePage.officesBtn.click();
     HomePage.refreshBtn.click();
     AvatarPage.avatarBtn.click();
     AvatarPage.profileBtn.click();
