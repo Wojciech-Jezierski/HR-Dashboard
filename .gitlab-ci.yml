@@ -1,0 +1,20 @@
+stages:
+  - triage
+  - ai-code-review
+
+run:triage:triage:
+  stage: triage
+  script:
+    - gem install gitlab-triage
+    - gitlab-triage --token $GITLAB_API_TOKEN --source-id $CI_PROJECT_PATH
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+
+ai-code-review:
+  image: node:18
+  stage: ai-code-review
+  script:
+    - npm install @gitbeaker/node chatgpt
+    - TOKEN=$TOKEN OPEN_API_TOKEN=$OPEN_AI_TOKEN node scripts/ai-code-review.mjs
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
