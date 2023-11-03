@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { I18nextProvider } from 'react-i18next';
+import i18n from 'i18next';
+
+import EnglishTranslation from '../Translation/English/translationSecond.json';
+import PolishTranslation from '../Translation/Polish/translation.json';
 
 import { Login } from './components/Login/Login';
 import { SignUp } from './components/SignUp/SignUp';
@@ -23,6 +28,22 @@ import { Offices } from './components/Offices/Offices';
 import { ProtectedRoute } from './utils/ProtectedRoute';
 import { routerPaths } from './config/router';
 import type { DecodedToken } from './types/token';
+
+i18n.init({
+  interpolation: { escapeValue: false }, // React already does escaping
+  resources: {
+    en: {
+      translation: {
+        EnglishTranslation,
+      },
+    },
+    pl: {
+      translation: {
+        PolishTranslation,
+      },
+    },
+  },
+});
 
 export const App = () => {
   document.title = `HR Dashboard`;
@@ -79,80 +100,83 @@ export const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Router>
-        <div className="mb-10">{errorAlert}</div>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Layout
-                isUserLogged={isUserLogged}
-                setIsUserLogged={setIsUserLogged}
+      <I18nextProvider i18n={i18n}>
+        <Router>
+          <div className="mb-10">{errorAlert}</div>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Layout
+                  isUserLogged={isUserLogged}
+                  setIsUserLogged={setIsUserLogged}
+                />
+              }
+            >
+              <Route index element={isUserLogged ? <Dashboard /> : <Login />} />
+              ;
+              <Route index element={<Login />} />
+              <Route
+                path={signIn.url}
+                element={<SignIn onSuccessfull={onSuccessfull} />}
               />
-            }
-          >
-            <Route index element={isUserLogged ? <Dashboard /> : <Login />} />;
-            <Route index element={<Login />} />
-            <Route
-              path={signIn.url}
-              element={<SignIn onSuccessfull={onSuccessfull} />}
-            />
-            <Route path={signUp.url} element={<SignUp />} />
-            <Route
-              path={dasboard.url}
-              element={<ProtectedRoute Component={Dashboard} />}
-            />
-            <Route
-              path={jobs.url}
-              element={<ProtectedRoute Component={Jobs} />}
-            />
-            <Route
-              path={jobsId.url}
-              element={<ProtectedRoute Component={SingleJob} />}
-            />
-            <Route
-              path={jobsEdit.url}
-              element={<ProtectedRoute Component={EditJob} />}
-            />
-            <Route
-              path={jobsAdd.url}
-              element={<ProtectedRoute Component={AddJob} />}
-            />
-            <Route
-              path={profile.url}
-              element={<ProtectedRoute Component={Profile} />}
-            />
-            <Route
-              path={candidates.url}
-              element={<ProtectedRoute Component={Candidates} />}
-            />
-            <Route
-              path={candidatesId.url}
-              element={<ProtectedRoute Component={SingleCandidate} />}
-            />
-            <Route
-              path={candidatesEdit.url}
-              element={<ProtectedRoute Component={EditCandidate} />}
-            />
-            <Route
-              path={candidatesAdd.url}
-              element={<ProtectedRoute Component={AddCandidate} />}
-            />
-            <Route
-              path={blacklist.url}
-              element={<ProtectedRoute Component={BlackList} />}
-            />
-            <Route
-              path={meetings.url}
-              element={<ProtectedRoute Component={Meetings} />}
-            />
-            <Route
-              path={offices.url}
-              element={<ProtectedRoute Component={Offices} />}
-            />
-          </Route>
-        </Routes>
-      </Router>
+              <Route path={signUp.url} element={<SignUp />} />
+              <Route
+                path={dasboard.url}
+                element={<ProtectedRoute Component={Dashboard} />}
+              />
+              <Route
+                path={jobs.url}
+                element={<ProtectedRoute Component={Jobs} />}
+              />
+              <Route
+                path={jobsId.url}
+                element={<ProtectedRoute Component={SingleJob} />}
+              />
+              <Route
+                path={jobsEdit.url}
+                element={<ProtectedRoute Component={EditJob} />}
+              />
+              <Route
+                path={jobsAdd.url}
+                element={<ProtectedRoute Component={AddJob} />}
+              />
+              <Route
+                path={profile.url}
+                element={<ProtectedRoute Component={Profile} />}
+              />
+              <Route
+                path={candidates.url}
+                element={<ProtectedRoute Component={Candidates} />}
+              />
+              <Route
+                path={candidatesId.url}
+                element={<ProtectedRoute Component={SingleCandidate} />}
+              />
+              <Route
+                path={candidatesEdit.url}
+                element={<ProtectedRoute Component={EditCandidate} />}
+              />
+              <Route
+                path={candidatesAdd.url}
+                element={<ProtectedRoute Component={AddCandidate} />}
+              />
+              <Route
+                path={blacklist.url}
+                element={<ProtectedRoute Component={BlackList} />}
+              />
+              <Route
+                path={meetings.url}
+                element={<ProtectedRoute Component={Meetings} />}
+              />
+              <Route
+                path={offices.url}
+                element={<ProtectedRoute Component={Offices} />}
+              />
+            </Route>
+          </Routes>
+        </Router>
+      </I18nextProvider>
     </QueryClientProvider>
   );
 };

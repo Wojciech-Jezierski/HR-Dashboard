@@ -3,7 +3,7 @@ import { GraphQLClient, gql } from 'graphql-request';
 
 import type { GetEmployeeOfMonth } from '../types/GetEmployeeOfMonth'; // Import generated types
 
-const endpoint = 'http://localhost:9595/graphql'; // Replace with your GraphQL endpoint URL
+const endpoint = `${process.env.REACT_APP_API_URL}/graphql`; // Replace with your GraphQL endpoint URL
 
 const graphQLClient = new GraphQLClient(endpoint);
 
