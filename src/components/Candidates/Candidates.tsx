@@ -53,6 +53,7 @@ export const Candidates = () => {
     };
 
     getData();
+    console.log(data);
   }, [token, auth]);
 
   useEffect(() => {

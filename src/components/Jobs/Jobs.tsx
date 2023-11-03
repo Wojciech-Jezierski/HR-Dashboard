@@ -53,6 +53,7 @@ export const Jobs = () => {
     };
 
     getData();
+    console.log(data);
   }, [token, auth]);
 
   useEffect(() => {

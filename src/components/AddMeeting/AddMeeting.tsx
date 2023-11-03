@@ -84,8 +84,9 @@ export const AddMeeting = ({
       .then(() => {
         onRedirect();
       })
-      .catch(() => {
+      .catch((response) => {
         setMessage('Something went wrong. Try again later.');
+        console.log(response);
       });
   }
 
@@ -114,12 +115,9 @@ export const AddMeeting = ({
           <div className="mt-10">
             <label htmlFor="datePick">
               {t('AddMeeting.DateOfMeeting')}{' '}
-              <DatePicker
-                selected={selectedDate}
+              <input
                 {...register('date')}
-                onChange={handleDateChange}
-                dateFormat="MM/dd/yyyy"
-                placeholderText={t('AddMeeting.SelectDate')}
+                placeholder={t('AddMeeting.SelectDate')}
                 className="meeting-datepick ml-1 border border-gray-400"
               />
               <AiOutlineCalendar className="absolute top-[110px] right-[200px] text-xl" />
