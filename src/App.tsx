@@ -43,6 +43,8 @@ i18n.init({
       },
     },
   },
+  lng: 'en', // Default language
+  fallbackLng: 'en', // Fallback language
 });
 
 export const App = () => {

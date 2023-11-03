@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node --max-old-space-size=4096 your_script.js nx exec -- vite",
+    "start": "nx exec -- vite",
     "serve": "nx exec -- vite",
     "build": "nx exec -- vite build",
     "test": "nx exec -- vitest",

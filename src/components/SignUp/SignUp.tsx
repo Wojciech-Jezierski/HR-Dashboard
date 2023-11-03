@@ -25,7 +25,7 @@ export const SignUp = () => {
 
   function onSubmit(values: Object) {
     return axios
-      .post('http://localhost:9595/auth/register', values)
+      .post(`${process.env.REACT_APP_API_URL}/auth/register`, values)
       .then(() => {
         setMessage('Confirm link was sent on your e-mail.');
         onRedirect();
