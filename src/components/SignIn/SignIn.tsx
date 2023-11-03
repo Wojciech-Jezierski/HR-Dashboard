@@ -26,7 +26,13 @@ export const SignIn = ({ onSuccessfull }: { onSuccessfull: () => void }) => {
 
   function onSubmit(values: Object) {
     return axios
-      .post(`${process.env.REACT_APP_API_URL}/auth/login`, values)
+      .post(
+        `${process.env.REACT_APP_API_URL}/auth/login`,
+        {
+          mode: 'cors',
+        },
+        values,
+      )
       .then((response) => {
         setMessage('');
         if (isChecked) {
