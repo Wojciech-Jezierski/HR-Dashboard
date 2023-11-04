@@ -60,7 +60,15 @@ export const SignIn = ({ onSuccessfull }: { onSuccessfull: () => void }) => {
   });
 
   return (
-    <div className="sign-in-container">
+    <div className="sign-in-container relative">
+      <div className="absolute top-0">
+        <p className="text-sm md:text-xl">
+          Guest e-mail: <span className="font-bold">guest@gmail.com</span>
+        </p>
+        <p className="text-sm md:text-xl">
+          Guest password: <span className="font-bold">guest123</span>
+        </p>
+      </div>
       <form
         className="flex justify-center items-center flex-col"
         onSubmit={handleSubmit(onSubmit)}
@@ -74,6 +82,7 @@ export const SignIn = ({ onSuccessfull }: { onSuccessfull: () => void }) => {
             placeholder="E-mail *"
             autoComplete="e-mail"
             className="mt-2 ml-3 border-b-2 border-black focus:outline-none sign-in-inputs"
+            defaultValue="guest@gmail.com"
             {...register('email')}
           />
         </label>
@@ -86,6 +95,7 @@ export const SignIn = ({ onSuccessfull }: { onSuccessfull: () => void }) => {
             placeholder={t('Login.PasswordPlaceholderSignIn')}
             autoComplete="current-password"
             className="mt-2 ml-3 border-b-2 border-black focus:outline-none sign-in-inputs"
+            defaultValue="guest123"
             {...register('password')}
           />
         </label>
