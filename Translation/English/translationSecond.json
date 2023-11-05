@@ -17,7 +17,9 @@
         "LastName": "Last name:",
         "LastNamePlaceholder": "Last name",
         "RetypePassword": "Retype password:",
-        "RetypePasswordPlaceholder": "Retype password"
+        "RetypePasswordPlaceholder": "Retype password",
+        "GuestEmail": "Guest e-mail:",
+        "GuestPassword": "Guest password:"
     },
     "Layout": {
         "Expire": "Session expire:",
