@@ -144,5 +144,5 @@ export const addMeetingSchema = Yup.object({
     'Place Description must have minimum 5 characters',
   ),
   candidateId: Yup.string().required(),
-  JobId: Yup.string().required(),
+  jobId: Yup.string().required(),
 });
