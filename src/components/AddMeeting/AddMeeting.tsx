@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
-import { useNavigate } from 'react-router-dom';
 import type { InferType } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -22,7 +21,6 @@ export const AddMeeting = ({
 }: {
   openAddMeetingWindow: () => void;
 }) => {
-  const { meetings } = routerPaths;
   const [selectedDate, setSelectedDate] = useState<Date | null>(null); // Provide a type for selectedDate
   const [meetingType, setMeetingType] = useState('online');
 
@@ -37,12 +35,6 @@ export const AddMeeting = ({
   const [jobOptions, setJobOptions] = useState<Job[]>([]);
 
   const { t } = useTranslation();
-
-  const navigate = useNavigate();
-
-  const onRedirect = () => {
-    navigate(`${meetings.url}`);
-  };
 
   const token =
     localStorage.getItem('USER_TOKEN') || sessionStorage.getItem('USER_TOKEN');
@@ -82,11 +74,10 @@ export const AddMeeting = ({
         headers: { Authorization: auth },
       })
       .then(() => {
-        onRedirect();
+        openAddMeetingWindow;
       })
       .catch((response) => {
         setMessage('Something went wrong. Try again later.');
-        console.log(response);
       });
   }
 
@@ -201,7 +192,7 @@ export const AddMeeting = ({
               <label htmlFor="meetingJob">
                 {t('AddMeeting.Job')}{' '}
                 <select
-                  {...register('JobId')}
+                  {...register('jobId')}
                   id="meetingJob"
                   className="border border-gray-400"
                 >
@@ -213,7 +204,7 @@ export const AddMeeting = ({
                 </select>
               </label>
               <span className="text-md text-red-500">
-                {errors?.JobId?.message}
+                {errors?.jobId?.message}
               </span>
             </div>
           </div>

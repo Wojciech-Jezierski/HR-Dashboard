@@ -63,10 +63,11 @@ export const SignIn = ({ onSuccessfull }: { onSuccessfull: () => void }) => {
     <div className="sign-in-container relative">
       <div className="absolute top-0">
         <p className="text-sm md:text-xl">
-          Guest e-mail: <span className="font-bold">guest@gmail.com</span>
+          {t('Login.GuestEmail')}{' '}
+          <span className="font-bold">guest@gmail.com</span>
         </p>
         <p className="text-sm md:text-xl">
-          Guest password: <span className="font-bold">guest123</span>
+          {t('Login.GuestPassword')} <span className="font-bold">guest123</span>
         </p>
       </div>
       <form
