@@ -24,7 +24,7 @@ export const AddMeeting = ({
 }) => {
   const { meetings } = routerPaths;
   const [selectedDate, setSelectedDate] = useState<Date | null>(null); // Provide a type for selectedDate
-  const [meetingType, setMeetingType] = useState('Online');
+  const [meetingType, setMeetingType] = useState('online');
 
   const [message, setMessage] = useState('');
   // State to control the visibility of the "Place of meeting" label and input
@@ -135,8 +135,8 @@ export const AddMeeting = ({
                   onChange={handleMeetingTypeChange}
                   className="meeting-type border border-gray-400"
                 >
-                  <option value="Online">Online</option>
-                  <option value="Offline">{t('AddMeeting.Offline')}</option>
+                  <option value="online">Online</option>
+                  <option value="offline">{t('AddMeeting.Offline')}</option>
                 </select>
               </label>
               <span className="text-md text-red-500">
