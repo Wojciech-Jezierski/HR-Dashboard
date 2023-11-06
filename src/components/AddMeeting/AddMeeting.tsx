@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import DatePicker from 'react-datepicker';
 import type { InferType } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { AiOutlineCalendar } from 'react-icons/ai';
 import { useTranslation } from 'react-i18next';
 
 import { getCandidates } from '../../services/CandidatesService';
@@ -12,7 +10,6 @@ import type { Candidate } from '../../types/candidate';
 import type { Job } from '../../types/job';
 import { getJobs } from '../../services/JobService';
 import { addMeetingSchema } from '../../config/schemas';
-import { routerPaths } from '../../config/router';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -21,7 +18,6 @@ export const AddMeeting = ({
 }: {
   openAddMeetingWindow: () => void;
 }) => {
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null); // Provide a type for selectedDate
   const [meetingType, setMeetingType] = useState('online');
 
   const [message, setMessage] = useState('');
@@ -74,17 +70,12 @@ export const AddMeeting = ({
         headers: { Authorization: auth },
       })
       .then(() => {
-        openAddMeetingWindow;
+        openAddMeetingWindow();
       })
-      .catch((response) => {
+      .catch(() => {
         setMessage('Something went wrong. Try again later.');
       });
   }
-
-  const handleDateChange = (date: Date | null) => {
-    // Provide a type for the date parameter
-    setSelectedDate(date);
-  };
 
   const handleMeetingTypeChange = (
     event: React.ChangeEvent<HTMLSelectElement>,
@@ -111,7 +102,6 @@ export const AddMeeting = ({
                 placeholder={t('AddMeeting.SelectDate')}
                 className="meeting-datepick ml-1 border border-gray-400"
               />
-              <AiOutlineCalendar className="absolute top-[110px] right-[200px] text-xl" />
             </label>
             <span className="text-md text-red-500">
               {errors?.date?.message}

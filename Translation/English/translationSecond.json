@@ -107,7 +107,7 @@
     "AddMeeting": {
         "AddMeeting": "Add Meeting",
         "DateOfMeeting": "Date of meeting:",
-        "SelectDate": "Select a date",
+        "SelectDate": "MM/DD/YYYY/HH:MM",
         "TypeOfMeeting": "Type of meeting:",
         "Offline": "Offline",
         "PlaceOfMeeting": "Place of meeting:",

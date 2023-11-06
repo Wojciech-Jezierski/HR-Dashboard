@@ -107,7 +107,7 @@
     "AddMeeting": {
         "AddMeeting": "Dodaj Spotkanie",
         "DateOfMeeting": "Data spotkania:",
-        "SelectDate": "Wybierz datę",
+        "SelectDate": "MM/DD/RRRR/HH:MM",
         "TypeOfMeeting": "Typ spotkania:",
         "Offline": "W biurze",
         "PlaceOfMeeting": "Miejsce spotkania:",

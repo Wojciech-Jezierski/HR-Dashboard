@@ -48,7 +48,7 @@ export const Meetings = () => {
     };
 
     fetchData();
-  }, [month, year]);
+  }, [month, year, isOpenAddWindow]);
 
   const handleDelete = async (itemId: string) => {
     const token =
