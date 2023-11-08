@@ -189,7 +189,7 @@ export const Candidates = () => {
           key="position"
           className="grid grid-cols-3 md:gap-20 gap-10 border-b-2"
         >
-          <label htmlFor="position" className="">
+          <label htmlFor="position">
             <input
               type="checkbox"
               id="position"
